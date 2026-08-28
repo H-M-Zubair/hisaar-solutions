@@ -26,15 +26,15 @@ export function PosTerminal({
         className,
       )}
     >
-      <div className="flex items-center justify-between border-b border-line px-4 py-3">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line px-4 py-3">
+        <div className="flex min-w-0 items-center gap-2">
           <span
-            className="h-2 w-2 rounded-full"
+            className="h-2 w-2 shrink-0 rounded-full"
             style={{ background: accent }}
           />
-          <span className="text-xs text-paper">{shop}</span>
+          <span className="truncate text-xs text-paper">{shop}</span>
         </div>
-        <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-mute">
+        <div className="flex flex-wrap items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-mute">
           {offline && (
             <span className="rounded-full border border-line px-2 py-0.5 text-amber">
               Offline · queued

@@ -3,7 +3,7 @@ import { AwesomeSlide } from "@/components/motion/awesome-reveal";
 
 export function OwnerBrain() {
   return (
-    <section className="border-t border-line py-24 sm:py-32">
+    <section className="overflow-x-clip border-t border-line py-24 sm:py-32">
       {/* Intent: the owner pane as a live instrument, not a paragraph about analytics. */}
       <div className="mx-auto max-w-[1120px] px-5 sm:px-8">
         <p className="eyebrow text-teal">Dashboard · reports</p>

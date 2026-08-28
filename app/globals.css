@@ -40,6 +40,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--ink);
+  max-width: 100%;
 }
 
 body {
@@ -47,6 +48,15 @@ body {
   color: var(--paper);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+img,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
 }
 
 ::selection {
@@ -96,6 +106,7 @@ body {
   line-height: 0.95;
   font-weight: 560;
   text-wrap: balance;
+  overflow-wrap: break-word;
 }
 
 /* Intent: DaisyUI btn supplies press + ripple; we restyle so it is a Hisaar CTA, not a default button. */

@@ -78,7 +78,7 @@ export default function RootLayout({
       className={`dark ${geistSans.variable} ${geistMono.variable} ${display.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-ink font-sans text-paper antialiased">
+      <body className="min-h-screen max-w-full overflow-x-clip bg-ink font-sans text-paper antialiased">
         <ThemeProvider>
           <a
             href="#content"
@@ -88,7 +88,9 @@ export default function RootLayout({
           </a>
           <BrandedLoader />
           <Header />
-          <main id="content">{children}</main>
+          <main id="content" className="min-w-0 max-w-full overflow-x-clip">
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
       </body>

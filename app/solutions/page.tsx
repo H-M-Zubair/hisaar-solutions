@@ -35,15 +35,15 @@ export default function SolutionsPage() {
               <Link
                 key={i.slug}
                 href={`/solutions/${i.slug}`}
-                className="group grid overflow-hidden rounded-3xl border border-line bg-surface md:grid-cols-[160px_1fr]"
+                className="group grid min-w-0 overflow-hidden rounded-3xl border border-line bg-surface md:grid-cols-[minmax(0,160px)_minmax(0,1fr)]"
               >
                 <div
-                  className="grid min-h-[120px] place-items-center font-display text-6xl tracking-tight text-ink md:min-h-full"
+                  className="grid min-h-[120px] place-items-center font-display text-5xl tracking-tight text-ink sm:text-6xl md:min-h-full"
                   style={{ background: i.accent }}
                 >
                   0{idx + 1}
                 </div>
-                <div className="p-6 sm:p-8">
+                <div className="min-w-0 p-6 sm:p-8">
                   <p className="eyebrow">{i.kicker}</p>
                   <h2 className="display mt-2 text-3xl sm:text-4xl">{i.name}</h2>
                   <p className="mt-3 max-w-xl text-mute">{i.lede}</p>

@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import { Fade, Slide } from "react-awesome-reveal";
 import { useReducedMotion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export type RevealDir = "up" | "down" | "left" | "right";
 
@@ -40,7 +41,11 @@ export function AwesomeFade({
       damping={damping}
       triggerOnce
       fraction={fraction}
-      className={className}
+      className={cn(
+        "min-w-0 max-w-full",
+        (direction === "left" || direction === "right") && "overflow-hidden",
+        className,
+      )}
     >
       {children}
     </Fade>
@@ -70,7 +75,11 @@ export function AwesomeSlide({
       damping={damping}
       triggerOnce
       fraction={fraction}
-      className={className}
+      className={cn(
+        "min-w-0 max-w-full",
+        (direction === "left" || direction === "right") && "overflow-hidden",
+        className,
+      )}
     >
       {children}
     </Slide>

@@ -17,6 +17,13 @@ import { MagneticCta } from "@/components/layout/magnetic-cta";
 import { nav, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
+const drawerNav = [{ href: "/", label: "Hisaar" }, ...nav] as const;
+
+function isActivePath(path: string, href: string) {
+  if (href === "/") return path === "/";
+  return path === href || path.startsWith(`${href}/`);
+}
+
 export function Header() {
   const path = usePathname();
   const { theme, setTheme } = useTheme();
@@ -39,15 +46,17 @@ export function Header() {
           : "border-transparent bg-transparent",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-4 px-5 sm:px-8">
-        <Logo />
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+      <div className="mx-auto flex h-16 min-w-0 max-w-[1280px] items-center justify-between gap-3 px-5 sm:gap-4 sm:px-8">
+        <div className="min-w-0 shrink">
+          <Logo />
+        </div>
+        <nav className="hidden min-w-0 items-center gap-5 xl:flex xl:gap-7" aria-label="Primary">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "text-[13px] text-mute transition-colors hover:text-paper",
+                "shrink-0 text-[13px] text-mute transition-colors hover:text-paper",
                 path === item.href || path.startsWith(`${item.href}/`)
                   ? "text-paper"
                   : "",
@@ -57,7 +66,7 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
             aria-label={theme === "light" ? "Switch to dark" : "Switch to light"}
@@ -79,25 +88,34 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="lg:hidden"
+                className="xl:hidden"
                 aria-label="Open menu"
               >
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
             <SheetContent>
-              <SheetTitle className="font-display text-xl">Hisaar</SheetTitle>
-              <nav className="mt-8 flex flex-col gap-4" aria-label="Mobile">
-                {nav.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="font-display text-2xl tracking-tight text-paper"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+              <SheetTitle className="sr-only">Menu</SheetTitle>
+              <nav className="mt-2 flex flex-col items-start gap-1.5" aria-label="Mobile">
+                {drawerNav.map((item) => {
+                  const active = isActivePath(path, item.href);
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      aria-current={active ? "page" : undefined}
+                      className={cn(
+                        "rounded-full px-4 py-2 font-display text-2xl tracking-tight transition-colors",
+                        active
+                          ? "bg-teal text-ink"
+                          : "text-paper hover:bg-paper/5",
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
               </nav>
               <Button asChild className="mt-10">
                 <a href={site.trialMessage} target="_blank" rel="noopener noreferrer">

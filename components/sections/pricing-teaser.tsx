@@ -16,7 +16,7 @@ export function PricingTeaser() {
           Standard is the desktop kirana most shops buy. Lite is Android-only.
           Pro is extra tills and the owner’s brain. Pro+ is a quote.
         </p>
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+        <div className="mt-12 grid min-w-0 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {shown.map((p) => (
             <article
               key={p.id}

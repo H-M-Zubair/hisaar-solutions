@@ -6,7 +6,7 @@ import { AwesomeFade } from "@/components/motion/awesome-reveal";
 type Col = "lite" | "standard" | "pro" | "proplus";
 
 function cellTone(value: string, col: Col, feature: string) {
-  const v = value.toLowerCase();
+  const v = (value ?? "").toLowerCase();
   if (v.includes("locked") || v === "no") return "locked";
   if (v.includes("add-on")) return "addon";
   if (v.includes("included")) return "ok";
@@ -57,8 +57,8 @@ function Cell({
 
 export function PricingMatrix() {
   return (
-    <AwesomeFade direction="up">
-      <div>
+    <AwesomeFade direction="up" className="block min-w-0 max-w-full">
+      <div className="min-w-0 max-w-full">
         <div className="flex flex-wrap gap-4 text-[11px] font-mono uppercase tracking-[0.14em] text-mute">
           <span className="inline-flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-paper" /> Full
@@ -73,8 +73,8 @@ export function PricingMatrix() {
             <span className="h-1.5 w-1.5 rounded-full bg-teal" /> EOD / close
           </span>
         </div>
-        <div className="mt-6 overflow-x-auto rounded-2xl border border-line">
-          <table className="w-full min-w-[860px] text-left text-sm">
+        <div className="mt-6 min-w-0 max-w-full overflow-x-auto overscroll-x-contain rounded-2xl border border-line">
+          <table className="w-full min-w-[640px] text-left text-sm sm:min-w-[860px]">
             <thead className="bg-ink font-mono text-[10px] uppercase tracking-[0.16em] text-mute">
               <tr>
                 <th className="px-4 py-3 font-medium">Feature</th>

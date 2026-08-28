@@ -27,7 +27,7 @@ export function PageHero({
           <p className="eyebrow" style={accent ? { color: accent } : undefined}>
             {kicker}
           </p>
-          <h1 className="display mt-4 max-w-4xl text-[clamp(2.4rem,6vw,4.8rem)]">{title}</h1>
+          <h1 className="display mt-4 max-w-4xl break-words text-[clamp(2.1rem,8vw,4.8rem)]">{title}</h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-mute sm:text-lg">{lede}</p>
         </AwesomeFade>
         {children}

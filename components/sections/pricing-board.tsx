@@ -9,7 +9,7 @@ import { AwesomeFade } from "@/components/motion/awesome-reveal";
 
 export function PricingBoard() {
   return (
-    <div className="grid items-stretch gap-4 lg:grid-cols-4">
+    <div className="grid min-w-0 items-stretch gap-4 md:grid-cols-2 xl:grid-cols-4">
       {plans.map((p, i) => {
         const isStandard = p.id === "standard";
         const isPlus = p.id === "proplus";
@@ -17,11 +17,11 @@ export function PricingBoard() {
         const isPro = p.id === "pro";
 
         return (
-          <AwesomeFade key={p.id} direction="up" delay={i * 100} className="h-full min-h-0">
+          <AwesomeFade key={p.id} direction="up" delay={i * 100} className="h-full min-h-0 min-w-0">
             <article
               className={cn(
                 "relative flex h-full flex-col overflow-hidden rounded-2xl border p-6",
-                isStandard && "border-amber bg-surface shadow-cta lg:-translate-y-2",
+                isStandard && "border-amber bg-surface shadow-cta xl:-translate-y-2",
                 isLite && "border-line bg-ink",
                 isPro && "border-line bg-ink",
                 isPlus && "border-dashed border-line/80 bg-ink/80",

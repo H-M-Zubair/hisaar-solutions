@@ -17,11 +17,11 @@ export function GroceryPage() {
       </PageHero>
       <section className="relative">
         {/* Intent: sticky till beside a vertical rush narrative — grocery is a counter, not a dashboard. */}
-        <div className="mx-auto grid max-w-[1120px] gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <AwesomeSlide direction="left" className="lg:sticky lg:top-24 lg:self-start">
+        <div className="mx-auto grid max-w-[1120px] min-w-0 gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+          <AwesomeSlide direction="left" className="min-w-0 lg:sticky lg:top-24 lg:self-start">
             <PosTerminal shop="Cantt Kirana" accent={g.accent} />
           </AwesomeSlide>
-          <div className="space-y-16">
+          <div className="min-w-0 space-y-16">
             {g.pains.map((p, i) => (
               <div key={p.title}>
                 <p className="font-mono text-[11px] text-grocery">0{i + 1}</p>
@@ -33,7 +33,7 @@ export function GroceryPage() {
         </div>
       </section>
       <section className="border-y border-line">
-        <div className="mx-auto grid max-w-[1120px] md:grid-cols-3">
+        <div className="mx-auto grid max-w-[1120px] min-w-0 md:grid-cols-3">
           {g.modules.map((m) => (
             <article key={m.title} className="border-b border-line p-8 md:border-b-0 md:border-r last:border-r-0">
               <h3 className="font-display text-2xl tracking-tight">{m.title}</h3>
@@ -42,7 +42,7 @@ export function GroceryPage() {
           ))}
         </div>
       </section>
-      <section className="mx-auto grid max-w-[1120px] gap-6 px-5 py-20 sm:px-8 md:grid-cols-2">
+      <section className="mx-auto grid max-w-[1120px] min-w-0 gap-6 px-5 py-20 sm:px-8 md:grid-cols-2">
         <div className="rounded-2xl border border-line p-8">
           <p className="eyebrow">Standard · Lite</p>
           <p className="mt-4 text-paper">{g.starterFit}</p>
@@ -64,7 +64,7 @@ export function PharmacyPage() {
   return (
     <>
       <PageHero kicker={p.kicker} title={p.headline} lede={p.lede} accent={p.accent} />
-      <section className="py-20">
+      <section className="overflow-x-clip py-20">
         {/* Intent: a vertical clinical timeline — pharmacy is lots moving through time, not a grid of tiles. */}
         <div className="mx-auto max-w-[720px] px-5 sm:px-8">
           <ol className="relative border-l border-pharmacy/40 pl-8">
@@ -90,7 +90,7 @@ export function PharmacyPage() {
       </section>
       <section className="border-y border-line bg-surface">
         <div className="mx-auto max-w-[1120px] px-5 py-16 sm:px-8">
-          <div className="grid gap-10 lg:grid-cols-2">
+          <div className="grid min-w-0 gap-10 lg:grid-cols-2">
             {p.pains.map((item) => (
               <article key={item.title}>
                 <h3 className="font-display text-2xl tracking-tight">{item.title}</h3>
@@ -114,9 +114,9 @@ export function RestaurantPage() {
   return (
     <>
       <PageHero kicker={r.kicker} title={r.headline} lede={r.lede} accent={r.accent} />
-      <section className="py-20">
+      <section className="overflow-x-clip py-20">
         {/* Intent: split the floor — takeaway is a cart; dine-in is a table grid. Two products, honestly. */}
-        <div className="mx-auto grid max-w-[1120px] gap-px bg-line px-0 md:grid-cols-2">
+        <div className="mx-auto grid max-w-[1120px] min-w-0 gap-px overflow-hidden bg-line px-0 md:grid-cols-2">
           <article className="bg-ink p-8 sm:p-12">
             <p className="eyebrow">Standard · takeaway</p>
             <h2 className="display mt-4 text-4xl">Bill as you plate.</h2>
@@ -177,7 +177,7 @@ export function GarmentsPage() {
         </div>
       </section>
       <section className="mx-auto max-w-[1120px] px-5 py-20 sm:px-8">
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid min-w-0 gap-12 lg:grid-cols-2">
           <div>
             <p className="eyebrow">Matrix</p>
             <h2 className="display mt-3 text-4xl">Stock lives in the cell.</h2>

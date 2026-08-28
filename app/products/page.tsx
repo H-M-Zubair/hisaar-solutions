@@ -41,7 +41,7 @@ export default function ProductsPage() {
         lede="Barcode POS, offline sales, udhaar, shift close, and owner reports — the till every shop shares. Industry packs for grocery, pharmacy, restaurant, and garments live on Solutions."
       />
 
-      <section className="mx-auto max-w-[1120px] px-5 py-20 sm:px-8">
+      <section className="mx-auto max-w-[1120px] min-w-0 overflow-x-clip px-5 py-20 sm:px-8">
         {/* Intent: the till as an instrument — not another industry poster. */}
         <p className="eyebrow">The counter</p>
         <h2 className="display mt-3 max-w-2xl text-3xl sm:text-4xl">
@@ -58,7 +58,7 @@ export default function ProductsPage() {
         </AwesomeSlide>
       </section>
 
-      <section className="border-y border-line py-20">
+      <section className="overflow-x-clip border-y border-line py-20">
         <div className="mx-auto max-w-[1120px] px-5 sm:px-8">
           {/* Intent: owner reports belong here; industry dashboards do not. */}
           <p className="eyebrow text-teal">The owner pane</p>

@@ -19,9 +19,9 @@ export default function AboutPage() {
         title="A ledger, named plainly."
         lede="Hisaar is hisaab. We are a Lahore Cantt practice building one product: Omni Ledger. We provision shops. We do not run a marketplace of logos we do not have."
       />
-      <section className="mx-auto grid max-w-[1120px] gap-16 px-5 py-20 sm:px-8 lg:grid-cols-12">
+      <section className="mx-auto grid max-w-[1120px] min-w-0 gap-16 px-5 py-20 sm:px-8 lg:grid-cols-12">
         {/* Intent: editorial about — place, craft, constraint. No team stock photos. */}
-        <article className="lg:col-span-7">
+        <article className="min-w-0 lg:col-span-7">
           <p className="text-lg leading-relaxed text-paper">
             The POS market in Pakistan is loud about scanners and quiet about
             munafa. Omni Ledger is the other way around: the till is table stakes
@@ -39,7 +39,7 @@ export default function AboutPage() {
             button and faster than onboarding a shop onto the wrong plan.
           </p>
         </article>
-        <AwesomeSlide direction="right" className="lg:col-span-5">
+        <AwesomeSlide direction="right" className="min-w-0 lg:col-span-5">
           <aside className="space-y-8">
             <div className="rounded-2xl border border-line bg-surface p-6">
               <p className="eyebrow">Desk</p>

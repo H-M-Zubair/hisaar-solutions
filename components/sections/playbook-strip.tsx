@@ -17,7 +17,7 @@ export function PlaybookStrip() {
             All four floors →
           </Link>
         </div>
-        <div className="mt-12 grid gap-px bg-line sm:grid-cols-2">
+        <div className="mt-12 grid min-w-0 gap-px bg-line sm:grid-cols-2">
           {playbooks.map((p) => (
             <article key={p.slug} className="bg-ink p-6 sm:p-8">
               <p className="font-mono text-[11px] uppercase tracking-[0.2em]" style={{ color: p.accent }}>

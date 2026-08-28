@@ -5,7 +5,7 @@ import { industryList } from "@/lib/industries";
 
 export function Footer() {
   return (
-    <footer className="border-t border-line bg-surface">
+    <footer className="overflow-x-clip border-t border-line bg-surface">
       {/* Intent: a ledger footer — product facts and a door, not a fake sitemap of empty pages. */}
       <div className="mx-auto grid max-w-[1120px] gap-12 px-5 py-16 sm:px-8 lg:grid-cols-12">
         <div className="lg:col-span-4">

@@ -48,7 +48,7 @@ export default function PricingPage() {
 
       <section className="relative overflow-hidden">
         <div className="bg-grid pointer-events-none absolute inset-0 opacity-20" />
-        <div className="relative mx-auto max-w-[1120px] px-5 py-16 sm:px-8 lg:py-20">
+        <div className="relative mx-auto max-w-[1120px] min-w-0 px-5 py-16 sm:px-8 lg:py-20">
           <p className="eyebrow text-teal">Lahore · device-based</p>
           <h2 className="display mt-3 max-w-xl text-3xl sm:text-4xl">
             Pick the till you actually run.
@@ -64,7 +64,7 @@ export default function PricingPage() {
       </section>
 
       <section className="border-y border-line bg-surface">
-        <div className="mx-auto grid max-w-[1120px] gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:py-20">
+        <div className="mx-auto grid max-w-[1120px] min-w-0 gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:py-20">
           <div>
             <p className="eyebrow text-teal">Killer add-on · Pro</p>
             <h2 className="display mt-3 text-3xl sm:text-4xl">
@@ -92,7 +92,7 @@ export default function PricingPage() {
       </section>
 
       <section className="border-b border-line bg-ink">
-        <div className="mx-auto grid max-w-[1120px] gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[1fr_1fr] lg:py-20">
+        <div className="mx-auto grid max-w-[1120px] min-w-0 gap-10 px-5 py-16 sm:px-8 lg:grid-cols-2 lg:py-20">
           <div>
             <p className="eyebrow text-amber">Pro+ · included</p>
             <h2 className="display mt-3 text-3xl sm:text-4xl">
@@ -122,7 +122,7 @@ export default function PricingPage() {
       </section>
 
       <section className="border-b border-line bg-surface">
-        <div className="mx-auto max-w-[1120px] px-5 py-16 sm:px-8 lg:py-20">
+        <div className="mx-auto max-w-[1120px] min-w-0 px-5 py-16 sm:px-8 lg:py-20">
           <p className="eyebrow">The switchboard</p>
           <h2 className="display mt-3 text-3xl sm:text-4xl">Where each switch lives.</h2>
           <p className="mt-3 max-w-xl text-sm text-mute">

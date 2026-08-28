@@ -19,7 +19,7 @@ export default function ContactPage() {
         title="WhatsApp is the front door."
         lede="Tell us grocery, pharmacy, restaurant, or garments. We create the organisation and send an owner access code. There is no public signup, on purpose."
       />
-      <section className="mx-auto grid max-w-[1120px] gap-16 px-5 py-16 sm:px-8 lg:grid-cols-2">
+      <section className="mx-auto grid max-w-[1120px] min-w-0 gap-16 px-5 py-16 sm:px-8 lg:grid-cols-2">
         {/* Intent: form that exits to WhatsApp — honest about provisioning, not a fake CRM. */}
         <ContactForm />
         <AwesomeSlide direction="right">

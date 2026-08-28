@@ -72,7 +72,7 @@ export function OwnerAnalytics({ className }: { className?: string }) {
         </p>
       )}
 
-      <div className="grid gap-px bg-line sm:grid-cols-3 lg:grid-cols-6">
+      <div className="grid min-w-0 gap-px bg-line sm:grid-cols-3 lg:grid-cols-6">
         {(
           [
             ["Revenue", k.revenue, k.revTrend],
@@ -83,11 +83,11 @@ export function OwnerAnalytics({ className }: { className?: string }) {
             ["Margin", k.margin, k.profitTrend],
           ] as const
         ).map(([label, value, trendLabel]) => (
-          <div key={label} className="bg-surface p-4">
+          <div key={label} className="min-w-0 overflow-hidden bg-surface p-3 sm:p-4">
             <p className="font-mono text-[10px] uppercase tracking-wider text-mute">
               {label}
             </p>
-            <p className="mt-1 font-display text-xl tracking-tight sm:text-2xl">
+            <p className="mt-1 truncate font-display text-lg tracking-tight sm:text-2xl">
               {label === "Revenue" || label === "Profit" || label === "AOV"
                 ? `Rs ${value}`
                 : value}
@@ -97,7 +97,7 @@ export function OwnerAnalytics({ className }: { className?: string }) {
         ))}
       </div>
 
-      <div className="grid gap-px bg-line lg:grid-cols-[1.4fr_0.8fr]">
+      <div className="grid min-w-0 gap-px bg-line lg:grid-cols-[minmax(0,1.4fr)_minmax(0,0.8fr)]">
         <div className="bg-ink p-4 sm:p-5">
           <div className="flex items-center justify-between">
             <p className="text-sm text-paper">Revenue & profit</p>
@@ -112,7 +112,7 @@ export function OwnerAnalytics({ className }: { className?: string }) {
           </div>
           <svg
             viewBox="0 0 400 140"
-            className="mt-4 h-36 w-full overflow-visible"
+            className="mt-4 h-36 w-full max-w-full"
             aria-hidden
           >
             <path
@@ -160,7 +160,7 @@ export function OwnerAnalytics({ className }: { className?: string }) {
         </div>
       </div>
 
-      <div className="grid gap-px bg-line lg:grid-cols-3">
+      <div className="grid min-w-0 gap-px bg-line lg:grid-cols-3">
         <div className="bg-surface p-4 sm:p-5">
           <p className="text-sm text-paper">Hourly rush</p>
           <div className="mt-4 flex h-28 items-end gap-1.5">

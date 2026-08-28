@@ -27,7 +27,7 @@ export default function WorkPage() {
             {playbooks.map((p, i) => (
               <article
                 key={p.slug}
-                className="grid gap-8 border-t border-line pt-12 lg:grid-cols-[200px_1fr]"
+                className="grid min-w-0 gap-8 border-t border-line pt-12 lg:grid-cols-[minmax(0,200px)_minmax(0,1fr)]"
               >
                 <div>
                   <p className="font-mono text-[11px] uppercase tracking-[0.22em]" style={{ color: p.accent }}>
@@ -40,7 +40,7 @@ export default function WorkPage() {
                     Open solution →
                   </Link>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h2 className="display text-3xl sm:text-4xl">{p.title}</h2>
                   <p className="mt-3 text-sm text-mute">{p.setting}</p>
                   <p className="mt-6 max-w-2xl text-lg leading-relaxed text-paper">{p.scene}</p>
