@@ -26,7 +26,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
     <article>
       <header className="border-b border-line bg-mesh">
         <div className="mx-auto max-w-[720px] px-5 py-16 sm:px-8 sm:py-24">
-          <AwesomeFade cascade damping={0.2} direction="up" duration={700} fraction={0}>
+          <AwesomeFade direction="up" duration={700} fraction={0}>
             <p className="eyebrow">
               {post.date} · {post.kicker} · {post.reading}
             </p>
@@ -37,17 +37,15 @@ export default function PostPage({ params }: { params: { slug: string } }) {
       </header>
       <div className="mx-auto max-w-[720px] space-y-6 px-5 py-16 text-base leading-relaxed text-paper sm:px-8">
         {post.body.map((para, i) => (
-          <AwesomeFade key={para.slice(0, 24)} direction="up" delay={Math.min(i, 5) * 70}>
-            <p className={i === 0 ? "text-paper" : "text-mute"}>{para}</p>
-          </AwesomeFade>
-        ))}
-        <AwesomeFade direction="left" delay={80}>
-          <p className="pt-8">
-            <Link href="/blog" className="text-sm text-teal">
-              ← Journal
-            </Link>
+          <p key={para.slice(0, 24)} className={i === 0 ? "text-paper" : "text-mute"}>
+            {para}
           </p>
-        </AwesomeFade>
+        ))}
+        <p className="pt-8">
+          <Link href="/blog" className="text-sm text-teal">
+            ← Journal
+          </Link>
+        </p>
       </div>
     </article>
   );

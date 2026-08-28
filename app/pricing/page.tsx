@@ -11,7 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { AwesomeFade, AwesomeSlide } from "@/components/motion/awesome-reveal";
+import { AwesomeFade } from "@/components/motion/awesome-reveal";
 
 export const metadata = pageMeta({
   title: "Pricing",
@@ -30,12 +30,13 @@ export default function PricingPage() {
       />
       <section className="mx-auto max-w-[1120px] px-5 py-16 sm:px-8">
         {/* Intent: four bands; Pro shows annual lock-in first, monthly as the flexible rate. */}
-        <div className="grid gap-4 lg:grid-cols-4">
-          {plans.map((p, i) => (
-            <AwesomeFade key={p.id} direction="up" delay={i * 90} className="h-full">
+        <AwesomeFade direction="up">
+          <div className="grid gap-4 lg:grid-cols-4">
+            {plans.map((p) => (
               <article
+                key={p.id}
                 className={cn(
-                  "flex h-full flex-col rounded-2xl border p-6",
+                  "flex flex-col rounded-2xl border p-6",
                   p.featured
                     ? "border-amber bg-surface"
                     : p.id === "proplus"
@@ -69,14 +70,14 @@ export default function PricingPage() {
                   </a>
                 </Button>
               </article>
-            </AwesomeFade>
-          ))}
-        </div>
+            ))}
+          </div>
+        </AwesomeFade>
       </section>
       <section className="border-y border-line bg-ink">
         <div className="mx-auto grid max-w-[1120px] gap-8 px-5 py-14 sm:px-8 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Intent: name the Pakistan tax pain without selling a feature that is not built. */}
-          <AwesomeFade direction="left">
+          <div>
             <p className="eyebrow text-amber">Add-on · not in the till today</p>
             <h2 className="display mt-3 text-3xl sm:text-4xl">
               FBR / PRA digital invoicing
@@ -87,82 +88,72 @@ export default function PricingPage() {
               ready for your province, it is quoted as a Pro+ add-on — same as
               branches. Starter and Pro stay the counter and the owner’s brain.
             </p>
-          </AwesomeFade>
-          <AwesomeSlide direction="right" delay={140}>
-            <ul className="space-y-3 self-center text-sm text-mute">
-              <li className="rounded-xl border border-line bg-surface px-4 py-3">
-                Starter / Pro: cash vs card tax rates on the ticket. No FBR push.
-              </li>
-              <li className="rounded-xl border border-line bg-surface px-4 py-3">
-                Add-on: FBR / local tax digital invoicing, scoped and quoted.
-              </li>
-              <li className="rounded-xl border border-line bg-surface px-4 py-3">
-                We will not demo an integration that is not live for your shop.
-              </li>
-            </ul>
-          </AwesomeSlide>
+          </div>
+          <ul className="space-y-3 self-center text-sm text-mute">
+            <li className="rounded-xl border border-line bg-surface px-4 py-3">
+              Starter / Pro: cash vs card tax rates on the ticket. No FBR push.
+            </li>
+            <li className="rounded-xl border border-line bg-surface px-4 py-3">
+              Add-on: FBR / local tax digital invoicing, scoped and quoted.
+            </li>
+            <li className="rounded-xl border border-line bg-surface px-4 py-3">
+              We will not demo an integration that is not live for your shop.
+            </li>
+          </ul>
         </div>
       </section>
       <section className="border-b border-line bg-surface">
         <div className="mx-auto max-w-[1120px] px-5 py-16 sm:px-8">
-          <AwesomeFade direction="up">
-            <h2 className="display text-3xl">Where each switch lives.</h2>
-            <p className="mt-3 max-w-xl text-sm text-mute">
-              Locked means upgrade, not missing forever. Shift closing logs (cash in
-              drawer vs POS) are Full on Starter. FBR is an add-on row, not a silent
-              omission.
-            </p>
-          </AwesomeFade>
-          <AwesomeFade direction="up" delay={120}>
-            <div className="mt-8 overflow-x-auto rounded-2xl border border-line">
-              <table className="w-full min-w-[640px] text-left text-sm">
-                <thead className="bg-ink font-mono text-[10px] uppercase tracking-[0.16em] text-mute">
-                  <tr>
-                    <th className="px-4 py-3">Feature</th>
-                    <th className="px-4 py-3">Trial</th>
-                    <th className="px-4 py-3">Starter</th>
-                    <th className="px-4 py-3">Pro</th>
+          <h2 className="display text-3xl">Where each switch lives.</h2>
+          <p className="mt-3 max-w-xl text-sm text-mute">
+            Locked means upgrade, not missing forever. Shift closing logs (cash in
+            drawer vs POS) are Full on Starter. FBR is an add-on row, not a silent
+            omission.
+          </p>
+          <div className="mt-8 overflow-x-auto rounded-2xl border border-line">
+            <table className="w-full min-w-[640px] text-left text-sm">
+              <thead className="bg-ink font-mono text-[10px] uppercase tracking-[0.16em] text-mute">
+                <tr>
+                  <th className="px-4 py-3">Feature</th>
+                  <th className="px-4 py-3">Trial</th>
+                  <th className="px-4 py-3">Starter</th>
+                  <th className="px-4 py-3">Pro</th>
+                </tr>
+              </thead>
+              <tbody>
+                {matrix.map((row) => (
+                  <tr key={row.feature} className="border-t border-line">
+                    <td className="px-4 py-3 text-paper">{row.feature}</td>
+                    <td className="px-4 py-3 text-mute">{row.trial}</td>
+                    <td
+                      className={cn(
+                        "px-4 py-3",
+                        row.starter === "Full" &&
+                          row.feature.toLowerCase().includes("shift closing")
+                          ? "text-teal"
+                          : "text-mute",
+                      )}
+                    >
+                      {row.starter}
+                    </td>
+                    <td className="px-4 py-3 text-mute">{row.pro}</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {matrix.map((row) => (
-                    <tr key={row.feature} className="border-t border-line">
-                      <td className="px-4 py-3 text-paper">{row.feature}</td>
-                      <td className="px-4 py-3 text-mute">{row.trial}</td>
-                      <td
-                        className={cn(
-                          "px-4 py-3",
-                          row.starter === "Full" &&
-                            row.feature.toLowerCase().includes("shift closing")
-                            ? "text-teal"
-                            : "text-mute",
-                        )}
-                      >
-                        {row.starter}
-                      </td>
-                      <td className="px-4 py-3 text-mute">{row.pro}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </AwesomeFade>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
       <section className="mx-auto max-w-[720px] px-5 py-16 sm:px-8">
-        <AwesomeFade direction="up">
-          <h2 className="display text-3xl">Questions we actually get.</h2>
-        </AwesomeFade>
-        <AwesomeFade direction="up" delay={100}>
-          <Accordion type="single" collapsible className="mt-8">
-            {faqs.map((f) => (
-              <AccordionItem key={f.q} value={f.q}>
-                <AccordionTrigger>{f.q}</AccordionTrigger>
-                <AccordionContent>{f.a}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </AwesomeFade>
+        <h2 className="display text-3xl">Questions we actually get.</h2>
+        <Accordion type="single" collapsible className="mt-8">
+          {faqs.map((f) => (
+            <AccordionItem key={f.q} value={f.q}>
+              <AccordionTrigger>{f.q}</AccordionTrigger>
+              <AccordionContent>{f.a}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </section>
       <CtaBand
         title="Fourteen days of the real ledger."

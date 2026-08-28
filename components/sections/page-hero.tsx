@@ -23,7 +23,7 @@ export function PageHero({
     <section className={cn("relative overflow-hidden border-b border-line bg-mesh", className)}>
       <div className="bg-grid absolute inset-0 opacity-30" />
       <div className="relative mx-auto max-w-[1120px] px-5 py-16 sm:px-8 sm:py-24">
-        <AwesomeFade cascade damping={0.2} direction="up" duration={700} fraction={0}>
+        <AwesomeFade direction="up" duration={700} fraction={0}>
           <p className="eyebrow" style={accent ? { color: accent } : undefined}>
             {kicker}
           </p>

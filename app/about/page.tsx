@@ -2,7 +2,7 @@ import { pageMeta } from "@/lib/metadata";
 import { PageHero } from "@/components/sections/page-hero";
 import { CtaBand } from "@/components/sections/cta-band";
 import { site } from "@/lib/site";
-import { AwesomeFade, AwesomeSlide } from "@/components/motion/awesome-reveal";
+import { AwesomeSlide } from "@/components/motion/awesome-reveal";
 
 export const metadata = pageMeta({
   title: "About",
@@ -21,28 +21,26 @@ export default function AboutPage() {
       />
       <section className="mx-auto grid max-w-[1120px] gap-16 px-5 py-20 sm:px-8 lg:grid-cols-12">
         {/* Intent: editorial about — place, craft, constraint. No team stock photos. */}
-        <AwesomeFade direction="left" className="lg:col-span-7">
-          <article>
-            <p className="text-lg leading-relaxed text-paper">
-              The POS market in Pakistan is loud about scanners and quiet about
-              munafa. Omni Ledger is the other way around: the till is table stakes
-              (and stays unlocked), the owner’s brain is the product (and is locked
-              to the person who should see it).
-            </p>
-            <p className="mt-6 leading-relaxed text-mute">
-              We skin one multi-tenant app for grocery, pharmacy, restaurant, and
-              garments because those floors do not share a SKU model. We keep
-              organisations to a single store because that is what the software
-              does today. When branches exist, they will live on Pro+ — a slot,
-              not a landing-page lie.
-            </p>
-            <p className="mt-6 leading-relaxed text-mute">
-              Trials are provisioned on WhatsApp. That is slower than a signup
-              button and faster than onboarding a shop onto the wrong plan.
-            </p>
-          </article>
-        </AwesomeFade>
-        <AwesomeSlide direction="right" delay={140} className="lg:col-span-5">
+        <article className="lg:col-span-7">
+          <p className="text-lg leading-relaxed text-paper">
+            The POS market in Pakistan is loud about scanners and quiet about
+            munafa. Omni Ledger is the other way around: the till is table stakes
+            (and stays unlocked), the owner’s brain is the product (and is locked
+            to the person who should see it).
+          </p>
+          <p className="mt-6 leading-relaxed text-mute">
+            We skin one multi-tenant app for grocery, pharmacy, restaurant, and
+            garments because those floors do not share a SKU model. We keep
+            organisations to a single store because that is what the software
+            does today. When branches exist, they will live on Pro+ — a slot,
+            not a landing-page lie.
+          </p>
+          <p className="mt-6 leading-relaxed text-mute">
+            Trials are provisioned on WhatsApp. That is slower than a signup
+            button and faster than onboarding a shop onto the wrong plan.
+          </p>
+        </article>
+        <AwesomeSlide direction="right" className="lg:col-span-5">
           <aside className="space-y-8">
             <div className="rounded-2xl border border-line bg-surface p-6">
               <p className="eyebrow">Desk</p>

@@ -3,7 +3,7 @@ import { pageMeta } from "@/lib/metadata";
 import { PageHero } from "@/components/sections/page-hero";
 import { CtaBand } from "@/components/sections/cta-band";
 import { playbooks } from "@/lib/playbooks";
-import { AwesomeFade, AwesomeSlide } from "@/components/motion/awesome-reveal";
+import { AwesomeFade } from "@/components/motion/awesome-reveal";
 
 export const metadata = pageMeta({
   title: "Work",
@@ -22,13 +22,13 @@ export default function WorkPage() {
       />
       <section className="mx-auto max-w-[1120px] px-5 py-16 sm:px-8">
         {/* Intent: long-form playbooks as editorial cases — setting, moves, proof. */}
-        <div className="space-y-20">
-          {playbooks.map((p, i) => (
-            <article
-              key={p.slug}
-              className="grid gap-8 border-t border-line pt-12 lg:grid-cols-[200px_1fr]"
-            >
-              <AwesomeFade direction="left">
+        <AwesomeFade direction="up">
+          <div className="space-y-20">
+            {playbooks.map((p, i) => (
+              <article
+                key={p.slug}
+                className="grid gap-8 border-t border-line pt-12 lg:grid-cols-[200px_1fr]"
+              >
                 <div>
                   <p className="font-mono text-[11px] uppercase tracking-[0.22em]" style={{ color: p.accent }}>
                     0{i + 1} · {p.industry}
@@ -40,8 +40,6 @@ export default function WorkPage() {
                     Open solution →
                   </Link>
                 </div>
-              </AwesomeFade>
-              <AwesomeSlide direction="right" delay={100}>
                 <div>
                   <h2 className="display text-3xl sm:text-4xl">{p.title}</h2>
                   <p className="mt-3 text-sm text-mute">{p.setting}</p>
@@ -58,10 +56,10 @@ export default function WorkPage() {
                     {p.proof}
                   </p>
                 </div>
-              </AwesomeSlide>
-            </article>
-          ))}
-        </div>
+              </article>
+            ))}
+          </div>
+        </AwesomeFade>
       </section>
       <CtaBand title="Bring your rush, your lots, your tables, your rail." />
     </>

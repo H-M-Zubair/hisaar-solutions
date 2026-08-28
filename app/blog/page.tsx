@@ -21,10 +21,10 @@ export default function BlogPage() {
       />
       <section className="mx-auto max-w-[800px] px-5 py-16 sm:px-8">
         {/* Intent: a quiet index — date, kicker, title — like a studio journal, not a blog theme. */}
-        <div>
-          {posts.map((p, i) => (
-            <AwesomeFade key={p.slug} direction="up" delay={i * 90}>
-              <article className="border-t border-line py-8">
+        <AwesomeFade direction="up">
+          <div>
+            {posts.map((p) => (
+              <article key={p.slug} className="border-t border-line py-8">
                 <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-mute">
                   {p.date} · {p.kicker} · {p.reading}
                 </p>
@@ -35,9 +35,9 @@ export default function BlogPage() {
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-mute">{p.excerpt}</p>
               </article>
-            </AwesomeFade>
-          ))}
-        </div>
+            ))}
+          </div>
+        </AwesomeFade>
       </section>
     </>
   );

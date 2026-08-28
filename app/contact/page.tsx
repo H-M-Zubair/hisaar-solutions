@@ -2,7 +2,7 @@ import { pageMeta } from "@/lib/metadata";
 import { PageHero } from "@/components/sections/page-hero";
 import { ContactForm } from "@/components/sections/contact-form";
 import { site } from "@/lib/site";
-import { AwesomeFade, AwesomeSlide } from "@/components/motion/awesome-reveal";
+import { AwesomeSlide } from "@/components/motion/awesome-reveal";
 
 export const metadata = pageMeta({
   title: "Contact",
@@ -21,10 +21,8 @@ export default function ContactPage() {
       />
       <section className="mx-auto grid max-w-[1120px] gap-16 px-5 py-16 sm:px-8 lg:grid-cols-2">
         {/* Intent: form that exits to WhatsApp — honest about provisioning, not a fake CRM. */}
-        <AwesomeFade direction="left">
-          <ContactForm />
-        </AwesomeFade>
-        <AwesomeSlide direction="right" delay={140}>
+        <ContactForm />
+        <AwesomeSlide direction="right">
           <aside className="space-y-8">
             <div className="rounded-2xl border border-line bg-surface p-6">
               <p className="eyebrow">Direct</p>

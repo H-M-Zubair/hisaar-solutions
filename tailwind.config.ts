@@ -58,11 +58,21 @@ const config = {
           from: { opacity: "0", transform: "translateY(8px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
       },
       animation: {
         "pulse-line": "pulse-line 2.4s ease-in-out infinite",
         ripple: "ripple 0.6s ease-out",
         "count-in": "count-in 0.5s ease-out",
+        "accordion-down": "accordion-down 0.28s ease-out",
+        "accordion-up": "accordion-up 0.22s ease-out",
       },
     },
   },
