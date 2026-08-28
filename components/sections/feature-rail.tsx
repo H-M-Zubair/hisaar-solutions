@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { modules } from "@/lib/features";
-import { Reveal } from "@/components/motion/reveal";
+import { AwesomeFade } from "@/components/motion/awesome-reveal";
 import { TiltCard } from "@/components/motion/tilt-card";
 
 export function FeatureRail() {
@@ -8,7 +8,7 @@ export function FeatureRail() {
     <section className="py-24 sm:py-32">
       {/* Intent: a module index like a ledger contents page — eight shipped facts, not a feature dump. */}
       <div className="mx-auto max-w-[1120px] px-5 sm:px-8">
-        <Reveal>
+        <AwesomeFade direction="up">
           <p className="eyebrow">Shipped</p>
           <h2 className="display mt-3 max-w-xl text-4xl sm:text-5xl">
             What the till actually does.
@@ -17,10 +17,10 @@ export function FeatureRail() {
             Demo only what is built. Impressive is smooth — not a promise of JazzCash
             inside the till, or fifty branches.
           </p>
-        </Reveal>
+        </AwesomeFade>
         <div className="mt-14 grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {modules.map((m, i) => (
-            <Reveal key={m.id} delay={i * 0.04} className="h-full min-h-0">
+            <AwesomeFade key={m.id} direction="up" delay={i * 70} className="h-full min-h-0">
               <TiltCard className="h-full">
                 <article className="flex h-full min-h-[220px] flex-col rounded-2xl border border-line bg-surface p-5">
                   <p className="font-mono text-[11px] text-teal">0{i + 1}</p>
@@ -28,7 +28,7 @@ export function FeatureRail() {
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-mute">{m.body}</p>
                 </article>
               </TiltCard>
-            </Reveal>
+            </AwesomeFade>
           ))}
         </div>
         <p className="mt-8 text-sm text-mute">

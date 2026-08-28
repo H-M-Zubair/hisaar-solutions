@@ -3,6 +3,7 @@ import { pageMeta } from "@/lib/metadata";
 import { PageHero } from "@/components/sections/page-hero";
 import { CtaBand } from "@/components/sections/cta-band";
 import { industryList } from "@/lib/industries";
+import { AwesomeFade, AwesomeSlide } from "@/components/motion/awesome-reveal";
 
 export const metadata = pageMeta({
   title: "Solutions",
@@ -21,35 +22,42 @@ export default function SolutionsPage() {
       />
       <section className="mx-auto max-w-[1120px] px-5 py-16 sm:px-8">
         {/* Intent: four editorial posters, each with its own accent — not identical cards recolored. */}
-        <p className="mb-8 max-w-xl text-sm text-mute">
-          The shared till — barcode, offline, udhaar, shift close, owner reports — is on{" "}
-          <Link href="/products" className="text-teal hover:underline">
-            Omni Ledger
-          </Link>
-          . This page is only the floor you run.
-        </p>
+        <AwesomeFade direction="up">
+          <p className="mb-8 max-w-xl text-sm text-mute">
+            The shared till — barcode, offline, udhaar, shift close, owner reports — is on{" "}
+            <Link href="/products" className="text-teal hover:underline">
+              Omni Ledger
+            </Link>
+            . This page is only the floor you run.
+          </p>
+        </AwesomeFade>
         <div className="grid gap-4">
           {industryList.map((i, idx) => (
-            <Link
+            <AwesomeSlide
               key={i.slug}
-              href={`/solutions/${i.slug}`}
-              className="group grid overflow-hidden rounded-3xl border border-line bg-surface md:grid-cols-[160px_1fr]"
+              direction={idx % 2 === 0 ? "left" : "right"}
+              delay={idx * 90}
             >
-              <div
-                className="grid min-h-[120px] place-items-center font-display text-6xl tracking-tight text-ink md:min-h-full"
-                style={{ background: i.accent }}
+              <Link
+                href={`/solutions/${i.slug}`}
+                className="group grid overflow-hidden rounded-3xl border border-line bg-surface md:grid-cols-[160px_1fr]"
               >
-                0{idx + 1}
-              </div>
-              <div className="p-6 sm:p-8">
-                <p className="eyebrow">{i.kicker}</p>
-                <h2 className="display mt-2 text-3xl sm:text-4xl">{i.name}</h2>
-                <p className="mt-3 max-w-xl text-mute">{i.lede}</p>
-                <p className="mt-4 text-sm text-paper group-hover:text-teal">
-                  {i.headline} →
-                </p>
-              </div>
-            </Link>
+                <div
+                  className="grid min-h-[120px] place-items-center font-display text-6xl tracking-tight text-ink md:min-h-full"
+                  style={{ background: i.accent }}
+                >
+                  0{idx + 1}
+                </div>
+                <div className="p-6 sm:p-8">
+                  <p className="eyebrow">{i.kicker}</p>
+                  <h2 className="display mt-2 text-3xl sm:text-4xl">{i.name}</h2>
+                  <p className="mt-3 max-w-xl text-mute">{i.lede}</p>
+                  <p className="mt-4 text-sm text-paper group-hover:text-teal">
+                    {i.headline} →
+                  </p>
+                </div>
+              </Link>
+            </AwesomeSlide>
           ))}
         </div>
       </section>

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { pageMeta } from "@/lib/metadata";
 import { posts, getPost } from "@/lib/blog";
+import { AwesomeFade } from "@/components/motion/awesome-reveal";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -25,24 +26,28 @@ export default function PostPage({ params }: { params: { slug: string } }) {
     <article>
       <header className="border-b border-line bg-mesh">
         <div className="mx-auto max-w-[720px] px-5 py-16 sm:px-8 sm:py-24">
-          <p className="eyebrow">
-            {post.date} · {post.kicker} · {post.reading}
-          </p>
-          <h1 className="display mt-4 text-4xl sm:text-5xl">{post.title}</h1>
-          <p className="mt-5 text-mute">{post.excerpt}</p>
+          <AwesomeFade cascade damping={0.2} direction="up" duration={700} fraction={0}>
+            <p className="eyebrow">
+              {post.date} · {post.kicker} · {post.reading}
+            </p>
+            <h1 className="display mt-4 text-4xl sm:text-5xl">{post.title}</h1>
+            <p className="mt-5 text-mute">{post.excerpt}</p>
+          </AwesomeFade>
         </div>
       </header>
       <div className="mx-auto max-w-[720px] space-y-6 px-5 py-16 text-base leading-relaxed text-paper sm:px-8">
-        {post.body.map((para) => (
-          <p key={para.slice(0, 24)} className="text-mute first:text-paper">
-            {para}
-          </p>
+        {post.body.map((para, i) => (
+          <AwesomeFade key={para.slice(0, 24)} direction="up" delay={Math.min(i, 5) * 70}>
+            <p className={i === 0 ? "text-paper" : "text-mute"}>{para}</p>
+          </AwesomeFade>
         ))}
-        <p className="pt-8">
-          <Link href="/blog" className="text-sm text-teal">
-            ← Journal
-          </Link>
-        </p>
+        <AwesomeFade direction="left" delay={80}>
+          <p className="pt-8">
+            <Link href="/blog" className="text-sm text-teal">
+              ← Journal
+            </Link>
+          </p>
+        </AwesomeFade>
       </div>
     </article>
   );

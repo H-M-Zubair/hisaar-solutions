@@ -2,6 +2,7 @@ import Link from "next/link";
 import { pageMeta } from "@/lib/metadata";
 import { PageHero } from "@/components/sections/page-hero";
 import { posts } from "@/lib/blog";
+import { AwesomeFade } from "@/components/motion/awesome-reveal";
 
 export const metadata = pageMeta({
   title: "Journal",
@@ -20,21 +21,23 @@ export default function BlogPage() {
       />
       <section className="mx-auto max-w-[800px] px-5 py-16 sm:px-8">
         {/* Intent: a quiet index — date, kicker, title — like a studio journal, not a blog theme. */}
-        <ul>
-          {posts.map((p) => (
-            <li key={p.slug} className="border-t border-line py-8">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-mute">
-                {p.date} · {p.kicker} · {p.reading}
-              </p>
-              <h2 className="display mt-3 text-3xl">
-                <Link href={`/blog/${p.slug}`} className="hover:text-teal">
-                  {p.title}
-                </Link>
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed text-mute">{p.excerpt}</p>
-            </li>
+        <div>
+          {posts.map((p, i) => (
+            <AwesomeFade key={p.slug} direction="up" delay={i * 90}>
+              <article className="border-t border-line py-8">
+                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-mute">
+                  {p.date} · {p.kicker} · {p.reading}
+                </p>
+                <h2 className="display mt-3 text-3xl">
+                  <Link href={`/blog/${p.slug}`} className="hover:text-teal">
+                    {p.title}
+                  </Link>
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-mute">{p.excerpt}</p>
+              </article>
+            </AwesomeFade>
           ))}
-        </ul>
+        </div>
       </section>
     </>
   );

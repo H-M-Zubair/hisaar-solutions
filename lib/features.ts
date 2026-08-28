@@ -17,7 +17,7 @@ export const modules = [
   {
     id: "shifts",
     title: "Shifts & cash drawer",
-    body: "Open with a float, close with a count. Starter unlocks tonight’s drawer vs POS sales so cashier fraud has a number. Date-filtered shift-log history is Pro.",
+    body: "Open with a float, close with a count. Starter includes shift closing logs — cash in the drawer versus POS sales — so a shortage has a number. Pro adds cashier and date filters across many closes.",
   },
   {
     id: "stock",

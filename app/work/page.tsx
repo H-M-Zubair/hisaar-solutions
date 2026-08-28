@@ -3,6 +3,7 @@ import { pageMeta } from "@/lib/metadata";
 import { PageHero } from "@/components/sections/page-hero";
 import { CtaBand } from "@/components/sections/cta-band";
 import { playbooks } from "@/lib/playbooks";
+import { AwesomeFade, AwesomeSlide } from "@/components/motion/awesome-reveal";
 
 export const metadata = pageMeta({
   title: "Work",
@@ -27,33 +28,37 @@ export default function WorkPage() {
               key={p.slug}
               className="grid gap-8 border-t border-line pt-12 lg:grid-cols-[200px_1fr]"
             >
-              <div>
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em]" style={{ color: p.accent }}>
-                  0{i + 1} · {p.industry}
-                </p>
-                <Link
-                  href={`/solutions/${p.industry.toLowerCase()}`}
-                  className="mt-4 inline-block text-sm text-mute hover:text-paper"
-                >
-                  Open solution →
-                </Link>
-              </div>
-              <div>
-                <h2 className="display text-3xl sm:text-4xl">{p.title}</h2>
-                <p className="mt-3 text-sm text-mute">{p.setting}</p>
-                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-paper">{p.scene}</p>
-                <ol className="mt-8 space-y-3">
-                  {p.moves.map((m, n) => (
-                    <li key={m} className="flex gap-4 text-sm text-mute">
-                      <span className="font-mono text-teal">0{n + 1}</span>
-                      {m}
-                    </li>
-                  ))}
-                </ol>
-                <p className="mt-8 max-w-2xl border-l-2 pl-4 text-sm text-paper" style={{ borderColor: p.accent }}>
-                  {p.proof}
-                </p>
-              </div>
+              <AwesomeFade direction="left">
+                <div>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.22em]" style={{ color: p.accent }}>
+                    0{i + 1} · {p.industry}
+                  </p>
+                  <Link
+                    href={`/solutions/${p.industry.toLowerCase()}`}
+                    className="mt-4 inline-block text-sm text-mute hover:text-paper"
+                  >
+                    Open solution →
+                  </Link>
+                </div>
+              </AwesomeFade>
+              <AwesomeSlide direction="right" delay={100}>
+                <div>
+                  <h2 className="display text-3xl sm:text-4xl">{p.title}</h2>
+                  <p className="mt-3 text-sm text-mute">{p.setting}</p>
+                  <p className="mt-6 max-w-2xl text-lg leading-relaxed text-paper">{p.scene}</p>
+                  <ol className="mt-8 space-y-3">
+                    {p.moves.map((m, n) => (
+                      <li key={m} className="flex gap-4 text-sm text-mute">
+                        <span className="font-mono text-teal">0{n + 1}</span>
+                        {m}
+                      </li>
+                    ))}
+                  </ol>
+                  <p className="mt-8 max-w-2xl border-l-2 pl-4 text-sm text-paper" style={{ borderColor: p.accent }}>
+                    {p.proof}
+                  </p>
+                </div>
+              </AwesomeSlide>
             </article>
           ))}
         </div>
