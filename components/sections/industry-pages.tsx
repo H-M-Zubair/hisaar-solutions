@@ -44,7 +44,7 @@ export function GroceryPage() {
       </section>
       <section className="mx-auto grid max-w-[1120px] gap-6 px-5 py-20 sm:px-8 md:grid-cols-2">
         <div className="rounded-2xl border border-line p-8">
-          <p className="eyebrow">Starter</p>
+          <p className="eyebrow">Standard · Lite</p>
           <p className="mt-4 text-paper">{g.starterFit}</p>
         </div>
         <div className="rounded-2xl border border-grocery/40 bg-surface p-8">
@@ -99,7 +99,7 @@ export function PharmacyPage() {
             ))}
           </div>
           <p className="mt-10 max-w-2xl rounded-xl border border-danger/30 bg-ink px-4 py-3 text-sm text-mute">
-            If you legally need lot tracking, Starter is the wrong plan. We will say that
+            If you legally need lot tracking, Standard is the wrong plan. We will say that
             before we provision.
           </p>
         </div>
@@ -118,7 +118,7 @@ export function RestaurantPage() {
         {/* Intent: split the floor — takeaway is a cart; dine-in is a table grid. Two products, honestly. */}
         <div className="mx-auto grid max-w-[1120px] gap-px bg-line px-0 md:grid-cols-2">
           <article className="bg-ink p-8 sm:p-12">
-            <p className="eyebrow">Starter · takeaway</p>
+            <p className="eyebrow">Standard · takeaway</p>
             <h2 className="display mt-4 text-4xl">Bill as you plate.</h2>
             <p className="mt-4 text-mute">{r.starterFit}</p>
             <ul className="mt-8 space-y-3 text-sm text-paper">

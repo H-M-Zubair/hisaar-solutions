@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export function CtaBand({
   title = "Fourteen days of the real ledger.",
-  body = "We create the shop, hand you an owner code, and leave Pro unlocked — including your industry pack. Then you choose Starter or Pro. WhatsApp is the door.",
+  body = "We create the shop and hand you an owner code. Fourteen days Pro-shaped, then Lite, Standard, Pro, or Pro+. WhatsApp is the door.",
 }: {
   title?: string;
   body?: string;

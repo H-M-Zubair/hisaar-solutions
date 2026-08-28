@@ -11,8 +11,8 @@ export function Footer() {
         <div className="lg:col-span-4">
           <Logo />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-mute">
-            We ship Omni Ledger — a provisioned POS and shop ERP. One store per
-            organisation. Four industry packs. No invented client count.
+            We ship Omni Ledger — Lite on Android, Standard at the counter, Pro
+            for extra tills. Four industry packs. No invented client count.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-8 lg:col-span-8 lg:grid-cols-3">
@@ -69,7 +69,7 @@ export function Footer() {
         <div className="mx-auto flex max-w-[1120px] flex-col gap-2 px-5 py-6 text-xs text-mute lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <p>© {new Date().getFullYear()} Hisaar Solutions. Omni Ledger is a product, not a marketplace.</p>
           <p className="font-mono uppercase tracking-[0.12em] lg:tracking-[0.18em]">
-            PKR · 14-day trial · provisioned
+            PKR · Lite from Rs 1,499 · provisioned
           </p>
         </div>
       </div>

@@ -11,7 +11,7 @@ import { pageMeta } from "@/lib/metadata";
 export const metadata = pageMeta({
   title: "Omni Ledger",
   description:
-    "Hisaar Solutions builds Omni Ledger — POS and shop ERP for grocery, pharmacy, restaurant, and garments. Offline-first. Owner-locked profit. 14-day provisioned trial.",
+    "Hisaar Solutions builds Omni Ledger — POS and shop ERP for grocery, pharmacy, restaurant, and garments. Offline-first. Owner-locked profit. Lite Rs 1,499 · Standard Rs 3,499 · Pro Rs 7,499.",
   path: "/",
 });
 

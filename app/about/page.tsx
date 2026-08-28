@@ -30,10 +30,9 @@ export default function AboutPage() {
           </p>
           <p className="mt-6 leading-relaxed text-mute">
             We skin one multi-tenant app for grocery, pharmacy, restaurant, and
-            garments because those floors do not share a SKU model. We keep
-            organisations to a single store because that is what the software
-            does today. When branches exist, they will live on Pro+ — a slot,
-            not a landing-page lie.
+            garments because those floors do not share a SKU model. Lite is the
+            phone. Standard is one desktop till. Extra tills and daily WhatsApp
+            EOD sit on Pro. FBR, white-label, and unlimited branches live on Pro+.
           </p>
           <p className="mt-6 leading-relaxed text-mute">
             Trials are provisioned on WhatsApp. That is slower than a signup

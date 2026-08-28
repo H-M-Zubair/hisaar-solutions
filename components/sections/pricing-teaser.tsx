@@ -6,14 +6,15 @@ export function PricingTeaser() {
   const shown = plans.filter((p) => p.id !== "proplus");
   return (
     <section className="border-t border-line bg-surface py-24">
-      {/* Intent: three honest bands — trial, counter, owner’s brain. Pro+ stays off-stage. */}
+      {/* Intent: three paid doors — phone, counter, owner’s brain. Pro+ stays a quote. */}
       <div className="mx-auto max-w-[1120px] px-5 sm:px-8">
         <p className="eyebrow">Plans</p>
         <h2 className="display mt-3 text-4xl sm:text-5xl">
-          Pehle 14 din muft. Then Starter or Pro.
+          Lite, Standard, or Pro.
         </h2>
         <p className="mt-4 max-w-lg text-mute">
-          We do not list four paid packages. Pro+ is a roadmap slot, not a checkout.
+          Standard is the desktop kirana most shops buy. Lite is Android-only.
+          Pro is extra tills and the owner’s brain. Pro+ is a quote.
         </p>
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {shown.map((p) => (
@@ -42,7 +43,7 @@ export function PricingTeaser() {
           ))}
         </div>
         <Link href="/pricing" className="mt-8 inline-block text-sm text-teal">
-          Feature matrix and FAQs →
+          Feature matrix, EOD add-on, and FAQs →
         </Link>
       </div>
     </section>

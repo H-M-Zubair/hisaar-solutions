@@ -12,8 +12,8 @@ export function OwnerBrain() {
         </h2>
         <p className="mt-4 max-w-xl text-mute">
           Same KPIs the product ships: revenue, sales, profit, customers, AOV,
-          margin, hourly rush, tender mix, hot SKUs, inventory health. Starter
-          keeps today. Pro unlocks the rest. The cashier never sees this screen.
+          margin, hourly rush, tender mix, hot SKUs, inventory health. Lite and
+          Standard keep today. Pro unlocks the rest. The cashier never sees this screen.
         </p>
         <AwesomeSlide direction="right">
           <div className="mt-12">
@@ -28,7 +28,7 @@ export function OwnerBrain() {
             CSV export for the accountant. Profit columns only if you can view financials.
           </li>
           <li className="rounded-xl border border-line px-4 py-3">
-            Shift closing logs on Starter: expected drawer versus counted cash. Pro filters by cashier and date.
+            Shift closing on Standard: expected drawer versus counted cash. Pro filters by cashier and date. WhatsApp EOD is a Pro add-on.
           </li>
         </ul>
       </div>
