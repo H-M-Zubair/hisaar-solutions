@@ -1,15 +1,21 @@
+import { formatPkr } from "./utils";
+
+export type BillingCycle = "monthly" | "annual";
+
 export const plans = [
   {
     id: "lite",
-    name: "Lite",
-    price: "Rs 1,499",
+    name: "Mobile",
+    monthlyPrice: 1999,
+    annualDiscountPct: 5,
+    quoted: false,
     period: "/ month · Android only",
     priceAlt: "",
     periodAlt: "",
     eyebrow: "Phone · tablet",
     blurb:
       "One mobile till for hawkers and micro-kiranas. Owner on the device. Today’s sale. No desktop counter.",
-    cta: "Start on Lite",
+    cta: "Start on Mobile",
     featured: false,
     points: [
       "Android / tablet only — one till",
@@ -22,15 +28,17 @@ export const plans = [
   },
   {
     id: "standard",
-    name: "Standard",
-    price: "Rs 3,499",
+    name: "Starter",
+    monthlyPrice: 3999,
+    annualDiscountPct: 6,
+    quoted: false,
     period: "/ month · desktop + Android",
     priceAlt: "",
     periodAlt: "",
     eyebrow: "Counter",
     blurb:
       "The single-counter shop: PC at the till, phone as backup. Full udhaar and wasooli. Today’s hisaab. One extra cashier.",
-    cta: "Talk Standard",
+    cta: "Talk Starter",
     featured: true,
     points: [
       "Desktop + Android — 1 till / counter",
@@ -45,7 +53,9 @@ export const plans = [
   {
     id: "pro",
     name: "Pro",
-    price: "Rs 7,499",
+    monthlyPrice: 7999,
+    annualDiscountPct: 8,
+    quoted: false,
     period: "/ month · up to 3 tills",
     priceAlt: "Rs 1,000",
     periodAlt: "/ extra till",
@@ -67,15 +77,17 @@ export const plans = [
   },
   {
     id: "proplus",
-    name: "Pro+",
-    price: "Rs 12,000+",
+    name: "Pro+ Custom",
+    monthlyPrice: 12500,
+    annualDiscountPct: 0,
+    quoted: true,
     period: "/ month · quoted",
     priceAlt: "",
     periodAlt: "",
     eyebrow: "Chains · compliance",
     blurb:
       "Unlimited tills, custom roles, FBR invoicing, white-label receipts, multi-branch stock, and daily EOD included. Quoted when the chain is real.",
-    cta: "Ask about Pro+",
+    cta: "Ask about Pro+ Custom",
     featured: false,
     points: [
       "All platforms · unlimited tills",
@@ -89,6 +101,45 @@ export const plans = [
     ],
   },
 ] as const;
+
+export type Plan = (typeof plans)[number];
+
+export const priceLineMonthly =
+  "Mobile Rs 1,999 · Starter Rs 3,999 · Pro Rs 7,999 · Pro+ Custom from Rs 12,500";
+
+export function annualYearlyTotal(monthly: number, discountPct: number) {
+  return Math.round(monthly * 12 * (1 - discountPct / 100));
+}
+
+export function annualPerMonth(monthly: number, discountPct: number) {
+  return Math.round(annualYearlyTotal(monthly, discountPct) / 12);
+}
+
+export function displayPlanPrice(plan: Plan, cycle: BillingCycle) {
+  if (plan.quoted) {
+    return {
+      amount: `${formatPkr(plan.monthlyPrice)}+`,
+      period: plan.period,
+      yearly: null as number | null,
+      savePct: 0,
+    };
+  }
+  if (cycle === "annual" && plan.annualDiscountPct > 0) {
+    const yearly = annualYearlyTotal(plan.monthlyPrice, plan.annualDiscountPct);
+    return {
+      amount: formatPkr(annualPerMonth(plan.monthlyPrice, plan.annualDiscountPct)),
+      period: "/ month · billed annually",
+      yearly,
+      savePct: plan.annualDiscountPct,
+    };
+  }
+  return {
+    amount: formatPkr(plan.monthlyPrice),
+    period: plan.period,
+    yearly: null as number | null,
+    savePct: 0,
+  };
+}
 
 export const matrix: {
   feature: string;
@@ -116,23 +167,27 @@ export const matrix: {
 export const faqs = [
   {
     q: "Can I click a button and start?",
-    a: "No. Signup is off. We create the organisation and hand you an owner code. WhatsApp is the door. Fourteen days of Pro-shaped access first, then you pick Lite, Standard, Pro, or Pro+.",
+    a: "No. Signup is off. We create the organisation and hand you an owner code. WhatsApp is the door. Fourteen days of Pro-shaped access first, then you pick Mobile, Starter, Pro, or Pro+ Custom.",
   },
   {
-    q: "Lite or Standard?",
-    a: "Lite is Android / tablet only — one till, owner, ~300 SKUs, today’s sale. Standard is the desktop counter plus Android, one till, owner + one cashier, ~1,000 SKUs, full udhaar and shift close. Most single kiranas land on Standard.",
+    q: "Mobile or Starter?",
+    a: "Mobile is Android / tablet only — one till, owner, ~300 SKUs, today’s sale. Starter is the desktop counter plus Android, one till, owner + one cashier, ~1,000 SKUs, full udhaar and shift close. Most single kiranas land on Starter.",
+  },
+  {
+    q: "What if I pay annually?",
+    a: "Versus twelve monthly payments: Mobile saves 5%, Starter 6%, Pro 8%. You still see a monthly figure; billing is one yearly transfer. Pro+ Custom is quoted — annual is part of that conversation.",
   },
   {
     q: "What is the WhatsApp daily EOD?",
-    a: "A PDF of the day’s ledger to the owner’s WhatsApp or email at close — built for the owner who is not always at the counter. Locked on Lite and Standard. Rs 999 / month add-on on Pro. Included on Pro+.",
+    a: "A PDF of the day’s ledger to the owner’s WhatsApp or email at close — built for the owner who is not always at the counter. Locked on Mobile and Starter. Rs 999 / month add-on on Pro. Included on Pro+ Custom.",
   },
   {
     q: "How many tills on Pro?",
-    a: "Three tills in the Rs 7,499 band. Each extra till is Rs 1,000 / month. Unlimited tills live on Pro+.",
+    a: "Three tills in the Rs 7,999 band. Each extra till is Rs 1,000 / month. Unlimited tills live on Pro+ Custom.",
   },
   {
-    q: "Is shift closing on Standard?",
-    a: "Yes. Standard includes cash in the drawer versus POS cash sales. Lite has tonight’s close on the phone. Pro adds date and cashier filters across many closes.",
+    q: "Is shift closing on Starter?",
+    a: "Yes. Starter includes cash in the drawer versus POS cash sales. Mobile has tonight’s close on the phone. Pro adds date and cashier filters across many closes.",
   },
   {
     q: "Do you take cards or JazzCash inside Omni Ledger?",
@@ -140,10 +195,10 @@ export const faqs = [
   },
   {
     q: "FBR / PRA digital invoicing?",
-    a: "Not on Lite, Standard, or Pro. It is included on Pro+ — with white-label receipts — when the integration is real for your province. We will not demo a push that is not live.",
+    a: "Not on Mobile, Starter, or Pro. It is included on Pro+ Custom — with white-label receipts — when the integration is real for your province. We will not demo a push that is not live.",
   },
   {
     q: "One login for many branches?",
-    a: "Not on Lite or Standard. Pro can add a branch at Rs 2,500 / month per branch. Unlimited branches and stock transfer are included on Pro+.",
+    a: "Not on Mobile or Starter. Pro can add a branch at Rs 2,500 / month per branch. Unlimited branches and stock transfer are included on Pro+ Custom.",
   },
 ];

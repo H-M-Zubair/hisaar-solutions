@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { Bricolage_Grotesque } from "next/font/google";
+import { Bricolage_Grotesque, Chakra_Petch } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { BrandedLoader } from "@/components/layout/branded-loader";
 import { Header } from "@/components/layout/header";
@@ -22,6 +22,12 @@ const geistMono = localFont({
 const display = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-display",
+  display: "swap",
+});
+const logo = Chakra_Petch({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-logo",
   display: "swap",
 });
 
@@ -75,7 +81,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${geistSans.variable} ${geistMono.variable} ${display.variable}`}
+      className={`dark ${geistSans.variable} ${geistMono.variable} ${display.variable} ${logo.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-screen max-w-full overflow-x-clip bg-ink font-sans text-paper antialiased">

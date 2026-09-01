@@ -30,9 +30,9 @@ export default function AboutPage() {
           </p>
           <p className="mt-6 leading-relaxed text-mute">
             We skin one multi-tenant app for grocery, pharmacy, restaurant, and
-            garments because those floors do not share a SKU model. Lite is the
-            phone. Standard is one desktop till. Extra tills and daily WhatsApp
-            EOD sit on Pro. FBR, white-label, and unlimited branches live on Pro+.
+            garments because those floors do not share a SKU model. Mobile is the
+            phone. Starter is one desktop till. Extra tills and daily WhatsApp
+            EOD sit on Pro. FBR, white-label, and unlimited branches live on Pro+ Custom.
           </p>
           <p className="mt-6 leading-relaxed text-mute">
             Trials are provisioned on WhatsApp. That is slower than a signup
@@ -59,9 +59,9 @@ export default function AboutPage() {
             <div className="rounded-2xl border border-line p-6">
               <p className="eyebrow">Name</p>
               <p className="mt-4 text-sm leading-relaxed text-mute">
-                The mark is two ledger columns, a teal rule, an amber tick. It is
-                not a mountain, not a wave, not an abstract animal. It is a book
-                that balances.
+                The mark is a green circuit of nodes — connected, modular, a
+                ledger that talks. It is not a mountain, not a wave, not an
+                abstract animal. It is infrastructure you can read at a glance.
               </p>
             </div>
           </aside>

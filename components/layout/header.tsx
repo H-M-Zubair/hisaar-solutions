@@ -96,6 +96,9 @@ export function Header() {
             </SheetTrigger>
             <SheetContent>
               <SheetTitle className="sr-only">Menu</SheetTitle>
+              <div className="mb-8 pr-8" onClick={() => setOpen(false)}>
+                <Logo />
+              </div>
               <nav className="mt-2 flex flex-col items-start gap-1.5" aria-label="Mobile">
                 {drawerNav.map((item) => {
                   const active = isActivePath(path, item.href);

@@ -8,7 +8,7 @@ import { AwesomeFade } from "@/components/motion/awesome-reveal";
 export const metadata = pageMeta({
   title: "Solutions",
   description:
-    "Omni Ledger skins for grocery, pharmacy, restaurant, and garments. Same ledger, different floors. Lite/Standard is simple SKU; Pro is the industry pack.",
+    "Omni Ledger skins for grocery, pharmacy, restaurant, and garments. Same ledger, different floors. Mobile/Starter is simple SKU; Pro is the industry pack.",
   path: "/solutions",
 });
 
@@ -18,7 +18,7 @@ export default function SolutionsPage() {
       <PageHero
         kicker="Solutions"
         title="Pick the floor you actually run."
-        lede="Four packs, one tenant. Lite is the phone. Standard is a simple SKU till. Pro is lots, tables, or the size×color matrix — we will not sell you the wrong one."
+        lede="Four packs, one tenant. Mobile is the phone. Starter is a simple SKU till. Pro is lots, tables, or the size×color matrix — we will not sell you the wrong one."
       />
       <section className="mx-auto max-w-[1120px] px-5 py-16 sm:px-8">
         {/* Intent: four editorial posters, each with its own accent — not identical cards recolored. */}

@@ -12,7 +12,7 @@ import { site } from "@/lib/site";
 
 export function HomeHero() {
   return (
-    <section className="relative overflow-x-clip bg-mesh">
+    <section className="relative bg-mesh">
       {/* Intent: a dark ledger opening — huge type, a live till, no stock photography. */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="bg-grid absolute inset-0 opacity-40" />
@@ -43,7 +43,7 @@ export function HomeHero() {
             There is no self-serve signup. WhatsApp {site.phone}.
           </p>
         </div>
-        <AwesomeSlide direction="right" delay={280} duration={900} fraction={0} className="w-full min-w-0 self-center">
+        <AwesomeSlide direction="right" delay={280} duration={900} fraction={0} className="w-full min-w-0 self-center overflow-visible">
           {/* Intent: original till chrome; SE rest shadow; hover is a cursor lamp, not an orange rim. */}
           <TiltCard className="w-full self-center">
             <PosTerminal />

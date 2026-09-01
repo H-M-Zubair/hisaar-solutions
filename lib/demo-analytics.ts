@@ -1,7 +1,7 @@
 export type DemoPeriod = "daily" | "weekly" | "monthly" | "yearly";
 
 export const demoPeriods: { id: DemoPeriod; label: string; range: string }[] = [
-  { id: "daily", label: "Today", range: "Lite & Standard keep this pane" },
+  { id: "daily", label: "Today", range: "Mobile & Starter keep this pane" },
   { id: "weekly", label: "Week", range: "Pro · vs last week" },
   { id: "monthly", label: "Month", range: "Pro · vs last month" },
   { id: "yearly", label: "Year", range: "Pro · vs last year" },

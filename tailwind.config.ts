@@ -20,6 +20,7 @@ const config = {
         display: ["var(--font-display)", "system-ui", "sans-serif"],
         sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+        logo: ["var(--font-logo)", "var(--font-geist-sans)", "system-ui", "sans-serif"],
       },
       colors: {
         ink: "var(--ink)",
@@ -35,6 +36,7 @@ const config = {
         restaurant: "var(--restaurant)",
         garments: "var(--garments)",
         gold: "var(--gold)",
+        hisaar: "#17D492",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -68,7 +68,7 @@ export function OwnerAnalytics({ className }: { className?: string }) {
 
       {locked && (
         <p className="border-b border-line bg-ink px-4 py-2 font-mono text-[10px] uppercase tracking-wider text-amber sm:px-5">
-          Lite and Standard keep today. Pro unlocks week / month / year.
+          Mobile and Starter keep today. Pro unlocks week / month / year.
         </p>
       )}
 

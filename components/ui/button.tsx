@@ -9,7 +9,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         amber:
-          "bg-amber text-[#1a0d04] shadow-cta hover:brightness-110",
+          "bg-amber text-[#1a0d04] shadow-cta hover:bg-amber hover:text-gray-100 hover:brightness-110",
         teal: "bg-teal text-[#04241c] hover:brightness-110",
         outline:
           "hairline bg-transparent text-paper hover:bg-paper/5",

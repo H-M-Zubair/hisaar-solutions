@@ -78,10 +78,10 @@ export function PricingMatrix() {
             <thead className="bg-ink font-mono text-[10px] uppercase tracking-[0.16em] text-mute">
               <tr>
                 <th className="px-4 py-3 font-medium">Feature</th>
-                <th className="px-4 py-3 font-medium">Lite</th>
-                <th className="px-4 py-3 font-medium text-amber">Standard</th>
+                <th className="px-4 py-3 font-medium">Mobile</th>
+                <th className="px-4 py-3 font-medium text-amber">Starter</th>
                 <th className="px-4 py-3 font-medium">Pro</th>
-                <th className="px-4 py-3 font-medium">Pro+</th>
+                <th className="px-4 py-3 font-medium">Pro+ Custom</th>
               </tr>
             </thead>
             <tbody>

@@ -49,7 +49,7 @@ export default function ProductsPage() {
         </h2>
         <p className="mt-4 max-w-xl text-mute">
           Barcode, cash or card label, credit, partial, receipt, next order. POS is
-          complete on Lite, Standard, and Pro. We do not gate the till.
+          complete on Mobile, Starter, and Pro. We do not gate the till.
         </p>
         <AwesomeSlide direction="right">
           <div className="mt-10">
@@ -63,11 +63,11 @@ export default function ProductsPage() {
           {/* Intent: owner reports belong here; industry dashboards do not. */}
           <p className="eyebrow text-teal">The owner pane</p>
           <h2 className="display mt-3 max-w-2xl text-3xl sm:text-4xl">
-            Today on Lite and Standard. History on Pro. Never on the cashier.
+            Today on Mobile and Starter. History on Pro. Never on the cashier.
           </h2>
           <p className="mt-4 max-w-xl text-mute">
-            Same KPIs the product ships. Week / month / year lock on Lite and
-            Standard. Pro unlocks history. Profit is a role rule, not a plan toggle.
+            Same KPIs the product ships. Week / month / year lock on Mobile and
+            Starter. Pro unlocks history. Profit is a role rule, not a plan toggle.
           </p>
           <div className="mt-10">
             <OwnerAnalytics />

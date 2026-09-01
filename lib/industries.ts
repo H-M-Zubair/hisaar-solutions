@@ -34,10 +34,10 @@ export const industries: Record<IndustrySlug, Industry> = {
     accentName: "Amber",
     feeling: "Counter warmth",
     starterFit:
-      "Standard: owner on the till, one extra cashier, ~1,000 SKUs, udhaar khata, today’s sale, shift close. Lite: Android-only, owner, ~300 SKUs.",
+      "Starter: owner on the till, one extra cashier, ~1,000 SKUs, udhaar khata, today’s sale, shift close. Mobile: Android-only, owner, ~300 SKUs.",
     proFit:
       "Two or more cashiers, loyalty for regulars, bulk import, month-long profit, who sold what, whose drawer ran short.",
-    notSold: "Multi-branch is a Pro add-on (Rs 2,500 / branch) or included on Pro+. Supplier POs are not in any tier.",
+    notSold: "Multi-branch is a Pro add-on (Rs 2,500 / branch) or included on Pro+ Custom. Supplier POs are not in any tier.",
     pains: [
       {
         title: "The 7pm rush",
@@ -45,11 +45,11 @@ export const industries: Record<IndustrySlug, Industry> = {
       },
       {
         title: "Udhaar that actually posts",
-        body: "Credit and partial pay on the ticket, then Record Payment when they settle — Standard keeps full khata. Lite is basic udhaar.",
+        body: "Credit and partial pay on the ticket, then Record Payment when they settle — Starter keeps full khata. Mobile is basic udhaar.",
       },
       {
         title: "Fibre cut, still selling",
-        body: "Offline queue on the till. Sync when the line comes back. This is not gated to Pro — Lite and Standard both sell offline.",
+        body: "Offline queue on the till. Sync when the line comes back. This is not gated to Pro — Mobile and Starter both sell offline.",
       },
     ],
     modules: [
@@ -80,11 +80,11 @@ export const industries: Record<IndustrySlug, Industry> = {
       },
       {
         title: "Strength is not a note",
-        body: "Tablet 250 and 500 are different SKUs under one parent. Standard is one barcode, one qty.",
+        body: "Tablet 250 and 500 are different SKUs under one parent. Starter is one barcode, one qty.",
       },
       {
         title: "Honest plan advice",
-        body: "If you legally need lot tracking, Standard is the wrong plan. We will say so on the call.",
+        body: "If you legally need lot tracking, Starter is the wrong plan. We will say so on the call.",
       },
     ],
     modules: [
@@ -98,7 +98,7 @@ export const industries: Record<IndustrySlug, Industry> = {
     name: "Restaurant",
     kicker: "Floor · kitchen · counter",
     headline: "Open the table. Ticket the kitchen. Bill last.",
-    lede: "Retail POS is the wrong model for dine-in. The real loop is table → KOT → settle. Standard is takeaway. Pro is the floor.",
+    lede: "Retail POS is the wrong model for dine-in. The real loop is table → KOT → settle. Starter is takeaway. Pro is the floor.",
     accent: "#FF5A2A",
     accentName: "Ember",
     feeling: "Heat, kitchen, floor",
@@ -111,7 +111,7 @@ export const industries: Record<IndustrySlug, Industry> = {
     pains: [
       {
         title: "Eight tables, one kitchen",
-        body: "If the pain is the floor, do not buy Standard. Trial Pro. Table status is the product.",
+        body: "If the pain is the floor, do not buy Starter. Trial Pro. Table status is the product.",
       },
       {
         title: "Modifiers without chaos",
@@ -119,7 +119,7 @@ export const industries: Record<IndustrySlug, Industry> = {
       },
       {
         title: "Rush by the hour",
-        body: "Pro reports show when the floor actually runs. Lite and Standard only know today.",
+        body: "Pro reports show when the floor actually runs. Mobile and Starter only know today.",
       },
     ],
     modules: [

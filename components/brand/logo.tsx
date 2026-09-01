@@ -1,35 +1,59 @@
 import Link from "next/link";
+import { HisaarMark } from "@/components/brand/hisaar-mark";
 import { cn } from "@/lib/utils";
+
+const SIZE = {
+  sm: { mark: 28, word: "text-[11px] tracking-[0.16em]" },
+  md: { mark: 34, word: "text-[12.5px] tracking-[0.15em]" },
+  lg: { mark: 44, word: "text-[15px] tracking-[0.14em]" },
+} as const;
 
 export function Logo({
   className,
   markOnly = false,
+  size = "md",
+  href = "/",
 }: {
   className?: string;
   markOnly?: boolean;
+  size?: keyof typeof SIZE;
+  href?: string;
 }) {
+  const s = SIZE[size];
+
   return (
     <Link
-      href="/"
-      className={cn("group flex items-center gap-2.5 text-paper", className)}
+      href={href}
+      className={cn(
+        "group flex shrink-0 items-center gap-2.5 text-paper transition-opacity hover:opacity-80",
+        className,
+      )}
       aria-label="Hisaar Solutions home"
     >
-      <span className="relative grid h-8 w-8 place-items-center" aria-hidden>
-        <svg viewBox="0 0 32 32" className="h-8 w-8">
-          <rect x="4" y="4" width="8" height="24" rx="1.5" fill="currentColor" />
-          <rect x="20" y="4" width="8" height="24" rx="1.5" fill="currentColor" />
-          <rect x="4" y="13" width="24" height="3" rx="1" fill="var(--teal)" />
-          <rect x="14" y="22" width="4" height="6" rx="1" fill="var(--amber)" />
-        </svg>
-      </span>
       {!markOnly && (
-        <span className="flex flex-col leading-none">
-          <span className="font-display text-[15px] tracking-tight">Hisaar</span>
-          <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-mute">
+        <span className="flex flex-col items-end justify-center whitespace-nowrap leading-none">
+          <span
+            className={cn(
+              "font-logo font-semibold uppercase",
+              s.word,
+            )}
+          >
+            Hisaar
+          </span>
+          <span
+            className={cn(
+              "mt-[0.22em] font-logo font-semibold uppercase",
+              s.word,
+            )}
+          >
             Solutions
           </span>
         </span>
       )}
+      <HisaarMark
+        size={s.mark}
+        className="transition-transform duration-300 group-hover:scale-[1.04]"
+      />
     </Link>
   );
 }

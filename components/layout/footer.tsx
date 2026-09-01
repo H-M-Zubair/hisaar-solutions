@@ -9,11 +9,17 @@ export function Footer() {
       {/* Intent: a ledger footer — product facts and a door, not a fake sitemap of empty pages. */}
       <div className="mx-auto grid max-w-[1120px] gap-12 px-5 py-16 sm:px-8 lg:grid-cols-12">
         <div className="lg:col-span-4">
-          <Logo />
+          <Logo size="lg" />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-mute">
-            We ship Omni Ledger — Lite on Android, Standard at the counter, Pro
+            We ship Omni Ledger — Mobile on Android, Starter at the counter, Pro
             for extra tills. Four industry packs. No invented client count.
           </p>
+          <Link
+            href="/"
+            className="mt-4 inline-block font-logo text-[11px] font-semibold uppercase tracking-[0.18em] text-hisaar hover:text-paper"
+          >
+            hisaarsolutions.com
+          </Link>
         </div>
         <div className="grid grid-cols-2 gap-8 lg:col-span-8 lg:grid-cols-3">
           <div className="min-w-0">
@@ -61,6 +67,11 @@ export function Footer() {
                   WhatsApp
                 </a>
               </li>
+              <li>
+                <Link href="/" className="hover:text-paper">
+                  hisaarsolutions.com
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -69,7 +80,7 @@ export function Footer() {
         <div className="mx-auto flex max-w-[1120px] flex-col gap-2 px-5 py-6 text-xs text-mute lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <p>© {new Date().getFullYear()} Hisaar Solutions. Omni Ledger is a product, not a marketplace.</p>
           <p className="font-mono uppercase tracking-[0.12em] lg:tracking-[0.18em]">
-            PKR · Lite from Rs 1,499 · provisioned
+            PKR · Mobile from Rs 1,999 · provisioned
           </p>
         </div>
       </div>

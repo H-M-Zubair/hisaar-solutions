@@ -14,7 +14,7 @@ export const playbooks = [
       "Wi‑Fi down: two more sales. It comes back: Sync. Queued badge clears.",
       "Close shift. Counted cash versus expected. Shortage is an owner fact, not a rumour.",
     ],
-    proof: "Offline queue + udhaar + shift close ship on Standard. Month charts do not — that is the Pro conversation after the rush is calm.",
+    proof: "Offline queue + udhaar + shift close ship on Starter. Month charts do not — that is the Pro conversation after the rush is calm.",
   },
   {
     slug: "expiry-window",
@@ -31,7 +31,7 @@ export const playbooks = [
       "Rx-required SKU asks for a prescription number.",
       "An expired lot cannot complete. That is the block, not a warning toast.",
     ],
-    proof: "Lots, FEFO, and the expiry board are the pharmacy Pro pack. Standard will not pretend to be that product.",
+    proof: "Lots, FEFO, and the expiry board are the pharmacy Pro pack. Starter will not pretend to be that product.",
   },
   {
     slug: "eight-tables",
@@ -48,7 +48,7 @@ export const playbooks = [
       "Settle table 2 to an invoice when they ask.",
       "Owner later: hourly rush, not just today’s lump sum.",
     ],
-    proof: "If the pain is tables, we trial Pro. Standard is takeaway on purpose — we will not sell a KOT that is not there.",
+    proof: "If the pain is tables, we trial Pro. Starter is takeaway on purpose — we will not sell a KOT that is not there.",
   },
   {
     slug: "dead-stock-rail",

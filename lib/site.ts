@@ -6,7 +6,7 @@ export const site = {
   url: "https://hisaarsolutions.com",
   tagline: "The shop’s brain, not just the scanner.",
   description:
-    "Hisaar Solutions builds Omni Ledger — a provisioned SaaS POS and shop ERP for grocery, pharmacy, restaurant, and garments. Lite Rs 1,499 · Standard Rs 3,499 · Pro Rs 7,499. Offline-first. Owner-locked profit.",
+    "Hisaar Solutions builds Omni Ledger — a provisioned SaaS POS and shop ERP for grocery, pharmacy, restaurant, and garments. Mobile Rs 1,999 · Starter Rs 3,999 · Pro Rs 7,999. Offline-first. Owner-locked profit.",
   city: "Lahore Cantt",
   country: "Pakistan",
   phone: "+92 303 0609872",
@@ -41,7 +41,7 @@ export const facts = [
 
 export const honest = [
   "No JazzCash or Stripe machine inside the app.",
-  "FBR / PRA digital invoicing is included on Pro+ — not on Lite, Standard, or Pro.",
+  "FBR / PRA digital invoicing is included on Pro+ Custom — not on Mobile, Starter, or Pro.",
   "Trial accounts are provisioned by us — there is no public signup.",
   "Profit and margin stay on the owner’s screen.",
 ] as const;

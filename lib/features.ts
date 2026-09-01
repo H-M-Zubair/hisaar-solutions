@@ -12,12 +12,12 @@ export const modules = [
   {
     id: "udhaar",
     title: "Udhaar / credit",
-    body: "Credit and partial on the ticket. Record Payment when they settle. Khata stays on Standard because grocery without it feels unfinished. Lite is basic udhaar on the phone.",
+    body: "Credit and partial on the ticket. Record Payment when they settle. Khata stays on Starter because grocery without it feels unfinished. Mobile is basic udhaar on the phone.",
   },
   {
     id: "shifts",
     title: "Shifts & cash drawer",
-    body: "Open with a float, close with a count. Standard includes shift closing — cash in the drawer versus POS sales. Pro adds cashier and date filters. WhatsApp EOD is a Pro add-on.",
+    body: "Open with a float, close with a count. Starter includes shift closing — cash in the drawer versus POS sales. Pro adds cashier and date filters. WhatsApp EOD is a Pro add-on.",
   },
   {
     id: "stock",
@@ -37,6 +37,6 @@ export const modules = [
   {
     id: "reports",
     title: "Owner reports",
-    body: "Today on Lite and Standard. Week, month, year, charts, hourly rush, top SKUs, and CSV on Pro. The till does not get this pane.",
+    body: "Today on Mobile and Starter. Week, month, year, charts, hourly rush, top SKUs, and CSV on Pro. The till does not get this pane.",
   },
 ];

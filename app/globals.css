@@ -123,6 +123,12 @@ canvas {
   padding-right: 1.25rem;
 }
 
+/* DaisyUI .btn:hover paints --n (dark) and hides the rest-state dark label. */
+.btn.bg-amber:hover {
+  background-color: var(--amber);
+  color: #f3f4f6; /* gray-100 */
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
