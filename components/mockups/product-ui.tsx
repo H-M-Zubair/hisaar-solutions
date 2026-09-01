@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 export function PosTerminal({
   accent = "var(--amber)",
-  shop = "Cantt Kirana",
+  shop = "Al Noor Kirana",
   offline = true,
   lines = [
     { name: "Ata 10kg", qty: 1, price: "1,850" },
@@ -222,64 +222,38 @@ export function TableFloor({ className }: { className?: string }) {
   );
 }
 
-export function GarmentMatrix({ className }: { className?: string }) {
-  const sizes = ["S", "M", "L", "XL"];
-  const colors = [
-    { n: "Ink", c: "#1B2436" },
-    { n: "Wine", c: "#C45B8A" },
-    { n: "Sand", c: "#D4A017" },
-  ];
-  const stock = [
-    [4, 0, 6, 8],
-    [2, 1, 0, 3],
-    [5, 7, 4, 2],
+export function RetailShelf({ className }: { className?: string }) {
+  const rows = [
+    { n: "01", name: "Oxford shirt · M", qty: "0", dead: true },
+    { n: "02", name: "Redmi 13 · 128GB", qty: "18", dead: false },
+    { n: "03", name: "Lipstick · Wine", qty: "12", dead: false },
+    { n: "04", name: "USB-C hub", qty: "7", dead: false },
   ];
   return (
     <div className={cn("rounded-2xl border border-line bg-surface p-5", className)}>
-      <p className="eyebrow">Parent · Oxford shirt</p>
-      <div className="mt-4 overflow-x-auto">
-        <table className="w-full text-center text-xs">
-          <thead>
-            <tr>
-              <th className="pb-2 text-left font-mono text-[10px] text-mute"> </th>
-              {sizes.map((s) => (
-                <th key={s} className="pb-2 font-mono text-[10px] text-mute">
-                  {s}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {colors.map((col, i) => (
-              <tr key={col.n}>
-                <td className="py-1.5 text-left">
-                  <span className="inline-flex items-center gap-2">
-                    <i
-                      className="inline-block h-3 w-3 rounded-full"
-                      style={{ background: col.c }}
-                    />
-                    {col.n}
-                  </span>
-                </td>
-                {sizes.map((s, j) => (
-                  <td key={s} className="py-1.5">
-                    <span
-                      className={cn(
-                        "inline-grid h-9 w-9 place-items-center rounded-md border font-mono",
-                        stock[i][j] === 0
-                          ? "border-danger/40 text-danger"
-                          : "border-line text-paper",
-                      )}
-                    >
-                      {stock[i][j]}
-                    </span>
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <p className="eyebrow">Retail · mixed stock</p>
+      <p className="mt-1 text-[11px] text-mute">Clothes, mobiles, cosmetics, hardware</p>
+      <ul className="mt-4 space-y-2">
+        {rows.map((r) => (
+          <li
+            key={r.n}
+            className="flex items-center justify-between gap-3 rounded-lg border border-line px-3 py-2.5 text-sm"
+          >
+            <span className="min-w-0">
+              <span className="font-mono text-[10px] text-mute">{r.n}</span>
+              <span className="ml-2 text-paper">{r.name}</span>
+            </span>
+            <span
+              className={cn(
+                "shrink-0 font-mono text-xs",
+                r.dead ? "text-danger" : "text-mute",
+              )}
+            >
+              {r.qty}
+            </span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

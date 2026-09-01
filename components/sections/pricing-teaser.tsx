@@ -10,12 +10,12 @@ export function PricingTeaser() {
       <div className="mx-auto max-w-[1120px] px-5 sm:px-8">
         <p className="eyebrow">Plans</p>
         <h2 className="display mt-3 text-4xl sm:text-5xl">
-          Mobile, Starter, or Pro.
+          Phone, counter, or extra tills.
         </h2>
         <p className="mt-4 max-w-lg text-mute">
-          Starter is the desktop kirana most shops buy. Mobile is Android-only.
-          Pro is extra tills and the owner’s brain. Pro+ Custom is a quote.
-          Pay annually and save 5–8%.
+          Starter is the computer kirana most shops buy. Mobile is phone only.
+          Pro is extra tills and seeing last month. Pro+ Custom is a quote.
+          Pay yearly and save 5–8%.
         </p>
         <div className="mt-12 grid min-w-0 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {shown.map((p) => {

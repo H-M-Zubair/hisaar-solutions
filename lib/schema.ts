@@ -19,6 +19,7 @@ export function organizationGraph(): JsonLd {
         url: `${site.url}${site.logo}`,
         contentUrl: `${site.url}${site.logo}`,
         caption: site.name,
+        name: `${site.name} logo`,
       },
       {
         "@type": ["Organization", "ProfessionalService"],
@@ -30,37 +31,28 @@ export function organizationGraph(): JsonLd {
         description: site.description,
         email: site.email,
         telephone: site.phone,
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: site.city,
-          addressCountry: site.countryCode,
-        },
-        areaServed: {
-          "@type": "Country",
-          name: site.country,
-        },
         contactPoint: [
           {
             "@type": "ContactPoint",
             telephone: site.phone,
             email: site.email,
             contactType: "sales",
-            areaServed: site.countryCode,
             availableLanguage: ["English", "Urdu"],
           },
         ],
         ...(sameAs.length ? { sameAs } : {}),
         knowsAbout: [
           "Custom software development",
-          "Web solutions",
-          "Tech consulting",
+          "SaaS product development",
+          "B2B software",
+          "Shop ERP",
           "Point of sale",
+          "Grocery POS",
+          "Pharmacy POS",
+          "Restaurant POS",
+          "Retail POS",
           site.product,
         ],
-        foundingLocation: {
-          "@type": "Place",
-          name: `${site.city}, ${site.country}`,
-        },
       },
       {
         "@type": "WebSite",
@@ -79,7 +71,9 @@ export function organizationGraph(): JsonLd {
         operatingSystem: "Web, Android",
         url: `${site.url}/products`,
         description:
-          "Provisioned POS and shop ERP for grocery, pharmacy, restaurant, and garments. Offline-first. Owner-locked profit.",
+          "Omni Ledger is a multi-sector POS developed by Hisaar Solutions for grocery, pharmacy, restaurant, and retail — clothes, mobile shops, and more.",
+        screenshot: `${site.url}/photos/grocery-floor.jpg`,
+        image: `${site.url}${site.ogImage}`,
         offers: {
           "@type": "AggregateOffer",
           priceCurrency: "PKR",
@@ -128,13 +122,20 @@ export function articleJsonLd({
   description,
   path,
   date,
+  image,
+  imageAlt,
 }: {
   title: string;
   description: string;
   path: string;
   date: string;
+  image?: string;
+  imageAlt?: string;
 }): JsonLd {
   const url = `${site.url}${path}`;
+  const img = image
+    ? `${site.url}${image.startsWith("/") ? image : `/${image}`}`
+    : `${site.url}${site.ogImage}`;
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -146,7 +147,36 @@ export function articleJsonLd({
     mainEntityOfPage: url,
     author: { "@id": orgId },
     publisher: { "@id": orgId },
-    image: `${site.url}${site.ogImage}`,
+    image: {
+      "@type": "ImageObject",
+      url: img,
+      contentUrl: img,
+      caption: imageAlt ?? title,
+    },
+  };
+}
+
+export function serviceJsonLd({
+  name,
+  description,
+  path,
+  image,
+}: {
+  name: string;
+  description: string;
+  path: string;
+  image: string;
+}): JsonLd {
+  const img = `${site.url}${image.startsWith("/") ? image : `/${image}`}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    url: `${site.url}${path}`,
+    provider: { "@id": orgId },
+    image: img,
+    serviceType: "Point of sale software",
   };
 }
 

@@ -3,8 +3,11 @@ import { pageMeta } from "@/lib/metadata";
 import { PageHero } from "@/components/sections/page-hero";
 import { CtaBand } from "@/components/sections/cta-band";
 import { industryList } from "@/lib/industries";
+import { FeatureRail } from "@/components/sections/feature-rail";
+import { OwnerBrain } from "@/components/sections/owner-brain";
+import { OfflineBand } from "@/components/sections/offline-band";
+import { ShopPhoto } from "@/components/ui/shop-photo";
 import { PosTerminal } from "@/components/mockups/product-ui";
-import { OwnerAnalytics } from "@/components/mockups/owner-analytics";
 import { AwesomeSlide } from "@/components/motion/awesome-reveal";
 import { JsonLd } from "@/components/seo/json-ld";
 import { breadcrumbJsonLd } from "@/lib/schema";
@@ -12,25 +15,29 @@ import { breadcrumbJsonLd } from "@/lib/schema";
 export const metadata = pageMeta({
   title: "Omni Ledger POS",
   description:
-    "Omni Ledger POS and shop ERP from Hisaar Solutions: barcode till, offline sync, udhaar, shift close, and owner-only reports for Pakistan retail shops.",
+    "Omni Ledger POS from Hisaar Solutions: fast billing, works when bijli or internet is down, udhaar, night cash count, and owner-only reports.",
   path: "/products",
+  image: {
+    url: "/photos/grocery-floor.jpg",
+    alt: "A grocery mart floor — Omni Ledger POS from Hisaar Solutions",
+  },
 });
 
 const roles = [
   {
     name: "Owner",
     blurb: "The shop from home.",
-    can: "Reports, staff, organisation, stock, and the till — including profit.",
+    can: "Reports, staff, the shop, stock, and the till — including profit.",
   },
   {
     name: "Manager",
     blurb: "The floor, without the books.",
-    can: "Products, stock, voids, and settings. Financials stay with the owner.",
+    can: "Products, stock, cancel a sale, and settings. Profit stays with the owner.",
   },
   {
     name: "Cashier",
     blurb: "The counter, and only the counter.",
-    can: "Sales, customers, invoices, and tonight’s shift close.",
+    can: "Sales, customers, bills, and tonight’s cash count.",
   },
 ];
 
@@ -45,19 +52,25 @@ export default function ProductsPage() {
       />
       <PageHero
         kicker="Omni Ledger"
-        title="One ledger. The floor is a skin."
-        lede="Barcode POS, offline sales, udhaar, shift close, and owner reports — the till every shop shares. Industry packs for grocery, pharmacy, restaurant, and garments live on Solutions."
+        title="The ready POS for every floor."
+        lede="Hisaar’s shop product: fast billing, udhaar, stock, and owner reports. Grocery, pharmacy, restaurant, and retail — clothes, mobile shops, and more. Keeps selling when bijli or internet is down."
+        crumbs={[
+          { name: "Home", href: "/" },
+          { name: "Omni Ledger" },
+        ]}
       />
 
+      <OfflineBand />
+      <FeatureRail />
+
       <section className="mx-auto max-w-[1120px] min-w-0 overflow-x-clip px-5 py-20 sm:px-8">
-        {/* Intent: the till as an instrument — not another industry poster. */}
         <p className="eyebrow">The counter</p>
         <h2 className="display mt-3 max-w-2xl text-3xl sm:text-4xl">
-          Scan, settle, queue — even when the fibre dies.
+          Scan, take money, next customer.
         </h2>
         <p className="mt-4 max-w-xl text-mute">
-          Barcode, cash or card label, credit, partial, receipt, next order. POS is
-          complete on Mobile, Starter, and Pro. We do not gate the till.
+          Barcode, cash or card, credit, part-pay, receipt, next order. Billing
+          is complete on Mobile, Starter, and Pro. We do not lock the till.
         </p>
         <AwesomeSlide direction="right">
           <div className="mt-10">
@@ -66,30 +79,14 @@ export default function ProductsPage() {
         </AwesomeSlide>
       </section>
 
-      <section className="overflow-x-clip border-y border-line py-20">
-        <div className="mx-auto max-w-[1120px] px-5 sm:px-8">
-          {/* Intent: owner reports belong here; industry dashboards do not. */}
-          <p className="eyebrow text-teal">The owner pane</p>
-          <h2 className="display mt-3 max-w-2xl text-3xl sm:text-4xl">
-            Today on Mobile and Starter. History on Pro. Never on the cashier.
-          </h2>
-          <p className="mt-4 max-w-xl text-mute">
-            Same KPIs the product ships. Week / month / year lock on Mobile and
-            Starter. Pro unlocks history. Profit is a role rule, not a plan toggle.
-          </p>
-          <div className="mt-10">
-            <OwnerAnalytics />
-          </div>
-        </div>
-      </section>
+      <OwnerBrain photo={false} />
 
       <section className="mx-auto max-w-[1120px] px-5 py-20 sm:px-8">
-        {/* Intent: role value for the shop owner — permissions, not how anyone logs in. */}
-        <p className="eyebrow">Staff control</p>
+        <p className="eyebrow">Staff</p>
         <h2 className="display mt-3 text-3xl sm:text-4xl">Each person sees only their job.</h2>
         <p className="mt-4 max-w-xl text-mute">
-          Owner, manager, and cashier are separate seats. Profit stays with the
-          owner. The till does not become a shared login.
+          Owner, manager, and cashier are separate. Profit stays with the owner.
+          The till is not a shared login.
         </p>
         <div className="mt-10 grid gap-4 lg:grid-cols-3">
           {roles.map((r) => (
@@ -103,30 +100,41 @@ export default function ProductsPage() {
       </section>
 
       <section className="mx-auto max-w-[1120px] px-5 py-20 sm:px-8">
-        {/* Intent: a doorway, not a second Solutions page. */}
         <p className="eyebrow">Then pick a floor</p>
         <h2 className="display mt-3 max-w-xl text-3xl sm:text-4xl">
-          The skins are on Solutions.
+          Grocery, pharmacy, restaurant, retail.
         </h2>
         <p className="mt-4 max-w-lg text-mute">
-          Each industry has its own page: kirana rush, lots and FEFO, tables and
-          KOT, size×color matrix. Open the floor that matches the shop.
+          Each shop type has its own page. Open the floor that matches your shop.
         </p>
-        <ul className="mt-10 divide-y divide-line border-y border-line">
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2">
           {industryList.map((i) => (
             <li key={i.slug}>
               <Link
                 href={`/solutions/${i.slug}`}
-                className="flex items-baseline justify-between gap-4 py-4 hover:text-teal"
+                className="group block overflow-hidden rounded-2xl border border-line hover:border-teal/40"
               >
-                <span className="font-display text-xl tracking-tight">{i.name}</span>
-                <span className="text-sm text-mute">{i.kicker}</span>
+                <ShopPhoto
+                  src={i.photo}
+                  alt={i.photoAlt}
+                  className="rounded-none border-0"
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                />
+                <span className="flex items-baseline justify-between gap-4 p-4">
+                  <span className="font-display text-xl tracking-tight group-hover:text-teal">
+                    {i.name}
+                  </span>
+                  <span className="text-sm text-mute">{i.kicker}</span>
+                </span>
               </Link>
             </li>
           ))}
         </ul>
       </section>
-      <CtaBand title="Walk the 12-minute till." />
+      <CtaBand
+        title="Walk the till in your own shop."
+        body="WhatsApp us. We set up Omni Ledger. You try it for 14 days. Then you pick a plan."
+      />
     </>
   );
 }

@@ -15,7 +15,7 @@
   --grocery: #e06a1a;
   --pharmacy: #0f8f74;
   --restaurant: #d64520;
-  --garments: #9a3d68;
+  --retail: #9a3d68;
   --gold: #b8860b;
   --radius: 0.9rem;
   --grid: 72px;
@@ -33,7 +33,7 @@
   --grocery: #ff8a3d;
   --pharmacy: #1ee0b0;
   --restaurant: #ff5a2a;
-  --garments: #c45b8a;
+  --retail: #c45b8a;
   --gold: #d4a017;
 }
 
@@ -109,13 +109,14 @@ canvas {
   overflow-wrap: break-word;
 }
 
-/* Intent: DaisyUI btn supplies press + ripple; we restyle so it is a Hisaar CTA, not a default button. */
+/* Intent: DaisyUI btn press — squash on down, button-pop bounce on release. */
 .btn {
+  --animation-btn: 0.25s;
+  --btn-focus-scale: 0.97;
   height: auto !important;
   min-height: 0 !important;
   border-radius: 9999px !important;
   border-width: 0 !important;
-  animation: none;
   text-transform: none !important;
 }
 .btn:not(.btn-circle):not(.btn-square) {
@@ -123,10 +124,53 @@ canvas {
   padding-right: 1.25rem;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .btn {
+    animation: button-pop var(--animation-btn, 0.25s) ease-out;
+  }
+}
+
+/* Same selectors DaisyUI uses, plus :active and [data-pressed] so <a class="btn"> also pops. */
+.btn:active,
+.btn:active:hover,
+.btn:active:focus,
+.btn[data-pressed] {
+  animation: button-pop 0s ease-out !important;
+  transform: scale(var(--btn-focus-scale, 0.97)) !important;
+}
+
+@keyframes button-pop {
+  0% {
+    transform: scale(var(--btn-focus-scale, 0.98));
+  }
+  40% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* DaisyUI .btn:hover paints --n (dark) and hides the rest-state dark label. */
 .btn.bg-amber:hover {
   background-color: var(--amber);
   color: #f3f4f6; /* gray-100 */
+}
+
+/* Ghost / icon: keep a light wash, not a black fill. */
+.btn.bg-transparent:hover {
+  background-color: color-mix(in srgb, var(--paper) 5%, transparent);
+  color: var(--paper);
+}
+
+/* Outline: keep the rest fill. Only the label shifts, same as amber. */
+.btn.hairline:hover {
+  background-color: transparent;
+  color: #f3f4f6;
+}
+html:not(.dark) .btn.hairline:hover {
+  /* Cream canvas: white type would disappear. Keep the dark label. */
+  color: var(--paper);
 }
 
 @layer utilities {

@@ -3,12 +3,14 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { AwesomeFade } from "@/components/motion/awesome-reveal";
+import { PageCrumbs, type Crumb } from "@/components/layout/page-crumbs";
 
 export function PageHero({
   kicker,
   title,
   lede,
   accent,
+  crumbs,
   children,
   className,
 }: {
@@ -16,6 +18,7 @@ export function PageHero({
   title: string;
   lede: string;
   accent?: string;
+  crumbs?: Crumb[];
   children?: ReactNode;
   className?: string;
 }) {
@@ -24,6 +27,7 @@ export function PageHero({
       <div className="bg-grid absolute inset-0 opacity-30" />
       <div className="relative mx-auto max-w-[1120px] px-5 py-16 sm:px-8 sm:py-24">
         <AwesomeFade direction="up" duration={700} fraction={0}>
+          {crumbs ? <PageCrumbs items={crumbs} /> : null}
           <p className="eyebrow" style={accent ? { color: accent } : undefined}>
             {kicker}
           </p>

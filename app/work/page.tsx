@@ -3,6 +3,7 @@ import { pageMeta } from "@/lib/metadata";
 import { PageHero } from "@/components/sections/page-hero";
 import { CtaBand } from "@/components/sections/cta-band";
 import { playbooks } from "@/lib/playbooks";
+import { ShopPhoto } from "@/components/ui/shop-photo";
 import { AwesomeFade } from "@/components/motion/awesome-reveal";
 import { JsonLd } from "@/components/seo/json-ld";
 import { breadcrumbJsonLd } from "@/lib/schema";
@@ -10,7 +11,7 @@ import { breadcrumbJsonLd } from "@/lib/schema";
 export const metadata = pageMeta({
   title: "Work",
   description:
-    "Omni Ledger playbooks for grocery rush, pharmacy expiry, restaurant tables, and garments stock — scenario walkthroughs from Hisaar Solutions, Lahore.",
+    "Four ordinary shop days: kirana rush, pharmacy expiry, restaurant tables, leftover retail stock. Simple walkthroughs from Hisaar Solutions.",
   path: "/work",
 });
 
@@ -25,28 +26,37 @@ export default function WorkPage() {
       />
       <PageHero
         kicker="Work"
-        title="Four shops. No invented names."
-        lede="We do not publish a wall of brands we do not have. These are scenario playbooks from the demo guide — the same stories we walk on the floor."
+        title="Four shops. Four ordinary days."
+        lede="We do not invent big client names. These are real shop problems — rush hour, expiry, tables, leftover stock — and how Omni Ledger helps."
+        crumbs={[
+          { name: "Home", href: "/" },
+          { name: "Work" },
+        ]}
       />
       <section className="mx-auto max-w-[1120px] px-5 py-16 sm:px-8">
-        {/* Intent: long-form playbooks as editorial cases — setting, moves, proof. */}
         <AwesomeFade direction="up">
           <div className="space-y-20">
             {playbooks.map((p, i) => (
               <article
                 key={p.slug}
-                className="grid min-w-0 gap-8 border-t border-line pt-12 lg:grid-cols-[minmax(0,200px)_minmax(0,1fr)]"
+                className="grid min-w-0 gap-8 border-t border-line pt-12 lg:grid-cols-[minmax(0,280px)_minmax(0,1fr)]"
               >
                 <div>
                   <p className="font-mono text-[11px] uppercase tracking-[0.22em]" style={{ color: p.accent }}>
                     0{i + 1} · {p.industry}
                   </p>
+                  <ShopPhoto
+                    src={p.photo}
+                    alt={p.photoAlt}
+                    className="mt-5"
+                    sizes="(min-width: 1024px) 280px, 100vw"
+                  />
                   <Link
-                    href={`/solutions/${p.industry.toLowerCase()}`}
+                    href={`/solutions/${p.floor}`}
                     className="mt-4 inline-block text-sm text-mute hover:text-paper"
                     aria-label={`Open ${p.industry} POS solution`}
                   >
-                    Open solution →
+                    Open this shop type →
                   </Link>
                 </div>
                 <div className="min-w-0">
@@ -70,7 +80,7 @@ export default function WorkPage() {
           </div>
         </AwesomeFade>
       </section>
-      <CtaBand title="Bring your rush, your lots, your tables, your rail." />
+      <CtaBand title="Bring your rush, your lots, your tables, your leftover stock." />
     </>
   );
 }

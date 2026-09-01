@@ -1,10 +1,8 @@
 import { HomeHero } from "@/components/sections/home-hero";
 import { HonestFacts } from "@/components/sections/honest-facts";
+import { CompanyOffer } from "@/components/sections/company-offer";
 import { IndustryPin } from "@/components/sections/industry-pin";
-import { FeatureRail } from "@/components/sections/feature-rail";
 import { OwnerBrain } from "@/components/sections/owner-brain";
-// import { PlaybookStrip } from "@/components/sections/playbook-strip";
-// import { PricingTeaser } from "@/components/sections/pricing-teaser";
 import { CtaBand } from "@/components/sections/cta-band";
 import { pageMeta } from "@/lib/metadata";
 import { site } from "@/lib/site";
@@ -19,12 +17,13 @@ export default function HomePage() {
     <>
       <HomeHero />
       <HonestFacts />
+      <CompanyOffer />
       <IndustryPin />
-      <FeatureRail />
-      <OwnerBrain />
-      {/* <PlaybookStrip /> */}
-      {/* <PricingTeaser /> */}
-      <CtaBand />
+      <OwnerBrain photo={false} />
+      <CtaBand
+        title="Tell us the business. We bring the software."
+        body="Subscribe to Omni Ledger, or ask us to build. WhatsApp is the door."
+      />
     </>
   );
 }

@@ -1,42 +1,42 @@
 export const modules = [
   {
     id: "pos",
-    title: "Barcode POS",
-    body: "Scan, search, cart, cash or card label, cashier discount cap, receipt, next order. The till is complete on every paid plan.",
+    title: "Fast billing",
+    body: "Scan the item. Take the money. Print the bill. Next customer. That is the whole till.",
   },
   {
     id: "offline",
-    title: "Offline queue + sync",
-    body: "Sell when the fibre dies. Reconnect, sync, queued invoices land. Not a Pro upsell — a Pakistani requirement.",
+    title: "Works without bijli or internet",
+    body: "Lights off. Internet gone. You still sell. When both come back, every bill is still there. Nothing to write in a copy book.",
   },
   {
     id: "udhaar",
-    title: "Udhaar / credit",
-    body: "Credit and partial on the ticket. Record Payment when they settle. Khata stays on Starter because grocery without it feels unfinished. Mobile is basic udhaar on the phone.",
+    title: "Udhaar book",
+    body: "Neighbour took on credit? Write it on the bill. When they pay later, mark it paid. The old khata, on the screen.",
   },
   {
     id: "shifts",
-    title: "Shifts & cash drawer",
-    body: "Open with a float, close with a count. Starter includes shift closing — cash in the drawer versus POS sales. Pro adds cashier and date filters. WhatsApp EOD is a Pro add-on.",
+    title: "Close the drawer",
+    body: "Morning cash in. Night cash counted. You see if anything is missing. No more guessing.",
   },
   {
     id: "stock",
-    title: "Stock in / out",
-    body: "Receive and adjust without a purchase-order module. Low-stock badges on the till. Lots and matrices sit in the industry packs.",
+    title: "Stock in and out",
+    body: "New stock arrives — add it. Something sold — it goes down. Running low? The till tells you.",
   },
   {
     id: "tickets",
-    title: "Invoices, returns, voids",
-    body: "History, print, return a line, owner void. Bills are never capped — a busy day is not a punishment.",
+    title: "Bills, returns, cancel",
+    body: "Print an old bill. Return one item. The owner can cancel a wrong sale. Busy days are not a problem.",
   },
   {
     id: "roles",
-    title: "Role-locked profit",
-    body: "Owner sees munafa on the dashboard. Manager runs the floor without margin. Cashier lives on POS. Role rule, already shipped.",
+    title: "Each person sees their job",
+    body: "Cashier only bills. Manager runs the floor. Only the owner sees how much the shop made.",
   },
   {
     id: "reports",
-    title: "Owner reports",
-    body: "Today on Mobile and Starter. Week, month, year, charts, hourly rush, top SKUs, and CSV on Pro. The till does not get this pane.",
+    title: "Shop from home",
+    body: "Open your phone. Today’s sales. What sold most. How much you made. The cashier never sees this screen.",
   },
 ];

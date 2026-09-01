@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/logo";
-import { nav, site } from "@/lib/site";
+import { footerNav, site } from "@/lib/site";
 import { industryList } from "@/lib/industries";
 
 export function Footer() {
@@ -11,8 +11,8 @@ export function Footer() {
         <div className="lg:col-span-4">
           <Logo size="lg" />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-mute">
-            We ship Omni Ledger — Mobile on Android, Starter at the counter, Pro
-            for extra tills. Four industry packs. No invented client count.
+            Hisaar Solutions is a B2B software company. We build our own SaaS
+            and custom software. Omni Ledger is our multi-sector POS.
           </p>
           <Link
             href="/"
@@ -22,10 +22,10 @@ export function Footer() {
           </Link>
         </div>
         <div className="grid grid-cols-2 gap-8 lg:col-span-8 lg:grid-cols-3">
-          <nav aria-label="Product">
-            <p className="eyebrow">Product</p>
+          <nav aria-label="Quick links">
+            <p className="eyebrow">Quick Links</p>
             <ul className="mt-4 space-y-2 text-sm">
-              {nav.map((item) => (
+              {footerNav.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-mute hover:text-paper">
                     {item.label}
@@ -50,7 +50,7 @@ export function Footer() {
             </ul>
           </nav>
           <nav className="min-w-0 col-span-2 lg:col-span-1" aria-label="Contact">
-            <p className="eyebrow">Desk</p>
+            <p className="eyebrow">Contact</p>
             <ul className="mt-4 space-y-2 text-sm text-mute">
               <li>
                 <a
@@ -92,9 +92,9 @@ export function Footer() {
       </div>
       <div className="border-t border-line">
         <div className="mx-auto flex max-w-[1120px] flex-col gap-2 px-5 py-6 text-xs text-mute lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <p>© {new Date().getFullYear()} Hisaar Solutions. Omni Ledger is a product, not a marketplace.</p>
+          <p>© {new Date().getFullYear()} Hisaar Solutions. B2B SaaS and custom software.</p>
           <p className="font-mono uppercase tracking-[0.12em] lg:tracking-[0.18em]">
-            PKR · Mobile from Rs 1,999 · provisioned
+            PKR · Mobile from Rs 1,999 · we set up your shop
           </p>
         </div>
       </div>

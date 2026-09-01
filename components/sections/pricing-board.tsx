@@ -22,7 +22,7 @@ function BillingToggle({
   return (
     <div className="mb-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
       <p className="text-sm text-mute">
-        Annual is one transfer. Mobile 5% · Starter 6% · Pro 8% off twelve months.
+        Annual is one transfer. Mobile 5% · Starter 6% · Pro 8% off a year.
       </p>
       <div
         className="inline-flex rounded-full border border-line bg-ink p-1"

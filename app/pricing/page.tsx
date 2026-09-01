@@ -25,17 +25,17 @@ const fbrNotes = [
   {
     n: "01",
     title: "Mobile / Starter / Pro",
-    body: "Cash vs card tax rates on the ticket. No FBR push. White-label headers are not in these bands.",
+    body: "Cash vs card tax rates on the bill. No FBR push. Your own logo on receipts is not in these plans.",
   },
   {
     n: "02",
     title: "Included on Pro+ Custom",
-    body: "FBR / PRA digital invoicing and branded thermal headers sit in the Rs 12,500+ band.",
+    body: "FBR / PRA tax bills and branded receipts sit in the Rs 12,500+ plan.",
   },
   {
     n: "03",
     title: "No fake demo",
-    body: "We will not walk an integration that is not live for your shop and province.",
+    body: "We will not walk a tax push that is not live for your shop and province.",
   },
 ];
 
@@ -51,20 +51,25 @@ export default function PricingPage() {
       <JsonLd data={faqJsonLd()} />
       <PageHero
         kicker="Pricing"
-        title="Mobile on the phone. Starter at the counter."
-        lede="Four paid bands for Pakistan retail. Starter is the single-desktop shop most kiranas buy. Pro is the owner’s brain and extra tills. Pro+ Custom is chains, FBR, and daily WhatsApp EOD included. Annual billing saves 5–8%. Trial is still provisioned — no self-serve signup."
+        title="Phone till, or a computer at the counter."
+        lede="Four plans for Pakistan shops. Starter is what most kiranas buy. Pro is extra tills and seeing last month’s profit. Pro+ Custom is chains, tax bills, and tonight’s hisaab on WhatsApp. Pay yearly and save 5–8%. We still set up your shop — no signup button."
+        crumbs={[
+          { name: "Home", href: "/" },
+          { name: "Pricing" },
+        ]}
       />
 
       <section className="relative overflow-hidden">
         <div className="bg-grid pointer-events-none absolute inset-0 opacity-20" />
         <div className="relative mx-auto max-w-[1120px] min-w-0 px-5 py-16 sm:px-8 lg:py-20">
-          <p className="eyebrow text-teal">Lahore · device-based</p>
+          <p className="eyebrow text-teal">By device</p>
           <h2 className="display mt-3 max-w-xl text-3xl sm:text-4xl">
             Pick the till you actually run.
           </h2>
           <p className="mt-3 max-w-lg text-sm text-mute">
-            Starter is marked most popular on purpose. Mobile is the Android door.
-            Extra tills and WhatsApp EOD are how Pro earns more than a second counter.
+            Starter is marked most popular on purpose. Mobile is the phone door.
+            Extra tills and a WhatsApp night report are how Pro earns more than a
+            second counter.
           </p>
           <div className="mt-10">
             <PricingBoard />
@@ -75,26 +80,26 @@ export default function PricingPage() {
       <section className="border-y border-line bg-surface">
         <div className="mx-auto grid max-w-[1120px] min-w-0 gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:py-20">
           <div>
-            <p className="eyebrow text-teal">Killer add-on · Pro</p>
+            <p className="eyebrow text-teal">Extra on Pro</p>
             <h2 className="display mt-3 text-3xl sm:text-4xl">
-              WhatsApp daily EOD.
+              Tonight’s hisaab on WhatsApp.
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-mute">
-              The owner who is not at the counter still needs tonight’s hisaab. A PDF
-              of the day’s ledger to WhatsApp or email at close — Rs 999 / month on
-              Pro, included on Pro+ Custom. Locked on Mobile and Starter so the upgrade has
-              a reason.
+              The owner who is not at the counter still needs today’s money. A PDF
+              of the day to WhatsApp or email at close — Rs 999 / month on Pro,
+              included on Pro+ Custom. Not on Mobile or Starter, so the upgrade
+              has a reason.
             </p>
           </div>
           <ul className="space-y-3 self-center text-sm">
             <li className="rounded-xl border border-line bg-ink px-4 py-3 text-mute">
-              Mobile / Starter: locked. You close the drawer yourself.
+              Mobile / Starter: not included. You close the drawer yourself.
             </li>
             <li className="rounded-xl border border-teal/30 bg-ink px-4 py-3 text-paper">
-              Pro add-on: Rs 999 / mo · PDF to the owner at 10pm.
+              Pro extra: Rs 999 / mo · PDF to the owner at 10pm.
             </li>
             <li className="rounded-xl border border-amber/35 bg-ink px-4 py-3 text-paper">
-              Pro+ Custom: included free with FBR, branches, and white-label.
+              Pro+ Custom: included, with tax bills, branches, and your logo.
             </li>
           </ul>
         </div>
@@ -105,12 +110,12 @@ export default function PricingPage() {
           <div>
             <p className="eyebrow text-amber">Pro+ Custom · included</p>
             <h2 className="display mt-3 text-3xl sm:text-4xl">
-              FBR / PRA digital invoicing
+              Government tax bills
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-mute">
-              Tax compliance and branded receipts live on Pro+ Custom, not inside Mobile,
-              Starter, or Pro. When the integration is live for your province, it
-              is in the Rs 12,500+ band — same as unlimited tills and stock transfer.
+              Tax filing and branded receipts live on Pro+ Custom, not inside Mobile,
+              Starter, or Pro. When it is live for your province, it is in the
+              Rs 12,500+ plan — same as unlimited tills and stock transfer.
             </p>
           </div>
           <ol className="space-y-0 self-center">
@@ -132,12 +137,12 @@ export default function PricingPage() {
 
       <section className="border-b border-line bg-surface">
         <div className="mx-auto max-w-[1120px] min-w-0 px-5 py-16 sm:px-8 lg:py-20">
-          <p className="eyebrow">The switchboard</p>
-          <h2 className="display mt-3 text-3xl sm:text-4xl">Where each switch lives.</h2>
+          <p className="eyebrow">Compare plans</p>
+          <h2 className="display mt-3 text-3xl sm:text-4xl">What sits on which plan.</h2>
           <p className="mt-3 max-w-xl text-sm text-mute">
-            Locked means upgrade. Add-on means a rupee line, not a fake checkbox.
-            FBR and white-label are Pro+ Custom included — we still will not demo a push
-            that is not live.
+            Locked means upgrade. Extra means a rupee line, not a fake tick.
+            Tax bills and your logo are Pro+ Custom — we still will not demo a
+            push that is not live.
           </p>
           <div className="mt-10">
             <PricingMatrix />
@@ -146,7 +151,7 @@ export default function PricingPage() {
       </section>
 
       <section className="mx-auto max-w-[720px] px-5 py-16 sm:px-8 lg:py-20">
-        <p className="eyebrow">Desk</p>
+        <p className="eyebrow">Questions</p>
         <h2 className="display mt-3 text-3xl sm:text-4xl">Questions we actually get.</h2>
         <Accordion type="single" collapsible className="mt-8">
           {faqs.map((f) => (
@@ -159,8 +164,8 @@ export default function PricingPage() {
       </section>
 
       <CtaBand
-        title="Fourteen days, then pick a band."
-        body={`${priceLineMonthly}. Pay annually and save 5–8%. We provision the shop on WhatsApp ${site.phone}.`}
+        title="Fourteen days, then pick a plan."
+        body={`${priceLineMonthly}. Pay yearly and save 5–8%. We set up the shop on WhatsApp ${site.phone}.`}
       />
     </>
   );

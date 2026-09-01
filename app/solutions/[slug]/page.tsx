@@ -9,10 +9,10 @@ import {
   GroceryPage,
   PharmacyPage,
   RestaurantPage,
-  GarmentsPage,
+  RetailPage,
 } from "@/components/sections/industry-pages";
 import { JsonLd } from "@/components/seo/json-ld";
-import { breadcrumbJsonLd } from "@/lib/schema";
+import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/schema";
 
 export function generateStaticParams() {
   return industrySlugs.map((slug) => ({ slug }));
@@ -25,6 +25,13 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
     title: `${ind.name} POS`,
     description: ind.seoDescription,
     path: `/solutions/${ind.slug}`,
+    image: { url: ind.photo, alt: ind.photoAlt },
+    keywords: [
+      `${ind.name} POS`,
+      `${ind.name.toLowerCase()} POS Pakistan`,
+      "Omni Ledger",
+      "Hisaar Solutions",
+    ],
   });
 }
 
@@ -34,13 +41,23 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
   if (!ind) notFound();
 
   const crumbs = (
-    <JsonLd
-      data={breadcrumbJsonLd([
-        { name: "Home", path: "/" },
-        { name: "Solutions", path: "/solutions" },
-        { name: `${ind.name} POS`, path: `/solutions/${ind.slug}` },
-      ])}
-    />
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Solutions", path: "/solutions" },
+          { name: `${ind.name} POS`, path: `/solutions/${ind.slug}` },
+        ])}
+      />
+      <JsonLd
+        data={serviceJsonLd({
+          name: `${ind.name} POS`,
+          description: ind.seoDescription,
+          path: `/solutions/${ind.slug}`,
+          image: ind.photo,
+        })}
+      />
+    </>
   );
 
   if (slug === "grocery")
@@ -67,7 +84,7 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
   return (
     <>
       {crumbs}
-      <GarmentsPage />
+      <RetailPage />
     </>
   );
 }

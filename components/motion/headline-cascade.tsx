@@ -21,10 +21,10 @@ const clipRise = keyframes`
 `;
 
 const LINES = [
-  { text: "The shop’s ", mute: false },
-  { text: "brain, ", mute: false },
-  { text: "not just the ", mute: true },
-  { text: "scanner.", mute: true },
+  { text: "Software we ", mute: false },
+  { text: "own.", mute: false },
+  { text: "Software we ", mute: true },
+  { text: "build.", mute: true },
 ] as const;
 
 export function HeroHeadlineCascade() {

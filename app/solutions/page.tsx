@@ -10,7 +10,7 @@ import { breadcrumbJsonLd } from "@/lib/schema";
 export const metadata = pageMeta({
   title: "Industry POS Solutions",
   description:
-    "Custom POS skins for grocery, pharmacy, restaurant, and garments. Same Omni Ledger, different floors — provisioned by Hisaar Solutions in Lahore Cantt.",
+    "Custom POS for grocery, pharmacy, restaurant, and retail — clothes, mobile shops, cosmetics, hardware. Same Omni Ledger, different floors — Hisaar Solutions.",
   path: "/solutions",
 });
 
@@ -26,10 +26,13 @@ export default function SolutionsPage() {
       <PageHero
         kicker="Solutions"
         title="Pick the floor you actually run."
-        lede="Four packs, one tenant. Mobile is the phone. Starter is a simple SKU till. Pro is lots, tables, or the size×color matrix — we will not sell you the wrong one."
+        lede="Four packs, one tenant. Mobile is the phone. Starter is a simple SKU till. Pro is lots, tables, or leftover kinds — size and colour for clothes, model and storage for phones. We will not sell you the wrong one."
+        crumbs={[
+          { name: "Home", href: "/" },
+          { name: "Solutions" },
+        ]}
       />
       <section className="mx-auto max-w-[1120px] px-5 py-16 sm:px-8">
-        {/* Intent: four editorial posters, each with its own accent — not identical cards recolored. */}
         <p className="mb-8 max-w-xl text-sm text-mute">
           The shared till — barcode, offline, udhaar, shift close, owner reports — is on{" "}
           <Link href="/products" className="text-teal hover:underline">

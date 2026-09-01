@@ -2,7 +2,8 @@ import Link from "next/link";
 import { industries } from "@/lib/industries";
 import { PageHero } from "@/components/sections/page-hero";
 import { CtaBand } from "@/components/sections/cta-band";
-import { PosTerminal, LotBoard, TableFloor } from "@/components/mockups/product-ui";
+import { ShopPhoto } from "@/components/ui/shop-photo";
+import { PosTerminal, LotBoard, TableFloor, RetailShelf } from "@/components/mockups/product-ui";
 import { AwesomeSlide, AwesomeFade } from "@/components/motion/awesome-reveal";
 
 const g = industries.grocery;
@@ -10,16 +11,31 @@ const g = industries.grocery;
 export function GroceryPage() {
   return (
     <>
-      <PageHero kicker={g.kicker} title={g.headline} lede={g.lede} accent={g.accent}>
+      <PageHero
+        kicker={g.kicker}
+        title={g.headline}
+        lede={g.lede}
+        accent={g.accent}
+        crumbs={[
+          { name: "Home", href: "/" },
+          { name: "Solutions", href: "/solutions" },
+          { name: "Grocery" },
+        ]}
+      >
         <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-mute">
           Accent · {g.accentName} · {g.feeling}
         </p>
       </PageHero>
+      <section className="border-b border-line">
+        <div className="mx-auto max-w-[1120px] px-5 py-8 sm:px-8">
+          <ShopPhoto src={g.photo} alt={g.photoAlt} sizes="(min-width: 1120px) 1120px, 100vw" priority />
+        </div>
+      </section>
       <section className="relative">
         {/* Intent: sticky till beside a vertical rush narrative — grocery is a counter, not a dashboard. */}
         <div className="mx-auto grid max-w-[1120px] min-w-0 gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <AwesomeSlide direction="left" className="min-w-0 lg:sticky lg:top-24 lg:self-start">
-            <PosTerminal shop="Cantt Kirana" accent={g.accent} />
+            <PosTerminal shop="Al Noor Kirana" accent={g.accent} />
           </AwesomeSlide>
           <div className="min-w-0 space-y-16">
             {g.pains.map((p, i) => (
@@ -66,7 +82,22 @@ export function PharmacyPage() {
   const ticks = ["Receive lot", "FEFO pick", "Rx prompt", "Expiry block"];
   return (
     <>
-      <PageHero kicker={p.kicker} title={p.headline} lede={p.lede} accent={p.accent} />
+      <PageHero
+        kicker={p.kicker}
+        title={p.headline}
+        lede={p.lede}
+        accent={p.accent}
+        crumbs={[
+          { name: "Home", href: "/" },
+          { name: "Solutions", href: "/solutions" },
+          { name: "Pharmacy" },
+        ]}
+      />
+      <section className="border-b border-line">
+        <div className="mx-auto max-w-[1120px] px-5 py-8 sm:px-8">
+          <ShopPhoto src={p.photo} alt={p.photoAlt} sizes="(min-width: 1120px) 1120px, 100vw" priority />
+        </div>
+      </section>
       <section className="overflow-x-clip py-20">
         {/* Intent: a vertical clinical timeline — pharmacy is lots moving through time, not a grid of tiles. */}
         <div className="mx-auto max-w-[720px] px-5 sm:px-8">
@@ -103,8 +134,8 @@ export function PharmacyPage() {
             ))}
           </div>
           <p className="mt-10 max-w-2xl rounded-xl border border-danger/30 bg-ink px-4 py-3 text-sm text-mute">
-            If you legally need lot tracking, Starter is the wrong plan. We will say that
-            before we provision.
+            If you legally need batch tracking, Starter is the wrong plan. We will say that
+            before we set up the shop.
           </p>
         </div>
       </section>
@@ -117,7 +148,22 @@ export function RestaurantPage() {
   const r = industries.restaurant;
   return (
     <>
-      <PageHero kicker={r.kicker} title={r.headline} lede={r.lede} accent={r.accent} />
+      <PageHero
+        kicker={r.kicker}
+        title={r.headline}
+        lede={r.lede}
+        accent={r.accent}
+        crumbs={[
+          { name: "Home", href: "/" },
+          { name: "Solutions", href: "/solutions" },
+          { name: "Restaurant" },
+        ]}
+      />
+      <section className="border-b border-line">
+        <div className="mx-auto max-w-[1120px] px-5 py-8 sm:px-8">
+          <ShopPhoto src={r.photo} alt={r.photoAlt} sizes="(min-width: 1120px) 1120px, 100vw" priority />
+        </div>
+      </section>
       <section className="overflow-x-clip py-20">
         {/* Intent: split the floor — takeaway is a cart; dine-in is a table grid. Two products, honestly. */}
         <div className="mx-auto grid max-w-[1120px] min-w-0 gap-px overflow-hidden bg-line px-0 md:grid-cols-2">
@@ -160,40 +206,56 @@ export function RestaurantPage() {
   );
 }
 
-export function GarmentsPage() {
-  const garm = industries.garments;
-  const swatches = [
-    { n: "Wine", c: "#C45B8A" },
-    { n: "Gold", c: "#D4A017" },
-    { n: "Ink", c: "#1B2436" },
-    { n: "Paper", c: "#F4F0E6" },
-    { n: "Ember", c: "#FF5A2A" },
-  ];
+export function RetailPage() {
+  const floor = industries.retail;
+  const kinds = ["Clothes", "Mobile", "Cosmetics", "Hardware", "Gifts"];
   return (
     <>
-      <PageHero kicker={garm.kicker} title={garm.headline} lede={garm.lede} accent={garm.accent} />
+      <PageHero
+        kicker={floor.kicker}
+        title={floor.headline}
+        lede={floor.lede}
+        accent={floor.accent}
+        crumbs={[
+          { name: "Home", href: "/" },
+          { name: "Solutions", href: "/solutions" },
+          { name: "Retail" },
+        ]}
+      />
       <section className="border-b border-line">
-        {/* Intent: fabric language — swatches and a matrix, not a generic three-column feature grid. */}
-        <div className="flex">
-          {swatches.map((s) => (
+        <div className="mx-auto max-w-[1120px] px-5 py-8 sm:px-8">
+          <ShopPhoto
+            src={floor.photo}
+            alt={floor.photoAlt}
+            sizes="(min-width: 1120px) 1120px, 100vw"
+            priority
+          />
+        </div>
+      </section>
+      <section className="border-b border-line">
+        <div className="flex flex-wrap">
+          {kinds.map((k) => (
             <div
-              key={s.n}
-              className="h-16 flex-1 sm:h-24"
-              style={{ background: s.c }}
-              role="img"
-              aria-label={`${s.n} fabric swatch`}
-            />
+              key={k}
+              className="flex h-16 min-w-[40%] flex-1 items-center justify-center border-b border-r border-line last:border-r-0 sm:h-20 sm:min-w-0 sm:border-b-0"
+            >
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute">
+                {k}
+              </p>
+            </div>
           ))}
         </div>
       </section>
       <section className="mx-auto max-w-[1120px] px-5 py-20 sm:px-8">
         <div className="grid min-w-0 gap-12 lg:grid-cols-2">
           <div>
-            <p className="eyebrow">Matrix</p>
-            <h2 className="display mt-3 text-4xl">Stock lives in the cell.</h2>
-            <p className="mt-4 text-mute">{garm.modules[0].body}</p>
+            <p className="eyebrow">Any merchandise</p>
+            <h2 className="display mt-3 text-4xl">
+              Clothes, mobiles, cosmetics, hardware.
+            </h2>
+            <p className="mt-4 text-mute">{floor.modules[0].body}</p>
             <div className="mt-10 space-y-8">
-              {garm.pains.map((p) => (
+              {floor.pains.map((p) => (
                 <div key={p.title}>
                   <h3 className="font-display text-xl tracking-tight">{p.title}</h3>
                   <p className="mt-2 text-sm text-mute">{p.body}</p>
@@ -202,36 +264,18 @@ export function GarmentsPage() {
             </div>
           </div>
           <AwesomeSlide direction="right">
-            <div className="rounded-2xl border border-garments/30 bg-surface p-6">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
-                Oxford · parent
-              </p>
-              <div className="mt-6 grid grid-cols-5 gap-2">
-                {["", "S", "M", "L", "XL"].map((h) => (
-                  <div key={h} className="text-center font-mono text-[10px] text-mute">
-                    {h}
-                  </div>
-                ))}
-                {["Wine", "Ink", "Sand"].flatMap((row) =>
-                  [row, "4", "0", "6", "2"].map((cell, idx) => (
-                    <div
-                      key={`${row}-${idx}`}
-                      className="grid aspect-square place-items-center rounded-md border border-line text-xs"
-                    >
-                      {cell}
-                    </div>
-                  )),
-                )}
-              </div>
+            <div className="rounded-2xl border border-retail/30 bg-surface p-6">
+              <RetailShelf className="border-0 bg-transparent p-0" />
               <p className="mt-6 text-xs text-mute">
-                Zero is dead stock, named. That report is Pro.
+                Zero is leftover stock, named. Clothes use size and colour. A
+                mobile shop uses model and storage. Same report. That is Pro.
               </p>
             </div>
           </AwesomeSlide>
         </div>
-        <p className="mt-12 text-sm text-mute">{garm.notSold}</p>
+        <p className="mt-12 text-sm text-mute">{floor.notSold}</p>
       </section>
-      <CtaBand title="Bring a size wall to the demo." />
+      <CtaBand title="Clothes shop or mobile counter. Tell us the floor." />
     </>
   );
 }

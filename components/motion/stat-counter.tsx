@@ -13,7 +13,7 @@ export function StatCounter({
   className?: string;
 }) {
   const ref = React.useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-20%" });
+  const inView = useInView(ref, { once: true, margin: "0px 0px -15% 0px" });
   const reduce = useReducedMotion();
   const [n, setN] = React.useState(reduce ? value : 0);
 

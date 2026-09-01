@@ -49,11 +49,11 @@ export default async function OgImage() {
           />
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 72, lineHeight: 1.05, maxWidth: 900 }}>
-            The shop’s brain, not just the scanner.
+          <div style={{ fontSize: 64, lineHeight: 1.08, maxWidth: 920 }}>
+            A custom software company that ships its own SaaS.
           </div>
-          <div style={{ marginTop: 24, fontSize: 28, color: "#8B93A7" }}>
-            Omni Ledger · grocery · pharmacy · restaurant · garments
+          <div style={{ marginTop: 24, fontSize: 26, color: "#8B93A7" }}>
+            B2B · Omni Ledger multi-sector POS
           </div>
         </div>
         <div

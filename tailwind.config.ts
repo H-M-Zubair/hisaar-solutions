@@ -34,7 +34,7 @@ const config = {
         grocery: "var(--grocery)",
         pharmacy: "var(--pharmacy)",
         restaurant: "var(--restaurant)",
-        garments: "var(--garments)",
+        retail: "var(--retail)",
         gold: "var(--gold)",
         hisaar: "#17D492",
       },

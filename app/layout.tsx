@@ -46,7 +46,7 @@ const ogImage = {
   url: `${site.url}${site.ogImage}`,
   width: 1200,
   height: 630,
-  alt: site.title,
+  alt: `${site.name} — ${site.product} multi-sector POS`,
   type: "image/png",
 } as const;
 

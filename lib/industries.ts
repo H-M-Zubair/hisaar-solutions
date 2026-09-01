@@ -2,7 +2,7 @@ export const industrySlugs = [
   "grocery",
   "pharmacy",
   "restaurant",
-  "garments",
+  "retail",
 ] as const;
 
 export type IndustrySlug = (typeof industrySlugs)[number];
@@ -17,6 +17,8 @@ export type Industry = {
   accent: string;
   accentName: string;
   feeling: string;
+  photo: string;
+  photoAlt: string;
   starterFit: string;
   proFit: string;
   notSold: string;
@@ -28,147 +30,165 @@ export const industries: Record<IndustrySlug, Industry> = {
   grocery: {
     slug: "grocery",
     name: "Grocery",
-    kicker: "Kirana · general retail",
-    headline: "The copy book, retired at close.",
-    lede: "Queue, stock-outs, udhaar, and a drawer that never quite matches. Omni Ledger keeps the counter fast and the evening count honest.",
+    kicker: "Kirana · general shop",
+    headline: "The copy book can go home.",
+    lede: "Queue at 7pm. Udhaar for regulars. A drawer that never quite matches. Omni Ledger keeps the counter fast and the night count honest.",
     seoDescription:
-      "Grocery POS for Pakistan kiranas: barcode till, udhaar, offline sales, and honest shift close. Custom software from Hisaar Solutions.",
+      "Simple grocery POS for Pakistan kiranas: fast billing, udhaar, works when bijli or wifi dies, honest night cash count. Hisaar Solutions.",
     accent: "#FF8A3D",
     accentName: "Amber",
-    feeling: "Counter warmth",
+    feeling: "Warm counter",
+    photo: "/photos/grocery-floor.jpg",
+    photoAlt: "A large supermarket aisle with packed shelves — a real grocery mart",
     starterFit:
-      "Starter: owner on the till, one extra cashier, ~1,000 SKUs, udhaar khata, today’s sale, shift close. Mobile: Android-only, owner, ~300 SKUs.",
+      "Starter: you at the counter, one extra cashier, about 1,000 items, full udhaar, today’s sale, night cash count. Mobile: phone only, you only, about 300 items.",
     proFit:
-      "Two or more cashiers, loyalty for regulars, bulk import, month-long profit, who sold what, whose drawer ran short.",
-    notSold: "Multi-branch is a Pro add-on (Rs 2,500 / branch) or included on Pro+ Custom. Supplier POs are not in any tier.",
+      "Two or more cashiers, extra tills, month-long profit, who sold what, whose drawer ran short.",
+    notSold: "Many branches is extra on Pro (Rs 2,500 / branch) or included on Pro+ Custom. Supplier purchase orders are not in any plan yet.",
     pains: [
       {
         title: "The 7pm rush",
-        body: "Barcode, search, and Next Order so the queue moves without a second register copy.",
+        body: "Scan, search, next customer. The queue moves. No second copy book.",
       },
       {
-        title: "Udhaar that actually posts",
-        body: "Credit and partial pay on the ticket, then Record Payment when they settle — Starter keeps full khata. Mobile is basic udhaar.",
+        title: "Udhaar that you can trust",
+        body: "Credit and part-pay on the bill. When they settle, mark it paid. Starter keeps the full khata. Mobile is a simple udhaar list.",
       },
       {
-        title: "Fibre cut, still selling",
-        body: "Offline queue on the till. Sync when the line comes back. This is not gated to Pro — Mobile and Starter both sell offline.",
+        title: "Bijli gayi. Internet nahi. Shop nahi ruka.",
+        body: "Lights off or wifi dead — you still sell. When both come back, every bill is saved. This is on every Omni Ledger plan, not a paid extra.",
       },
     ],
     modules: [
-      { title: "Scan & cart", body: "Keyboard-wedge scanner, search, cashier 5% discount cap." },
-      { title: "Stock in / out", body: "Receive against a GRN note. Low-stock badge on the till." },
-      { title: "Close shift", body: "Float in, cash counted, shortage visible to the owner." },
+      { title: "Scan and bill", body: "Scanner, search, cashier discount capped at 5%." },
+      { title: "Stock in / out", body: "New stock in. Low stock shows on the till." },
+      { title: "Close the drawer", body: "Morning cash in. Night cash counted. Shortage is a fact, not a rumour." },
     ],
   },
   pharmacy: {
     slug: "pharmacy",
     name: "Pharmacy",
-    kicker: "Medical store · dispensing",
-    headline: "Lots first. Guesswork never.",
-    lede: "A medicine is a parent. Packs and strengths are SKUs. Every inbound is a batch with an expiry. Without lots, pharmacy POS is a grocery skin.",
+    kicker: "Medical store",
+    headline: "The batch that should leave first.",
+    lede: "A medicine is not just a name. Packs and strengths are different items. Every box has an expiry. Omni Ledger sells the one that expires first — so you do not throw money in the bin.",
     seoDescription:
-      "Pharmacy POS with lots, FEFO, expiry tracking, and Rx prompts. Omni Ledger from Hisaar Solutions — custom software for medical stores.",
+      "Simple pharmacy POS with batches, expiry, and sell-oldest-first. Omni Ledger from Hisaar Solutions for medical stores in Pakistan.",
     accent: "#1EE0B0",
     accentName: "Teal",
-    feeling: "Clinical trust",
+    feeling: "Clean trust",
+    photo: "/photos/pharmacy-floor.jpg",
+    photoAlt: "A medical store counter with medicine shelves behind the pharmacist",
     starterFit:
-      "Simple medical store: name, barcode, qty, cash bill, today’s sale, one dispenser. Optional expiry warn on the product — not lot FEFO.",
+      "Simple medical store: name, barcode, quantity, cash bill, today’s sale, one dispenser. A simple expiry warning — not full batch tracking.",
     proFit:
-      "Variants, inventory lots, FEFO, 30/60-day expiry board, Rx-required prompt, expired lot blocked at sale.",
+      "Packs and strengths, batches with expiry, sell-oldest-first, 30/60-day expiry list, prescription prompt, expired stock cannot be sold.",
     notSold:
-      "Controlled-drug registers, e-prescription, and supplier POs are not in any tier yet.",
+      "Controlled-drug registers, e-prescription, and supplier purchase orders are not in any plan yet.",
     pains: [
       {
         title: "The near-expiry shelf",
-        body: "Pro serves the batch that expires first. The dashboard flags 30 and 60 days — that is the reason to pay.",
+        body: "Pro sells the batch that expires first. The screen flags 30 and 60 days. That is why a medical store pays for Pro.",
       },
       {
-        title: "Strength is not a note",
-        body: "Tablet 250 and 500 are different SKUs under one parent. Starter is one barcode, one qty.",
+        title: "250mg and 500mg are not the same",
+        body: "They sit under one medicine name, as two items. Starter is one barcode, one quantity.",
       },
       {
-        title: "Honest plan advice",
-        body: "If you legally need lot tracking, Starter is the wrong plan. We will say so on the call.",
+        title: "We will tell you the truth",
+        body: "If the law needs batch tracking, Starter is the wrong plan. We will say so on the call.",
       },
     ],
     modules: [
-      { title: "Lots & FEFO", body: "Receive batch + expiry. Sale picks the nearest expiry first." },
-      { title: "Expiry board", body: "30 / 60 day windows. Expired lots cannot leave the counter." },
-      { title: "Rx prompt", body: "Required items ask for a prescription number before pay." },
+      { title: "Batches & expiry", body: "Receive a batch with a date. Sale picks the nearest expiry first." },
+      { title: "Expiry list", body: "30 / 60 day windows. Expired stock cannot leave the counter." },
+      { title: "Prescription prompt", body: "Needed items ask for a prescription number before pay." },
     ],
   },
   restaurant: {
     slug: "restaurant",
     name: "Restaurant",
     kicker: "Floor · kitchen · counter",
-    headline: "Open the table. Ticket the kitchen. Bill last.",
-    lede: "Retail POS is the wrong model for dine-in. The real loop is table → KOT → settle. Starter is takeaway. Pro is the floor.",
+    headline: "Open the table. Send to kitchen. Bill last.",
+    lede: "A shop till is the wrong tool for dine-in. First you seat people. Then the kitchen cooks. Then you take the bill. Starter is takeaway. Pro is the floor.",
     seoDescription:
-      "Restaurant POS for dine-in: table grid, kitchen tickets, settle last. Omni Ledger Pro from Hisaar Solutions. Starter covers takeaway.",
+      "Simple restaurant POS for dine-in: tables, kitchen tickets, bill last. Omni Ledger Pro from Hisaar Solutions. Starter covers takeaway.",
     accent: "#FF5A2A",
     accentName: "Ember",
     feeling: "Heat, kitchen, floor",
+    photo: "/photos/restaurant-floor.jpg",
+    photoAlt: "A dine-in restaurant floor with tables set for guests",
     starterFit:
-      "Dhaba, takeaway, one counter: menu items, cash, today’s sale. Order becomes an invoice immediately. No table grid.",
+      "Dhaba, takeaway, one counter: menu items, cash, today’s sale. Order becomes a bill immediately. No table map.",
     proFit:
-      "Table status, waiter staff, modifiers, Send to Kitchen, lite KOT, settle-to-invoice, guest count, hourly rush.",
+      "Table status, waiters, extra cheese / no onion, send to kitchen, settle when they ask for the bill, guest count, busy hours.",
     notSold:
-      "Foodpanda/Careem aggregation, split-by-seat, and a visual floor-plan editor are out of phase.",
+      "Foodpanda / Careem, split one table by seat, and a drag-and-drop floor map are not in this phase.",
     pains: [
       {
         title: "Eight tables, one kitchen",
-        body: "If the pain is the floor, do not buy Starter. Trial Pro. Table status is the product.",
+        body: "If the pain is the floor, do not buy Starter. Try Pro. Tables are the product.",
       },
       {
-        title: "Modifiers without chaos",
-        body: "Extra cheese, no onion — on the ticket, on the KOT, not on a shouted note.",
+        title: "Extra cheese, no onion",
+        body: "On the ticket. On the kitchen slip. Not shouted across the room.",
       },
       {
-        title: "Rush by the hour",
-        body: "Pro reports show when the floor actually runs. Mobile and Starter only know today.",
+        title: "When the floor actually runs",
+        body: "Pro shows busy hours. Mobile and Starter only know today.",
       },
     ],
     modules: [
-      { title: "Table grid", body: "Empty, occupied, settling — the floor as a board, not a cart." },
-      { title: "Lite KOT", body: "Send to kitchen, estimated ready, settle when they ask for the bill." },
-      { title: "Waiter staff", body: "Seats on Pro. Owner still sees the drawer; waiters do not see profit." },
+      { title: "Table map", body: "Empty, seated, paying — the floor as a board, not a shopping cart." },
+      { title: "Kitchen ticket", body: "Send to kitchen, then settle when they ask for the bill." },
+      { title: "Waiters", body: "Seats on Pro. Owner still sees the drawer. Waiters do not see profit." },
     ],
   },
-  garments: {
-    slug: "garments",
-    name: "Garments",
-    kicker: "Boutique · size × color",
-    headline: "One shirt is not one SKU.",
-    lede: "Size × color × fabric is the stock. A stall can live on a single barcode. A proper shop cannot. Matrix is the Pro pack — we will not pretend otherwise.",
+  retail: {
+    slug: "retail",
+    name: "Retail",
+    kicker: "Clothes · mobile · the rest",
+    headline: "Not grocery. Not pharmacy. Not a restaurant.",
+    lede: "Clothes shops, mobile shops, cosmetics, hardware, gifts. If the floor sells items — not food, medicine, or a table — it is retail. Barcode, stock, discount. One till, not only garments.",
     seoDescription:
-      "Garments POS with size × color matrix, per-cell stock, and season discounts. Custom retail software from Hisaar Solutions, Lahore.",
+      "Retail POS for shops that are not grocery, pharmacy, or restaurant — clothes, mobile shops, cosmetics, hardware. Omni Ledger from Hisaar Solutions.",
     accent: "#C45B8A",
     accentName: "Wine",
-    feeling: "Fabric, boutique",
+    feeling: "Mixed merchandise",
+    photo: "/photos/retail-floor.jpg",
+    photoAlt:
+      "A mixed retail floor — clothes, bags, shoes, and other goods in one shop",
     starterFit:
-      "Khokha / simple garment: one product, one barcode, one stock. Manual discount on the till.",
+      "A small counter: one barcode per item, stock that goes down, discount typed on the till. Clothes stall, mobile accessories, gift shop.",
     proFit:
-      "Parent + variant matrix, auto SKU, per-size price, stock per cell, size/color chips on POS, saved season discounts.",
-    notSold: "Website sync and an online fashion store are not in any tier.",
+      "Variants when the item has kinds — size and colour for clothes, model and storage for phones — leftover stock named, saved discounts.",
+    notSold: "An online store and a website shop are not in any plan.",
     pains: [
       {
-        title: "Dead stock in the back",
-        body: "Pro tells you which size and color is left. That is the report a boutique actually pays for.",
+        title: "Leftover kinds, named",
+        body: "Pro tells you what is left: size and colour in a clothes shop, model and storage in a mobile shop. Not a guess in the back room.",
       },
       {
-        title: "Season without a spreadsheet",
-        body: "Saved discount rules on category or season — not a cashier typing 40% on every ticket.",
+        title: "Discount without a spreadsheet",
+        body: "Saved discount rules — the cashier is not typing 40% on every bill, whether it is a season sale or a phone bundle.",
       },
       {
         title: "Still one scan",
-        body: "The matrix does not mean a slow till. Each cell still has a barcode.",
+        body: "Many kinds of item does not mean a slow till. Each piece still has a barcode.",
       },
     ],
     modules: [
-      { title: "Variant matrix", body: "S–XXL × colours × fabric. Stock lives in the cell." },
-      { title: "POS chips", body: "Pick size and colour, then scan or tap. Price can differ by size." },
-      { title: "Season rules", body: "Saved discounts. Cashier cap still 5% unless the owner overrides." },
+      {
+        title: "Any item",
+        body: "Clothes, phones, cosmetics, hardware, gifts. One barcode, one stock count, one till.",
+      },
+      {
+        title: "Variants when you need them",
+        body: "Size × colour for garments. Model × storage for mobiles. Same idea, different shop.",
+      },
+      {
+        title: "Saved discounts",
+        body: "Rules the cashier does not retype. Cashier cap still 5% unless the owner says otherwise.",
+      },
     ],
   },
 };

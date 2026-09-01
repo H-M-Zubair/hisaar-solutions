@@ -90,7 +90,7 @@ export function Logo({
         <BrandCrop
           box={WORD}
           height={wordH}
-          alt="Hisaar Solutions"
+          alt=""
           priority={priority}
           className="brightness-[0.1] dark:brightness-100"
         />

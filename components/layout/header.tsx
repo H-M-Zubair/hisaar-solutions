@@ -78,7 +78,7 @@ export function Header() {
               theme === "light" ? "Switch to dark mode" : "Switch to light mode"
             }
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            className="grid h-10 w-10 place-items-center rounded-full text-mute hover:bg-paper/5 hover:text-paper"
+            className="btn btn-square grid h-10 w-10 place-items-center bg-transparent text-mute hover:bg-paper/5 hover:text-paper"
           >
             <Sun className="h-4 w-4 dark:hidden" aria-hidden />
             <Moon className="hidden h-4 w-4 dark:block" aria-hidden />
@@ -89,9 +89,9 @@ export function Header() {
                 href={site.trialMessage}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Book a 14-day Omni Ledger trial on WhatsApp (opens in a new tab)"
+                aria-label="Try Omni Ledger for 14 days on WhatsApp (opens in a new tab)"
               >
-                Book a trial
+                Try 14 days
               </a>
             </Button>
           </MagneticCta>
@@ -139,7 +139,7 @@ export function Header() {
                   rel="noopener noreferrer"
                   aria-label="Book a 14-day Omni Ledger trial on WhatsApp (opens in a new tab)"
                 >
-                  Book a trial on WhatsApp
+                  Try 14 days on WhatsApp
                 </a>
               </Button>
             </SheetContent>

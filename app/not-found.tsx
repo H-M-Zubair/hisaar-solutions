@@ -17,8 +17,8 @@ export default function NotFound() {
           <Logo />
         </div>
         <p className="eyebrow">404</p>
-        <h1 className="display mt-4 text-5xl">This page is not in the ledger.</h1>
-        <p className="mt-4 text-mute">It may have moved, or it was never a route.</p>
+        <h1 className="display mt-4 text-5xl">This page is not here.</h1>
+        <p className="mt-4 text-mute">It may have moved, or it was never a page.</p>
         <div className="mt-8">
           <Button asChild>
             <Link href="/">Back to Hisaar</Link>

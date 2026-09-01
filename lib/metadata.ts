@@ -1,13 +1,25 @@
 import type { Metadata } from "next";
 import { site } from "./site";
 
-const ogImage = {
+const defaultOg = {
   url: `${site.url}${site.ogImage}`,
   width: 1200,
   height: 630,
-  alt: site.title,
+  alt: `${site.name} — ${site.product} multi-sector POS`,
   type: "image/png",
 } as const;
+
+export type PageImage = {
+  url: string;
+  alt: string;
+  width?: number;
+  height?: number;
+};
+
+function absUrl(path: string) {
+  if (path.startsWith("http")) return path;
+  return `${site.url}${path.startsWith("/") ? path : `/${path}`}`;
+}
 
 export function pageMeta({
   title,
@@ -18,6 +30,7 @@ export function pageMeta({
   modifiedTime,
   keywords,
   noIndex = false,
+  image,
 }: {
   title?: string;
   description: string;
@@ -27,10 +40,19 @@ export function pageMeta({
   modifiedTime?: string;
   keywords?: string[];
   noIndex?: boolean;
+  image?: PageImage;
 }): Metadata {
   const url = `${site.url}${path === "/" ? "" : path}`;
   const isHome = path === "/";
   const fullTitle = isHome || !title ? site.title : `${title} | ${site.name}`;
+  const og = image
+    ? {
+        url: absUrl(image.url),
+        width: image.width ?? 1600,
+        height: image.height ?? 1067,
+        alt: image.alt,
+      }
+    : defaultOg;
 
   return {
     title: isHome || !title ? { absolute: site.title } : title,
@@ -57,7 +79,7 @@ export function pageMeta({
       siteName: site.name,
       locale: site.locale,
       type: ogType,
-      images: [ogImage],
+      images: [og],
       ...(ogType === "article" && publishedTime
         ? { publishedTime, modifiedTime: modifiedTime ?? publishedTime }
         : {}),
@@ -66,7 +88,7 @@ export function pageMeta({
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: [{ url: ogImage.url, alt: ogImage.alt }],
+      images: [{ url: og.url, alt: og.alt }],
     },
   };
 }

@@ -4,8 +4,8 @@ import { MagneticCta } from "@/components/layout/magnetic-cta";
 import { site } from "@/lib/site";
 
 export function CtaBand({
-  title = "Fourteen days of the real ledger.",
-  body = "We create the shop and hand you an owner code. Fourteen days Pro-shaped, then Mobile, Starter, Pro, or Pro+ Custom. WhatsApp is the door.",
+  title = "Tell us what you need.",
+  body = "ERP, Omni Ledger, or custom software. We set it up. WhatsApp is the door.",
 }: {
   title?: string;
   body?: string;
@@ -16,7 +16,7 @@ export function CtaBand({
       <div className="bg-mesh relative overflow-hidden">
         <div className="mx-auto flex max-w-[1120px] flex-col items-start gap-6 px-5 py-20 sm:px-8 md:flex-row md:items-end md:justify-between">
           <div className="min-w-0 max-w-xl">
-            <p className="eyebrow text-amber">Provisioned trial</p>
+            <p className="eyebrow text-amber">WhatsApp</p>
             <h2 className="display mt-3 text-4xl sm:text-5xl">{title}</h2>
             <p className="mt-4 text-sm leading-relaxed text-mute sm:text-base">{body}</p>
           </div>
@@ -28,7 +28,7 @@ export function CtaBand({
                 rel="noopener noreferrer"
                 aria-label="Book a 14-day Omni Ledger trial on WhatsApp (opens in a new tab)"
               >
-                WhatsApp the desk
+                WhatsApp us
                 <ArrowUpRight className="h-4 w-4" aria-hidden />
               </a>
             </Button>

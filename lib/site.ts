@@ -4,17 +4,14 @@ export const site = {
   name: "Hisaar Solutions",
   product: "Omni Ledger",
   url: "https://hisaarsolutions.com",
-  title: "Hisaar Solutions | Custom Software & Tech Solutions",
-  tagline: "The shop’s brain, not just the scanner.",
+  title: "Hisaar Solutions | B2B SaaS & custom software",
+  tagline: "A custom software company that ships its own SaaS.",
   /** 153 chars — primary meta description. */
   description:
-    "Hisaar Solutions delivers custom software, web solutions, and tech consulting. We build Omni Ledger POS for Pakistan grocery, pharmacy, and retail shops.",
+    "Hisaar Solutions is a B2B software company. We build SaaS products and custom software. Omni Ledger is our multi-sector POS for grocery, pharmacy, restaurant, and retail — clothes, mobile shops, and more.",
   logo: "/brand/hisaar-logo.png",
   ogImage: "/opengraph-image",
   locale: "en_PK",
-  city: "Lahore Cantt",
-  country: "Pakistan",
-  countryCode: "PK",
   phone: "+92 303 0609872",
   phoneHref: "tel:+923030609872",
   email: "info@hisaarsolutions.com",
@@ -23,20 +20,18 @@ export const site = {
   sameAs: ["https://wa.me/923030609872"] as const,
   keywords: [
     "Hisaar Solutions",
+    "B2B SaaS Pakistan",
     "custom software development",
-    "web solutions",
-    "tech consulting",
-    "software company Pakistan",
+    "ERP Pakistan",
+    "multi-sector POS",
     "Omni Ledger",
-    "POS Pakistan",
     "grocery POS",
     "pharmacy POS",
     "restaurant POS",
-    "garments POS",
-    "Lahore",
+    "retail POS",
   ],
   trialMessage: waLink(
-    "Hi Hisaar — I’d like a 14-day Omni Ledger trial. Shop type: (grocery / pharmacy / restaurant / garments). Shop name:",
+    "Hi Hisaar — I’d like a 14-day Omni Ledger trial. Shop type: (grocery / pharmacy / restaurant / retail — clothes, mobile, etc.). Shop name:",
   ),
   demoMessage: waLink(
     "Hi Hisaar — I’d like to book an Omni Ledger demo. Shop type and preferred time:",
@@ -49,20 +44,29 @@ export const nav = [
   { href: "/pricing", label: "Pricing" },
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
-  { href: "/blog", label: "Journal" },
+  { href: "/contact", label: "Contact" },
+] as const;
+
+export const footerNav = [
+  { href: "/solutions", label: "Solutions" },
+  { href: "/products", label: "Omni Ledger" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/work", label: "Work" },
+  { href: "/about", label: "About" },
+  { href: "/blog", label: "Stories" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
 export const facts = [
-  { value: 4, suffix: "", label: "Industry packs in the same ledger" },
-  { value: 14, suffix: "d", label: "Full trial — provisioned, not self-serve" },
-  { value: 3, suffix: "", label: "Roles: owner, manager, cashier" },
-  { value: 1, suffix: "", label: "Store per organisation, today" },
+  { value: 2, suffix: "", label: "Kinds of work: our SaaS, and custom software" },
+  { value: 4, suffix: "", label: "Sectors on Omni Ledger — grocery, pharmacy, restaurant, retail" },
+  { value: 14, suffix: "d", label: "Free try of Omni Ledger" },
+  { value: 1, suffix: "", label: "B2B company — SaaS and custom software" },
 ] as const;
 
 export const honest = [
-  "No JazzCash or Stripe machine inside the app.",
-  "FBR / PRA digital invoicing is included on Pro+ Custom — not on Mobile, Starter, or Pro.",
-  "Trial accounts are provisioned by us — there is no public signup.",
-  "Profit and margin stay on the owner’s screen.",
+  "We do not take JazzCash or bank cards inside the app. You just mark cash or card on the bill.",
+  "Government tax filing (FBR) is only on the biggest plan — not on Mobile, Starter, or Pro.",
+  "We set up your shop ourselves. There is no signup button.",
+  "Only the owner can see profit. The cashier never sees it.",
 ] as const;

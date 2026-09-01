@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotion } from "framer-motion";
 import { industryList } from "@/lib/industries";
-import { PosTerminal, LotBoard, TableFloor, GarmentMatrix } from "@/components/mockups/product-ui";
+import { PosTerminal, LotBoard, TableFloor, RetailShelf } from "@/components/mockups/product-ui";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -16,8 +16,8 @@ if (typeof window !== "undefined") {
 function Screen({ slug }: { slug: string }) {
   if (slug === "pharmacy") return <LotBoard />;
   if (slug === "restaurant") return <TableFloor />;
-  if (slug === "garments") return <GarmentMatrix />;
-  return <PosTerminal shop="Cantt Kirana" />;
+  if (slug === "retail") return <RetailShelf />;
+  return <PosTerminal shop="Al Noor Kirana" />;
 }
 
 function FloorCards() {
@@ -102,7 +102,6 @@ export function IndustryPin() {
       ref={wrap}
       className="relative h-[100dvh] overflow-hidden bg-ink"
     >
-      {/* Intent: pinned floors — grocery → pharmacy → restaurant → garments. Same sequence on phone and desktop. */}
       {industryList.map((ind, i) => (
         <article
           key={ind.slug}

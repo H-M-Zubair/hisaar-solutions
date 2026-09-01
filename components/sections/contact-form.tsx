@@ -57,8 +57,8 @@ export function ContactForm() {
           <option value="grocery">Grocery / kirana</option>
           <option value="pharmacy">Pharmacy</option>
           <option value="restaurant">Restaurant</option>
-          <option value="garments">Garments</option>
-          <option value="general">General retail</option>
+          <option value="retail">Retail — clothes, mobile, cosmetics, hardware</option>
+          <option value="other">Other</option>
         </select>
       </div>
       <div className="space-y-2">
@@ -75,13 +75,13 @@ export function ContactForm() {
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="note">What should we provision?</Label>
+        <Label htmlFor="note">Tell us about your shop</Label>
         <Textarea
           id="note"
           name="note"
           value={note}
           onChange={(e) => setNote(e.target.value)}
-          placeholder="Shop name, city, roughly how many SKUs, tables, or sizes."
+          placeholder="Shop name — grocery, restaurant, mobile shop…"
         />
       </div>
       <Button
@@ -93,8 +93,7 @@ export function ContactForm() {
         Continue on WhatsApp
       </Button>
       <p className="text-xs text-mute">
-        This does not create an account. It opens WhatsApp to Hisaar with your
-        details so we can provision a trial.
+        This opens WhatsApp. We will set up a trial for you.
       </p>
     </form>
   );
