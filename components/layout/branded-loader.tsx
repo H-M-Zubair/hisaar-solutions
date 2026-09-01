@@ -57,7 +57,7 @@ export function BrandedLoader() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Logo markOnly size="lg" className="pointer-events-none scale-150" />
+          <Logo size="xl" className="pointer-events-none" />
         </motion.div>
         <div className="h-[2px] w-40 overflow-hidden rounded-full bg-line">
           <motion.div

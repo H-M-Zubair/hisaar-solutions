@@ -1,11 +1,18 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const alt = "Hisaar Solutions — Omni Ledger";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OgImage() {
+export default async function OgImage() {
+  const logo = await readFile(
+    join(process.cwd(), "public/brand/Hisaar-removebg-preview.png"),
+  );
+  const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -20,55 +27,26 @@ export default function OgImage() {
           padding: 72,
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div
+        <div
+          style={{
+            display: "flex",
+            width: 349,
+            height: 131,
+            overflow: "hidden",
+            position: "relative",
+          }}
+        >
+          <img
+            src={logoSrc}
+            width={500}
+            height={500}
+            alt=""
             style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-end",
-              lineHeight: 1,
+              position: "absolute",
+              left: -62,
+              top: -190,
             }}
-          >
-            <div
-              style={{
-                fontSize: 22,
-                fontWeight: 700,
-                letterSpacing: 6,
-              }}
-            >
-              HISAAR
-            </div>
-            <div
-              style={{
-                marginTop: 8,
-                fontSize: 22,
-                fontWeight: 700,
-                letterSpacing: 6,
-              }}
-            >
-              SOLUTIONS
-            </div>
-          </div>
-          <svg
-            width="48"
-            height="55"
-            viewBox="0 0 114 130"
-            fill="none"
-          >
-            <path
-              d="M29 18h19v22M52 54H22v18M22 98v12h38v8M97 94v16H60"
-              fill="none"
-              stroke="#17D492"
-              strokeWidth="11"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <rect x="17" y="1" width="22" height="20" rx="6" fill="#17D492" />
-            <rect x="42" y="27" width="34" height="32" rx="8" fill="#17D492" />
-            <rect x="0" y="63" width="44" height="38" rx="10" fill="#17D492" />
-            <rect x="81" y="65" width="32" height="32" rx="8" fill="#17D492" />
-            <rect x="48" y="109" width="22" height="20" rx="6" fill="#17D492" />
-          </svg>
+          />
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 72, lineHeight: 1.05, maxWidth: 900 }}>

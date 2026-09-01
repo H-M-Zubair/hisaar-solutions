@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Bricolage_Grotesque, Chakra_Petch } from "next/font/google";
+import Script from "next/script";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { BrandedLoader } from "@/components/layout/branded-loader";
 import { Header } from "@/components/layout/header";
@@ -81,10 +82,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${geistSans.variable} ${geistMono.variable} ${display.variable} ${logo.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable} ${display.variable} ${logo.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-screen max-w-full overflow-x-clip bg-ink font-sans text-paper antialiased">
+        <Script id="hisaar-theme" strategy="beforeInteractive">
+          {`(function(){try{var t=localStorage.getItem('theme');document.documentElement.classList.add(t==='light'?'light':'dark');}catch(e){document.documentElement.classList.add('dark');}})();`}
+        </Script>
         <ThemeProvider>
           <a
             href="#content"

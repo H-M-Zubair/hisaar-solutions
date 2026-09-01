@@ -1,12 +1,53 @@
 import Link from "next/link";
-import { HisaarMark } from "@/components/brand/hisaar-mark";
 import { cn } from "@/lib/utils";
 
-const SIZE = {
-  sm: { mark: 28, word: "text-[11px] tracking-[0.16em]" },
-  md: { mark: 34, word: "text-[12.5px] tracking-[0.15em]" },
-  lg: { mark: 44, word: "text-[15px] tracking-[0.14em]" },
+const SRC = "/brand/Hisaar-removebg-preview.png";
+const ART = 500;
+
+/** Tight crops from the transparent 500×500 artboard. */
+const WORD = { x: 60, y: 207, w: 219, h: 78 } as const;
+const ICON = { x: 294, y: 188, w: 119, h: 135 } as const;
+const GAP_RATIO = 20 / 135;
+
+const HEIGHT = {
+  sm: 30,
+  md: 40,
+  lg: 52,
+  xl: 72,
 } as const;
+
+function BrandCrop({
+  box,
+  height,
+  className,
+}: {
+  box: { x: number; y: number; w: number; h: number };
+  height: number;
+  className?: string;
+}) {
+  const scale = height / box.h;
+  const img = ART * scale;
+
+  return (
+    <span
+      className={cn("relative block overflow-hidden", className)}
+      style={{ height, width: box.w * scale }}
+    >
+      <img
+        src={SRC}
+        alt=""
+        draggable={false}
+        className="pointer-events-none absolute max-w-none select-none"
+        style={{
+          width: img,
+          height: img,
+          left: -box.x * scale,
+          top: -box.y * scale,
+        }}
+      />
+    </span>
+  );
+}
 
 export function Logo({
   className,
@@ -16,44 +57,30 @@ export function Logo({
 }: {
   className?: string;
   markOnly?: boolean;
-  size?: keyof typeof SIZE;
+  size?: keyof typeof HEIGHT;
   href?: string;
 }) {
-  const s = SIZE[size];
+  const iconH = HEIGHT[size];
+  const wordH = iconH * (WORD.h / ICON.h);
 
   return (
     <Link
       href={href}
       className={cn(
-        "group flex shrink-0 items-center gap-2.5 text-paper transition-opacity hover:opacity-80",
+        "group inline-flex shrink-0 items-center transition-opacity hover:opacity-80",
         className,
       )}
+      style={{ gap: iconH * GAP_RATIO }}
       aria-label="Hisaar Solutions home"
     >
-      {!markOnly && (
-        <span className="flex flex-col items-end justify-center whitespace-nowrap leading-none">
-          <span
-            className={cn(
-              "font-logo font-semibold uppercase",
-              s.word,
-            )}
-          >
-            Hisaar
-          </span>
-          <span
-            className={cn(
-              "mt-[0.22em] font-logo font-semibold uppercase",
-              s.word,
-            )}
-          >
-            Solutions
-          </span>
-        </span>
-      )}
-      <HisaarMark
-        size={s.mark}
-        className="transition-transform duration-300 group-hover:scale-[1.04]"
-      />
+      {!markOnly ? (
+        <BrandCrop
+          box={WORD}
+          height={wordH}
+          className="brightness-[0.1] dark:brightness-100"
+        />
+      ) : null}
+      <BrandCrop box={ICON} height={iconH} />
     </Link>
   );
 }
