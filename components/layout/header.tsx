@@ -48,13 +48,18 @@ export function Header() {
     >
       <div className="mx-auto flex h-16 min-w-0 max-w-[1280px] items-center justify-between gap-3 px-5 sm:gap-4 sm:px-8">
         <div className="min-w-0 shrink">
-          <Logo />
+          <Logo priority />
         </div>
         <nav className="hidden min-w-0 items-center gap-5 xl:flex xl:gap-7" aria-label="Primary">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
+              aria-current={
+                path === item.href || path.startsWith(`${item.href}/`)
+                  ? "page"
+                  : undefined
+              }
               className={cn(
                 "shrink-0 text-[13px] text-mute transition-colors hover:text-paper",
                 path === item.href || path.startsWith(`${item.href}/`)
@@ -69,16 +74,23 @@ export function Header() {
         <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
-            aria-label={theme === "light" ? "Switch to dark" : "Switch to light"}
+            aria-label={
+              theme === "light" ? "Switch to dark mode" : "Switch to light mode"
+            }
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             className="grid h-10 w-10 place-items-center rounded-full text-mute hover:bg-paper/5 hover:text-paper"
           >
-            <Sun className="h-4 w-4 dark:hidden" />
-            <Moon className="hidden h-4 w-4 dark:block" />
+            <Sun className="h-4 w-4 dark:hidden" aria-hidden />
+            <Moon className="hidden h-4 w-4 dark:block" aria-hidden />
           </button>
           <MagneticCta className="hidden sm:inline-flex">
             <Button asChild size="sm">
-              <a href={site.trialMessage} target="_blank" rel="noopener noreferrer">
+              <a
+                href={site.trialMessage}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Book a 14-day Omni Ledger trial on WhatsApp (opens in a new tab)"
+              >
                 Book a trial
               </a>
             </Button>
@@ -91,7 +103,7 @@ export function Header() {
                 className="xl:hidden"
                 aria-label="Open menu"
               >
-                <Menu className="h-5 w-5" />
+                <Menu className="h-5 w-5" aria-hidden />
               </Button>
             </SheetTrigger>
             <SheetContent>
@@ -121,7 +133,12 @@ export function Header() {
                 })}
               </nav>
               <Button asChild className="mt-10">
-                <a href={site.trialMessage} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={site.trialMessage}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Book a 14-day Omni Ledger trial on WhatsApp (opens in a new tab)"
+                >
                   Book a trial on WhatsApp
                 </a>
               </Button>

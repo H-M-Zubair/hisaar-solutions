@@ -7,11 +7,10 @@ import { OwnerBrain } from "@/components/sections/owner-brain";
 // import { PricingTeaser } from "@/components/sections/pricing-teaser";
 import { CtaBand } from "@/components/sections/cta-band";
 import { pageMeta } from "@/lib/metadata";
+import { site } from "@/lib/site";
 
 export const metadata = pageMeta({
-  title: "Omni Ledger",
-  description:
-    "Hisaar Solutions builds Omni Ledger — POS and shop ERP for grocery, pharmacy, restaurant, and garments. Offline-first. Owner-locked profit. Mobile Rs 1,999 · Starter Rs 3,999 · Pro Rs 7,999.",
+  description: site.description,
   path: "/",
 });
 

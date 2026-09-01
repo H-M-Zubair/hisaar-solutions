@@ -32,11 +32,12 @@ function FloorCards() {
           <p className="eyebrow" style={{ color: ind.accent }}>
             {ind.name}
           </p>
-          <h3 className="display mt-3 break-words text-3xl">{ind.headline}</h3>
+          <h2 className="display mt-3 break-words text-3xl">{ind.headline}</h2>
           <p className="mt-3 text-sm text-mute">{ind.lede}</p>
           <Link
             href={`/solutions/${ind.slug}`}
             className="mt-4 inline-block text-sm text-paper underline-offset-4 hover:underline"
+            aria-label={`Open ${ind.name} POS solution`}
           >
             Open {ind.name}
           </Link>
@@ -142,6 +143,7 @@ export function IndustryPin() {
                 <Link
                   href={`/solutions/${ind.slug}`}
                   className="mt-6 inline-flex text-sm text-paper underline decoration-line underline-offset-8 hover:decoration-current"
+                  aria-label={`Enter the ${ind.name.toLowerCase()} POS floor`}
                 >
                   Enter the {ind.name.toLowerCase()} floor
                 </Link>

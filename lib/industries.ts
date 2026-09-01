@@ -13,6 +13,7 @@ export type Industry = {
   kicker: string;
   headline: string;
   lede: string;
+  seoDescription: string;
   accent: string;
   accentName: string;
   feeling: string;
@@ -30,6 +31,8 @@ export const industries: Record<IndustrySlug, Industry> = {
     kicker: "Kirana · general retail",
     headline: "The copy book, retired at close.",
     lede: "Queue, stock-outs, udhaar, and a drawer that never quite matches. Omni Ledger keeps the counter fast and the evening count honest.",
+    seoDescription:
+      "Grocery POS for Pakistan kiranas: barcode till, udhaar, offline sales, and honest shift close. Custom software from Hisaar Solutions.",
     accent: "#FF8A3D",
     accentName: "Amber",
     feeling: "Counter warmth",
@@ -64,6 +67,8 @@ export const industries: Record<IndustrySlug, Industry> = {
     kicker: "Medical store · dispensing",
     headline: "Lots first. Guesswork never.",
     lede: "A medicine is a parent. Packs and strengths are SKUs. Every inbound is a batch with an expiry. Without lots, pharmacy POS is a grocery skin.",
+    seoDescription:
+      "Pharmacy POS with lots, FEFO, expiry tracking, and Rx prompts. Omni Ledger from Hisaar Solutions — custom software for medical stores.",
     accent: "#1EE0B0",
     accentName: "Teal",
     feeling: "Clinical trust",
@@ -99,6 +104,8 @@ export const industries: Record<IndustrySlug, Industry> = {
     kicker: "Floor · kitchen · counter",
     headline: "Open the table. Ticket the kitchen. Bill last.",
     lede: "Retail POS is the wrong model for dine-in. The real loop is table → KOT → settle. Starter is takeaway. Pro is the floor.",
+    seoDescription:
+      "Restaurant POS for dine-in: table grid, kitchen tickets, settle last. Omni Ledger Pro from Hisaar Solutions. Starter covers takeaway.",
     accent: "#FF5A2A",
     accentName: "Ember",
     feeling: "Heat, kitchen, floor",
@@ -134,6 +141,8 @@ export const industries: Record<IndustrySlug, Industry> = {
     kicker: "Boutique · size × color",
     headline: "One shirt is not one SKU.",
     lede: "Size × color × fabric is the stock. A stall can live on a single barcode. A proper shop cannot. Matrix is the Pro pack — we will not pretend otherwise.",
+    seoDescription:
+      "Garments POS with size × color matrix, per-cell stock, and season discounts. Custom retail software from Hisaar Solutions, Lahore.",
     accent: "#C45B8A",
     accentName: "Wine",
     feeling: "Fabric, boutique",

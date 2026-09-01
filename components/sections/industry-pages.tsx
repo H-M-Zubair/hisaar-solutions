@@ -33,6 +33,9 @@ export function GroceryPage() {
         </div>
       </section>
       <section className="border-y border-line">
+        <div className="mx-auto max-w-[1120px] px-5 pt-12 sm:px-8">
+          <h2 className="display text-3xl sm:text-4xl">What ships on the kirana till.</h2>
+        </div>
         <div className="mx-auto grid max-w-[1120px] min-w-0 md:grid-cols-3">
           {g.modules.map((m) => (
             <article key={m.title} className="border-b border-line p-8 md:border-b-0 md:border-r last:border-r-0">
@@ -90,6 +93,7 @@ export function PharmacyPage() {
       </section>
       <section className="border-y border-line bg-surface">
         <div className="mx-auto max-w-[1120px] px-5 py-16 sm:px-8">
+          <h2 className="display mb-10 text-3xl sm:text-4xl">What the pack actually solves.</h2>
           <div className="grid min-w-0 gap-10 lg:grid-cols-2">
             {p.pains.map((item) => (
               <article key={item.title}>
@@ -145,7 +149,7 @@ export function RestaurantPage() {
         </div>
       </section>
       <section className="mx-auto max-w-[1120px] px-5 py-16 sm:px-8">
-        <p className="eyebrow">Not sold</p>
+        <h2 className="eyebrow">Not sold</h2>
         <p className="mt-4 max-w-2xl text-lg text-mute">{r.notSold}</p>
         <Link href="/work" className="mt-6 inline-block text-sm text-teal">
           Read the eight-table playbook →
@@ -172,7 +176,13 @@ export function GarmentsPage() {
         {/* Intent: fabric language — swatches and a matrix, not a generic three-column feature grid. */}
         <div className="flex">
           {swatches.map((s) => (
-            <div key={s.n} className="h-16 flex-1 sm:h-24" style={{ background: s.c }} title={s.n} />
+            <div
+              key={s.n}
+              className="h-16 flex-1 sm:h-24"
+              style={{ background: s.c }}
+              role="img"
+              aria-label={`${s.n} fabric swatch`}
+            />
           ))}
         </div>
       </section>

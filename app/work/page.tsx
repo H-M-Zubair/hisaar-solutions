@@ -4,17 +4,25 @@ import { PageHero } from "@/components/sections/page-hero";
 import { CtaBand } from "@/components/sections/cta-band";
 import { playbooks } from "@/lib/playbooks";
 import { AwesomeFade } from "@/components/motion/awesome-reveal";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbJsonLd } from "@/lib/schema";
 
 export const metadata = pageMeta({
   title: "Work",
   description:
-    "Omni Ledger scenario playbooks for grocery rush, pharmacy expiry, restaurant tables, and garments dead stock. Not a fake client logo wall.",
+    "Omni Ledger playbooks for grocery rush, pharmacy expiry, restaurant tables, and garments stock — scenario walkthroughs from Hisaar Solutions, Lahore.",
   path: "/work",
 });
 
 export default function WorkPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Work", path: "/work" },
+        ])}
+      />
       <PageHero
         kicker="Work"
         title="Four shops. No invented names."
@@ -36,6 +44,7 @@ export default function WorkPage() {
                   <Link
                     href={`/solutions/${p.industry.toLowerCase()}`}
                     className="mt-4 inline-block text-sm text-mute hover:text-paper"
+                    aria-label={`Open ${p.industry} POS solution`}
                   >
                     Open solution →
                   </Link>

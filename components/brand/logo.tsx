@@ -20,10 +20,16 @@ function BrandCrop({
   box,
   height,
   className,
+  alt,
+  loading = "lazy",
+  priority = false,
 }: {
   box: { x: number; y: number; w: number; h: number };
   height: number;
   className?: string;
+  alt: string;
+  loading?: "lazy" | "eager";
+  priority?: boolean;
 }) {
   const scale = height / box.h;
   const img = ART * scale;
@@ -35,7 +41,12 @@ function BrandCrop({
     >
       <img
         src={SRC}
-        alt=""
+        alt={alt}
+        width={ART}
+        height={ART}
+        loading={priority ? "eager" : loading}
+        decoding="async"
+        fetchPriority={priority ? "high" : "low"}
         draggable={false}
         className="pointer-events-none absolute max-w-none select-none"
         style={{
@@ -54,11 +65,13 @@ export function Logo({
   markOnly = false,
   size = "md",
   href = "/",
+  priority = false,
 }: {
   className?: string;
   markOnly?: boolean;
   size?: keyof typeof HEIGHT;
   href?: string;
+  priority?: boolean;
 }) {
   const iconH = HEIGHT[size];
   const wordH = iconH * (WORD.h / ICON.h);
@@ -77,10 +90,17 @@ export function Logo({
         <BrandCrop
           box={WORD}
           height={wordH}
+          alt="Hisaar Solutions"
+          priority={priority}
           className="brightness-[0.1] dark:brightness-100"
         />
       ) : null}
-      <BrandCrop box={ICON} height={iconH} />
+      <BrandCrop
+        box={ICON}
+        height={iconH}
+        alt={markOnly ? "Hisaar Solutions" : ""}
+        priority={priority}
+      />
     </Link>
   );
 }

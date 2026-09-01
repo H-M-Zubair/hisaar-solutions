@@ -3,17 +3,26 @@ import { PageHero } from "@/components/sections/page-hero";
 import { ContactForm } from "@/components/sections/contact-form";
 import { site } from "@/lib/site";
 import { AwesomeSlide } from "@/components/motion/awesome-reveal";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbJsonLd, contactPageJsonLd } from "@/lib/schema";
 
 export const metadata = pageMeta({
   title: "Contact",
   description:
-    "Book an Omni Ledger demo or 14-day trial with Hisaar Solutions, Lahore Cantt. WhatsApp +92 303 0609872. Trials are provisioned — no self-serve signup.",
+    "Contact Hisaar Solutions in Lahore Cantt. Book an Omni Ledger demo or 14-day trial on WhatsApp +92 303 0609872. No self-serve signup.",
   path: "/contact",
 });
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ])}
+      />
+      <JsonLd data={contactPageJsonLd()} />
       <PageHero
         kicker="Desk"
         title="WhatsApp is the front door."
@@ -28,17 +37,31 @@ export default function ContactPage() {
               <p className="eyebrow">Direct</p>
               <ul className="mt-5 space-y-3 text-sm">
                 <li>
-                  <a href={site.phoneHref} className="text-paper hover:text-teal">
+                  <a
+                    href={site.phoneHref}
+                    className="text-paper hover:text-teal"
+                    aria-label={`Call Hisaar Solutions at ${site.phone}`}
+                  >
                     {site.phone}
                   </a>
                 </li>
                 <li>
-                  <a href={site.emailHref} className="text-paper hover:text-teal">
+                  <a
+                    href={site.emailHref}
+                    className="text-paper hover:text-teal"
+                    aria-label={`Email Hisaar Solutions at ${site.email}`}
+                  >
                     {site.email}
                   </a>
                 </li>
                 <li>
-                  <a href={site.whatsapp} className="text-paper hover:text-teal">
+                  <a
+                    href={site.whatsapp}
+                    className="text-paper hover:text-teal"
+                    aria-label="Chat with Hisaar Solutions on WhatsApp (opens in a new tab)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     wa.me/923030609872
                   </a>
                 </li>

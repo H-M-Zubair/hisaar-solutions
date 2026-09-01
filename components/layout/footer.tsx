@@ -22,7 +22,7 @@ export function Footer() {
           </Link>
         </div>
         <div className="grid grid-cols-2 gap-8 lg:col-span-8 lg:grid-cols-3">
-          <div className="min-w-0">
+          <nav aria-label="Product">
             <p className="eyebrow">Product</p>
             <ul className="mt-4 space-y-2 text-sm">
               {nav.map((item) => (
@@ -33,8 +33,8 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="min-w-0">
+          </nav>
+          <nav aria-label="Industry solutions">
             <p className="eyebrow">Floors</p>
             <ul className="mt-4 space-y-2 text-sm">
               {industryList.map((i) => (
@@ -48,22 +48,36 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="min-w-0 col-span-2 lg:col-span-1">
+          </nav>
+          <nav className="min-w-0 col-span-2 lg:col-span-1" aria-label="Contact">
             <p className="eyebrow">Desk</p>
             <ul className="mt-4 space-y-2 text-sm text-mute">
               <li>
-                <a href={site.phoneHref} className="whitespace-nowrap hover:text-paper">
+                <a
+                  href={site.phoneHref}
+                  className="whitespace-nowrap hover:text-paper"
+                  aria-label={`Call Hisaar Solutions at ${site.phone}`}
+                >
                   {site.phone}
                 </a>
               </li>
               <li>
-                <a href={site.emailHref} className="break-all hover:text-paper sm:break-normal">
+                <a
+                  href={site.emailHref}
+                  className="break-all hover:text-paper sm:break-normal"
+                  aria-label={`Email Hisaar Solutions at ${site.email}`}
+                >
                   {site.email}
                 </a>
               </li>
               <li>
-                <a href={site.whatsapp} className="hover:text-paper">
+                <a
+                  href={site.whatsapp}
+                  className="hover:text-paper"
+                  aria-label="Chat with Hisaar Solutions on WhatsApp (opens in a new tab)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   WhatsApp
                 </a>
               </li>
@@ -73,7 +87,7 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
         </div>
       </div>
       <div className="border-t border-line">

@@ -28,7 +28,11 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-5">
+    <form
+      onSubmit={onSubmit}
+      className="space-y-5"
+      aria-label="Book an Omni Ledger trial or demo"
+    >
       <div className="space-y-2">
         <Label htmlFor="name">Your name</Label>
         <Input
@@ -47,6 +51,7 @@ export function ContactForm() {
           name="shop"
           value={shop}
           onChange={(e) => setShop(e.target.value)}
+          aria-label="Shop type"
           className="flex h-11 w-full rounded-lg border border-line bg-surface px-3.5 text-sm text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
         >
           <option value="grocery">Grocery / kirana</option>
@@ -79,7 +84,12 @@ export function ContactForm() {
           placeholder="Shop name, city, roughly how many SKUs, tables, or sizes."
         />
       </div>
-      <Button type="submit" size="lg" className="w-full sm:w-auto">
+      <Button
+        type="submit"
+        size="lg"
+        className="w-full sm:w-auto"
+        aria-label="Continue booking on WhatsApp (opens in a new tab)"
+      >
         Continue on WhatsApp
       </Button>
       <p className="text-xs text-mute">

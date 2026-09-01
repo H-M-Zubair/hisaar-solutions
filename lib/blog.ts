@@ -4,6 +4,7 @@ export type Post = {
   date: string;
   reading: string;
   excerpt: string;
+  seoDescription: string;
   kicker: string;
   body: string[];
 };
@@ -17,6 +18,8 @@ export const posts: Post[] = [
     kicker: "Product",
     excerpt:
       "Every POS scans. Shops pay for munafa, staff control, and a drawer that matches — and they only feel it after fourteen days of the real thing.",
+    seoDescription:
+      "Why Hisaar Solutions built Omni Ledger around owner profit, not the scanner. Custom POS for Pakistan shops — table stakes vs the real product.",
     body: [
       "High-end POS is not expensive because a barcode leaves a beep. Every package in this country beeps. Money shows up when the owner can see the shop from home: profit, who is on the till, what ran short, which batch is about to expire.",
       "That is why Omni Ledger keeps the counter complete on Mobile, Starter, and Pro. If you take the till away, the shopkeeper goes back to the copy book and never converts. The lock belongs on history, margin, extra seats, WhatsApp EOD, and the industry extras — lots, tables, the size×color matrix.",
@@ -32,6 +35,8 @@ export const posts: Post[] = [
     kicker: "Engineering",
     excerpt:
       "Load-shedding and a cut fibre are not edge cases. The queue on the till is the product. We do not gate it to Pro.",
+    seoDescription:
+      "Offline POS is how Lahore sells. Hisaar Solutions ships Omni Ledger with a till queue on Mobile and Starter — not gated to Pro.",
     body: [
       "A grocery demo that only works on office Wi‑Fi is a slide deck. The story we tell on the shop floor is simpler: disconnect the network, sell anyway, reconnect, tap Sync. The invoices that sat in the outbox land in the ledger. The drawer still has to match.",
       "That queue is on Mobile and Starter. Gating offline to Pro would be a good way to make a shopkeeper angry at 8pm in August. Pakistan’s internet is not a SLA. The till cannot be.",
@@ -47,6 +52,8 @@ export const posts: Post[] = [
     kicker: "Industries",
     excerpt:
       "Grocery wants the rush. Pharmacy wants FEFO. Restaurants want the table. Garments want the matrix. Pretending they share a SKU model is how POS tools fail.",
+    seoDescription:
+      "Four Omni Ledger industry packs: grocery, pharmacy, restaurant, garments. Custom software from Hisaar Solutions — one ledger, different floors.",
     body: [
       "Omni Ledger is one multi-tenant product with industry skins — the same trick the live POS already does. Grocery is the base: barcode, udhaar, shifts, stock. Pharmacy adds lots and FEFO. Restaurant replaces the cart-first loop with tables and a kitchen ticket. Garments turns one shirt into a size×color×fabric matrix.",
       "Mobile is the phone. Starter is deliberately simple SKU. A takeaway counter does not need a table grid. A stall selling one cut of cloth does not need a matrix. A small medical store can bill by name. We say this on the industry pages because selling the wrong plan is how you lose the shop in month two.",
@@ -62,6 +69,8 @@ export const posts: Post[] = [
     kicker: "How we work",
     excerpt:
       "Self-serve is off. We create the shop, load your items if you send them, and start the clock when you actually sell — not when you create an empty account.",
+    seoDescription:
+      "Hisaar Solutions provisions Omni Ledger trials on WhatsApp — no public signup. Fourteen days of the real ledger, then pick a plan.",
     body: [
       "The register page in older builds looked like a signup. It is not. Omni Ledger organisations are created by us (or a super-admin). You get an owner access code and one cashier. The 14-day clock is meant to start on the first sale, not on an abandoned login, because empty trials teach nothing and waste the fortnight.",
       "We would rather load fifty of your real SKUs than a demo catalogue of atta and soap. Dummy data does not create habit. Habit is the point: the trial is Pro-shaped so that Starter’s locked month tab hurts in the right way, and Pro feels like keeping the lights on.",

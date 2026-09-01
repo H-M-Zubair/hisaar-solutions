@@ -40,7 +40,7 @@ export default async function OgImage() {
             src={logoSrc}
             width={500}
             height={500}
-            alt=""
+            alt="Hisaar Solutions logo"
             style={{
               position: "absolute",
               left: -62,

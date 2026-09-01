@@ -6,11 +6,13 @@ import { industryList } from "@/lib/industries";
 import { PosTerminal } from "@/components/mockups/product-ui";
 import { OwnerAnalytics } from "@/components/mockups/owner-analytics";
 import { AwesomeSlide } from "@/components/motion/awesome-reveal";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbJsonLd } from "@/lib/schema";
 
 export const metadata = pageMeta({
-  title: "Omni Ledger",
+  title: "Omni Ledger POS",
   description:
-    "Omni Ledger is the shared POS and shop ledger: barcode till, offline sync, udhaar, shift close, owner-only reports. Industry skins live on Solutions.",
+    "Omni Ledger POS and shop ERP from Hisaar Solutions: barcode till, offline sync, udhaar, shift close, and owner-only reports for Pakistan retail shops.",
   path: "/products",
 });
 
@@ -35,6 +37,12 @@ const roles = [
 export default function ProductsPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Omni Ledger", path: "/products" },
+        ])}
+      />
       <PageHero
         kicker="Omni Ledger"
         title="One ledger. The floor is a skin."
@@ -86,7 +94,7 @@ export default function ProductsPage() {
         <div className="mt-10 grid gap-4 lg:grid-cols-3">
           {roles.map((r) => (
             <article key={r.name} className="flex h-full flex-col rounded-2xl border border-line bg-surface p-6">
-              <p className="font-display text-2xl tracking-tight">{r.name}</p>
+              <h3 className="font-display text-2xl tracking-tight">{r.name}</h3>
               <p className="mt-2 text-sm text-teal">{r.blurb}</p>
               <p className="mt-6 text-sm text-mute">{r.can}</p>
             </article>

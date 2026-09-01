@@ -3,17 +3,25 @@ import { PageHero } from "@/components/sections/page-hero";
 import { CtaBand } from "@/components/sections/cta-band";
 import { site } from "@/lib/site";
 import { AwesomeSlide } from "@/components/motion/awesome-reveal";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbJsonLd } from "@/lib/schema";
 
 export const metadata = pageMeta({
   title: "About",
   description:
-    "Hisaar Solutions is a Lahore Cantt studio shipping Omni Ledger — a provisioned POS and shop ERP. Small on purpose. Honest about what is not built.",
+    "Hisaar Solutions is a Lahore studio for custom software, web solutions, and tech consulting. We ship Omni Ledger, a provisioned POS for Pakistan shops.",
   path: "/about",
 });
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ])}
+      />
       <PageHero
         kicker="Studio"
         title="A ledger, named plainly."
@@ -42,22 +50,30 @@ export default function AboutPage() {
         <AwesomeSlide direction="right" className="min-w-0 lg:col-span-5">
           <aside className="space-y-8">
             <div className="rounded-2xl border border-line bg-surface p-6">
-              <p className="eyebrow">Desk</p>
+              <h2 className="eyebrow">Desk</h2>
               <p className="mt-4 font-display text-2xl tracking-tight">{site.city}</p>
               <p className="mt-2 text-sm text-mute">{site.country}</p>
               <p className="mt-4 text-sm">
-                <a href={site.phoneHref} className="text-teal">
+                <a
+                  href={site.phoneHref}
+                  className="text-teal"
+                  aria-label={`Call Hisaar Solutions at ${site.phone}`}
+                >
                   {site.phone}
                 </a>
               </p>
               <p className="text-sm">
-                <a href={site.emailHref} className="text-teal">
+                <a
+                  href={site.emailHref}
+                  className="text-teal"
+                  aria-label={`Email Hisaar Solutions at ${site.email}`}
+                >
                   {site.email}
                 </a>
               </p>
             </div>
             <div className="rounded-2xl border border-line p-6">
-              <p className="eyebrow">Name</p>
+              <h2 className="eyebrow">Name</h2>
               <p className="mt-4 text-sm leading-relaxed text-mute">
                 The mark is a green circuit of nodes — connected, modular, a
                 ledger that talks. It is not a mountain, not a wave, not an

@@ -5,6 +5,8 @@ import { PricingBoard } from "@/components/sections/pricing-board";
 import { PricingMatrix } from "@/components/sections/pricing-matrix";
 import { faqs, priceLineMonthly } from "@/lib/pricing";
 import { site } from "@/lib/site";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbJsonLd, faqJsonLd } from "@/lib/schema";
 import {
   Accordion,
   AccordionContent,
@@ -15,7 +17,7 @@ import {
 export const metadata = pageMeta({
   title: "Pricing",
   description:
-    "Omni Ledger pricing for Lahore retail: Mobile Rs 1,999 Android, Starter Rs 3,999 (most popular), Pro Rs 7,999, Pro+ Custom from Rs 12,500. Pay annually and save 5–8%. WhatsApp daily EOD, extra tills, FBR on Pro+ Custom.",
+    "Omni Ledger pricing: Mobile Rs 1,999, Starter Rs 3,999, Pro Rs 7,999, Pro+ Custom from Rs 12,500. Annual save 5–8%. WhatsApp Hisaar Solutions to start.",
   path: "/pricing",
 });
 
@@ -40,6 +42,13 @@ const fbrNotes = [
 export default function PricingPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Pricing", path: "/pricing" },
+        ])}
+      />
+      <JsonLd data={faqJsonLd()} />
       <PageHero
         kicker="Pricing"
         title="Mobile on the phone. Starter at the counter."

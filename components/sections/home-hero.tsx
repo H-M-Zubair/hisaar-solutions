@@ -29,9 +29,14 @@ export function HomeHero() {
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <MagneticCta>
               <Button asChild size="lg">
-                <a href={site.trialMessage} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={site.trialMessage}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Book a 14-day Omni Ledger trial on WhatsApp (opens in a new tab)"
+                >
                   Book a 14-day trial
-                  <ArrowUpRight className="h-4 w-4" />
+                  <ArrowUpRight className="h-4 w-4" aria-hidden />
                 </a>
               </Button>
             </MagneticCta>

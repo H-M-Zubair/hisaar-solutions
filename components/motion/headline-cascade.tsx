@@ -21,9 +21,9 @@ const clipRise = keyframes`
 `;
 
 const LINES = [
-  { text: "The shop’s", mute: false },
-  { text: "brain,", mute: false },
-  { text: "not just the", mute: true },
+  { text: "The shop’s ", mute: false },
+  { text: "brain, ", mute: false },
+  { text: "not just the ", mute: true },
   { text: "scanner.", mute: true },
 ] as const;
 
@@ -32,16 +32,11 @@ export function HeroHeadlineCascade() {
   const instant = Boolean(reduce);
 
   return (
-    <div
-      role="heading"
-      aria-level={1}
-      aria-label="The shop’s brain, not just the scanner."
-      className="display mt-5 text-[clamp(2.6rem,7vw,5.6rem)] text-paper"
-    >
+    <h1 className="display mt-5 text-[clamp(2.6rem,7vw,5.6rem)] text-paper">
       {LINES.map((line, i) => (
-        <div
+        <span
           key={line.text}
-          className={cn("overflow-hidden pb-[0.08em]", line.mute && "text-mute")}
+          className={cn("block overflow-hidden pb-[0.08em]", line.mute && "text-mute")}
         >
           <Reveal
             keyframes={clipRise}
@@ -53,8 +48,8 @@ export function HeroHeadlineCascade() {
           >
             <span className="block">{line.text}</span>
           </Reveal>
-        </div>
+        </span>
       ))}
-    </div>
+    </h1>
   );
 }

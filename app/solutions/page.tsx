@@ -4,17 +4,25 @@ import { PageHero } from "@/components/sections/page-hero";
 import { CtaBand } from "@/components/sections/cta-band";
 import { industryList } from "@/lib/industries";
 import { AwesomeFade } from "@/components/motion/awesome-reveal";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbJsonLd } from "@/lib/schema";
 
 export const metadata = pageMeta({
-  title: "Solutions",
+  title: "Industry POS Solutions",
   description:
-    "Omni Ledger skins for grocery, pharmacy, restaurant, and garments. Same ledger, different floors. Mobile/Starter is simple SKU; Pro is the industry pack.",
+    "Custom POS skins for grocery, pharmacy, restaurant, and garments. Same Omni Ledger, different floors — provisioned by Hisaar Solutions in Lahore Cantt.",
   path: "/solutions",
 });
 
 export default function SolutionsPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Solutions", path: "/solutions" },
+        ])}
+      />
       <PageHero
         kicker="Solutions"
         title="Pick the floor you actually run."

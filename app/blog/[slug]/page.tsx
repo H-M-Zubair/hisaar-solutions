@@ -3,6 +3,8 @@ import Link from "next/link";
 import { pageMeta } from "@/lib/metadata";
 import { posts, getPost } from "@/lib/blog";
 import { AwesomeFade } from "@/components/motion/awesome-reveal";
+import { JsonLd } from "@/components/seo/json-ld";
+import { articleJsonLd, breadcrumbJsonLd } from "@/lib/schema";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -13,8 +15,11 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   if (!post) return {};
   return pageMeta({
     title: post.title,
-    description: post.excerpt,
+    description: post.seoDescription,
     path: `/blog/${post.slug}`,
+    ogType: "article",
+    publishedTime: post.date,
+    modifiedTime: post.date,
   });
 }
 
@@ -24,6 +29,21 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
   return (
     <article>
+      <JsonLd
+        data={articleJsonLd({
+          title: post.title,
+          description: post.seoDescription,
+          path: `/blog/${post.slug}`,
+          date: post.date,
+        })}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Journal", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ])}
+      />
       <header className="border-b border-line bg-mesh">
         <div className="mx-auto max-w-[720px] px-5 py-16 sm:px-8 sm:py-24">
           <AwesomeFade direction="up" duration={700} fraction={0}>
@@ -42,7 +62,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           </p>
         ))}
         <p className="pt-8">
-          <Link href="/blog" className="text-sm text-teal">
+          <Link href="/blog" className="text-sm text-teal" aria-label="Back to journal">
             ← Journal
           </Link>
         </p>

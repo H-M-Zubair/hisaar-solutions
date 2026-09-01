@@ -3,17 +3,25 @@ import { pageMeta } from "@/lib/metadata";
 import { PageHero } from "@/components/sections/page-hero";
 import { posts } from "@/lib/blog";
 import { AwesomeFade } from "@/components/motion/awesome-reveal";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbJsonLd } from "@/lib/schema";
 
 export const metadata = pageMeta({
   title: "Journal",
   description:
-    "Notes from Hisaar on POS, offline queues, industry packs, and provisioned trials. Short, factual, no growth-hack filler.",
+    "Notes from Hisaar Solutions on custom POS, offline queues, industry packs, and provisioned trials. Short, factual essays from the till.",
   path: "/blog",
 });
 
 export default function BlogPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Journal", path: "/blog" },
+        ])}
+      />
       <PageHero
         kicker="Journal"
         title="Notes from the till."

@@ -39,6 +39,7 @@ function BillingToggle({
               : "text-mute hover:text-paper",
           )}
           aria-pressed={cycle === "monthly"}
+          aria-label="Show monthly prices"
         >
           Monthly
         </button>
@@ -52,6 +53,7 @@ function BillingToggle({
               : "text-mute hover:text-paper",
           )}
           aria-pressed={cycle === "annual"}
+          aria-label="Show annual prices, save 5 to 8 percent"
         >
           Annual
           <span className="ml-1.5 font-mono text-[10px] uppercase tracking-[0.12em]">
@@ -111,7 +113,7 @@ export function PricingBoard() {
                   </p>
                 ) : null}
 
-                <h2 className="relative mt-3 font-display text-2xl tracking-tight">{p.name}</h2>
+                <h3 className="relative mt-3 font-display text-2xl tracking-tight">{p.name}</h3>
                 <div className="relative mt-3 flex flex-wrap items-end gap-2">
                   {cycle === "annual" && !p.quoted ? (
                     <span className="mb-1 font-sans text-base text-mute line-through">
@@ -157,6 +159,7 @@ export function PricingBoard() {
                             eod || shift ? "text-teal" : isStandard ? "text-amber" : "text-mute",
                           )}
                           strokeWidth={2.2}
+                          aria-hidden
                         />
                         <span className={eod || shift ? "text-teal" : undefined}>{pt}</span>
                       </li>
@@ -169,7 +172,12 @@ export function PricingBoard() {
                   variant={isStandard ? "amber" : isPlus ? "ghost" : "outline"}
                   className="relative mt-8 w-full"
                 >
-                  <a href={site.trialMessage} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={site.trialMessage}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${p.cta} — WhatsApp Hisaar Solutions (opens in a new tab)`}
+                  >
                     {p.cta}
                   </a>
                 </Button>

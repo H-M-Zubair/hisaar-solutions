@@ -22,9 +22,14 @@ export function CtaBand({
           </div>
           <MagneticCta className="shrink-0">
             <Button asChild size="lg">
-              <a href={site.trialMessage} target="_blank" rel="noopener noreferrer">
+              <a
+                href={site.trialMessage}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Book a 14-day Omni Ledger trial on WhatsApp (opens in a new tab)"
+              >
                 WhatsApp the desk
-                <ArrowUpRight className="h-4 w-4" />
+                <ArrowUpRight className="h-4 w-4" aria-hidden />
               </a>
             </Button>
           </MagneticCta>
