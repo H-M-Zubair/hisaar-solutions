@@ -36,12 +36,6 @@ const nextConfig = {
         destination: "/omni-ledger",
         permanent: true,
       },
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.hisaarsolutions.com" }],
-        destination: "https://hisaarsolutions.com/:path*",
-        permanent: true,
-      },
     ];
   },
 };

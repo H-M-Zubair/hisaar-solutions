@@ -3,7 +3,7 @@ import { waLink } from "./utils";
 export const site = {
   name: "Hisaar Solutions",
   product: "Omni Ledger",
-  url: "https://hisaarsolutions.com",
+  url: "https://www.hisaarsolutions.com",
   title: "Hisaar Solutions | B2B SaaS & custom software",
   tagline: "A custom software company that ships its own SaaS.",
   /** 153 chars — primary meta description. */
