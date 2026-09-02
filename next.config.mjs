@@ -16,6 +16,12 @@ const nextConfig = {
         destination: "/solutions/retail",
         permanent: true,
       },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.hisaarsolutions.com" }],
+        destination: "https://hisaarsolutions.com/:path*",
+        permanent: true,
+      },
     ];
   },
 };

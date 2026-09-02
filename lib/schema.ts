@@ -16,10 +16,12 @@ export function organizationGraph(): JsonLd {
       {
         "@type": "ImageObject",
         "@id": logoId,
-        url: `${site.url}${site.logo}`,
-        contentUrl: `${site.url}${site.logo}`,
+        url: `${site.url}${site.mark}`,
+        contentUrl: `${site.url}${site.mark}`,
         caption: site.name,
         name: `${site.name} logo`,
+        width: 192,
+        height: 192,
       },
       {
         "@type": ["Organization", "ProfessionalService"],

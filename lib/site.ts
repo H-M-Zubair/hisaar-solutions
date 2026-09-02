@@ -10,6 +10,8 @@ export const site = {
   description:
     "Hisaar Solutions is a B2B software company. We build SaaS products and custom software. Omni Ledger is our multi-sector POS for grocery, pharmacy, restaurant, and retail — clothes, mobile shops, and more.",
   logo: "/brand/hisaar-logo.png",
+  /** Square mark for Google favicon / Knowledge Graph (multiple of 48px). */
+  mark: "/icon-192.png",
   ogImage: "/opengraph-image",
   locale: "en_PK",
   phone: "+92 303 0609872",
