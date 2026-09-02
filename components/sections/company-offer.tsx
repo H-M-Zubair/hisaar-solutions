@@ -101,7 +101,7 @@ export function CompanyOffer() {
                 {company.omni.body}
               </p>
               <Link
-                href="/products"
+                href="/omni-ledger"
                 className="mt-6 inline-block text-sm text-paper underline decoration-line underline-offset-8 hover:decoration-current"
               >
                 Open Omni Ledger →

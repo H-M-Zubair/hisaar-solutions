@@ -18,12 +18,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }[] = [
     { path: "", priority: 1, changeFrequency: "weekly", images: [abs(site.ogImage)] },
     {
-      path: "/products",
+      path: "/omni-ledger",
+      priority: 0.95,
+      changeFrequency: "weekly",
+      images: [abs("/photos/grocery-floor.jpg")],
+    },
+    {
+      path: "/floors",
       priority: 0.9,
       changeFrequency: "weekly",
       images: industryList.map((i) => abs(i.photo)),
     },
-    { path: "/solutions", priority: 0.9, changeFrequency: "weekly" },
     { path: "/pricing", priority: 0.9, changeFrequency: "weekly" },
     { path: "/contact", priority: 0.8, changeFrequency: "monthly" },
     { path: "/about", priority: 0.7, changeFrequency: "monthly" },
@@ -42,7 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const industries = industryList.map((ind) => ({
-    url: `${site.url}/solutions/${ind.slug}`,
+    url: `${site.url}/floors/${ind.slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.85,

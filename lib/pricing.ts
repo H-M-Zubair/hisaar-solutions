@@ -6,7 +6,7 @@ export const plans = [
   {
     id: "lite",
     name: "Mobile",
-    monthlyPrice: 1999,
+    monthlyPrice: 1499,
     annualDiscountPct: 5,
     quoted: false,
     period: "/ month · Android only",
@@ -29,7 +29,7 @@ export const plans = [
   {
     id: "standard",
     name: "Starter",
-    monthlyPrice: 3999,
+    monthlyPrice: 3499,
     annualDiscountPct: 6,
     quoted: false,
     period: "/ month · desktop + Android",
@@ -53,7 +53,7 @@ export const plans = [
   {
     id: "pro",
     name: "Pro",
-    monthlyPrice: 7999,
+    monthlyPrice: 7499,
     annualDiscountPct: 8,
     quoted: false,
     period: "/ month · up to 3 tills",
@@ -105,7 +105,7 @@ export const plans = [
 export type Plan = (typeof plans)[number];
 
 export const priceLineMonthly =
-  "Mobile Rs 1,999 · Starter Rs 3,999 · Pro Rs 7,999 · Pro+ Custom from Rs 12,500";
+  "Mobile Rs 1,499 · Starter Rs 3,499 · Pro Rs 7,499 · Pro+ Custom from Rs 12,500";
 
 export function annualYearlyTotal(monthly: number, discountPct: number) {
   return Math.round(monthly * 12 * (1 - discountPct / 100));
@@ -183,7 +183,7 @@ export const faqs = [
   },
   {
     q: "How many counters on Pro?",
-    a: "Three tills in the Rs 7,999 band. Each extra till is Rs 1,000 / month. Unlimited tills live on Pro+ Custom.",
+    a: "Three tills in the Rs 7,499 band. Each extra till is Rs 1,000 / month. Unlimited tills live on Pro+ Custom.",
   },
   {
     q: "Can I close the drawer on Starter?",

@@ -17,7 +17,7 @@ import {
 export const metadata = pageMeta({
   title: "Pricing",
   description:
-    "Omni Ledger pricing: Mobile Rs 1,999, Starter Rs 3,999, Pro Rs 7,999, Pro+ Custom from Rs 12,500. Annual save 5–8%. WhatsApp Hisaar Solutions to start.",
+    "Omni Ledger pricing: Mobile Rs 1,499, Starter Rs 3,499, Pro Rs 7,499, Pro+ Custom from Rs 12,500. Annual save 5–8%. WhatsApp Hisaar Solutions to start.",
   path: "/pricing",
 });
 

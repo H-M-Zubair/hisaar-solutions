@@ -13,7 +13,27 @@ const nextConfig = {
     return [
       {
         source: "/solutions/garments",
-        destination: "/solutions/retail",
+        destination: "/floors/retail",
+        permanent: true,
+      },
+      {
+        source: "/solutions/:slug",
+        destination: "/floors/:slug",
+        permanent: true,
+      },
+      {
+        source: "/solutions",
+        destination: "/floors",
+        permanent: true,
+      },
+      {
+        source: "/products/omni-ledger",
+        destination: "/omni-ledger",
+        permanent: true,
+      },
+      {
+        source: "/products",
+        destination: "/omni-ledger",
         permanent: true,
       },
       {

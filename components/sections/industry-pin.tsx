@@ -35,7 +35,7 @@ function FloorCards() {
           <h2 className="display mt-3 break-words text-3xl">{ind.headline}</h2>
           <p className="mt-3 text-sm text-mute">{ind.lede}</p>
           <Link
-            href={`/solutions/${ind.slug}`}
+            href={`/floors/${ind.slug}`}
             className="mt-4 inline-block text-sm text-paper underline-offset-4 hover:underline"
             aria-label={`Open ${ind.name} POS solution`}
           >
@@ -133,7 +133,7 @@ export function IndustryPin() {
                 {ind.lede}
               </p>
               <Link
-                href={`/solutions/${ind.slug}`}
+                href={`/floors/${ind.slug}`}
                 className="mt-5 inline-flex text-sm text-paper underline decoration-line underline-offset-8 hover:decoration-current sm:mt-6"
                 aria-label={`Enter the ${ind.name.toLowerCase()} POS floor`}
               >

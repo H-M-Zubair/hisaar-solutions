@@ -41,8 +41,8 @@ export const site = {
 } as const;
 
 export const nav = [
-  { href: "/solutions", label: "Solutions" },
-  { href: "/products", label: "Omni Ledger" },
+  { href: "/omni-ledger", label: "Omni Ledger" },
+  { href: "/floors", label: "Floors" },
   { href: "/pricing", label: "Pricing" },
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
@@ -50,8 +50,8 @@ export const nav = [
 ] as const;
 
 export const footerNav = [
-  { href: "/solutions", label: "Solutions" },
-  { href: "/products", label: "Omni Ledger" },
+  { href: "/omni-ledger", label: "Omni Ledger" },
+  { href: "/floors", label: "Floors" },
   { href: "/pricing", label: "Pricing" },
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },

@@ -42,7 +42,7 @@ export function HomeHero() {
               </Button>
             </MagneticCta>
             <Button asChild variant="outline" size="lg">
-              <Link href="/products">See Omni Ledger</Link>
+              <Link href="/omni-ledger">See Omni Ledger</Link>
             </Button>
           </div>
           <p className="mt-5 max-w-sm text-xs leading-relaxed text-mute">

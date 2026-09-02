@@ -67,11 +67,11 @@ export function organizationGraph(): JsonLd {
       },
       {
         "@type": "SoftwareApplication",
-        "@id": `${site.url}/products#app`,
+        "@id": `${site.url}/omni-ledger#app`,
         name: site.product,
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web, Android",
-        url: `${site.url}/products`,
+        url: `${site.url}/omni-ledger`,
         description:
           "Omni Ledger is a multi-sector POS developed by Hisaar Solutions for grocery, pharmacy, restaurant, and retail — clothes, mobile shops, and more.",
         screenshot: `${site.url}/photos/grocery-floor.jpg`,
@@ -79,7 +79,7 @@ export function organizationGraph(): JsonLd {
         offers: {
           "@type": "AggregateOffer",
           priceCurrency: "PKR",
-          lowPrice: "1999",
+          lowPrice: "1499",
           highPrice: "12500",
           offerCount: 4,
         },

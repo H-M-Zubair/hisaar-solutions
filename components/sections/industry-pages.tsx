@@ -18,7 +18,7 @@ export function GroceryPage() {
         accent={g.accent}
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Solutions", href: "/solutions" },
+          { name: "Floors", href: "/floors" },
           { name: "Grocery" },
         ]}
       >
@@ -89,7 +89,7 @@ export function PharmacyPage() {
         accent={p.accent}
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Solutions", href: "/solutions" },
+          { name: "Floors", href: "/floors" },
           { name: "Pharmacy" },
         ]}
       />
@@ -155,7 +155,7 @@ export function RestaurantPage() {
         accent={r.accent}
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Solutions", href: "/solutions" },
+          { name: "Floors", href: "/floors" },
           { name: "Restaurant" },
         ]}
       />
@@ -218,7 +218,7 @@ export function RetailPage() {
         accent={floor.accent}
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Solutions", href: "/solutions" },
+          { name: "Floors", href: "/floors" },
           { name: "Retail" },
         ]}
       />

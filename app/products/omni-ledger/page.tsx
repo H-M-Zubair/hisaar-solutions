@@ -1,5 +1,6 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
+import { paths } from "@/lib/paths";
 
-export default function OmniLedgerRedirect() {
-  redirect("/products");
+export default function OmniLedgerLegacyRedirect() {
+  permanentRedirect(paths.product);
 }

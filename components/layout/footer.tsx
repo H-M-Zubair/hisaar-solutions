@@ -40,7 +40,7 @@ export function Footer() {
               {industryList.map((i) => (
                 <li key={i.slug}>
                   <Link
-                    href={`/solutions/${i.slug}`}
+                    href={`/floors/${i.slug}`}
                     className="text-mute hover:text-paper"
                   >
                     {i.name}
@@ -94,7 +94,7 @@ export function Footer() {
         <div className="mx-auto flex max-w-[1120px] flex-col gap-2 px-5 py-6 text-xs text-mute lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <p>© {new Date().getFullYear()} Hisaar Solutions. B2B SaaS and custom software.</p>
           <p className="font-mono uppercase tracking-[0.12em] lg:tracking-[0.18em]">
-            PKR · Mobile from Rs 1,999 · we set up your shop
+            PKR · Mobile from Rs 1,499 · we set up your shop
           </p>
         </div>
       </div>

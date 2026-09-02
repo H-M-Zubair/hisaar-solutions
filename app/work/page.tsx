@@ -52,7 +52,7 @@ export default function WorkPage() {
                     sizes="(min-width: 1024px) 280px, 100vw"
                   />
                   <Link
-                    href={`/solutions/${p.floor}`}
+                    href={`/floors/${p.floor}`}
                     className="mt-4 inline-block text-sm text-mute hover:text-paper"
                     aria-label={`Open ${p.industry} POS solution`}
                   >
