@@ -57,6 +57,7 @@ export const footerNav = [
   { href: "/about", label: "About" },
   { href: "/blog", label: "Stories" },
   { href: "/contact", label: "Contact" },
+  { href: "/pay", label: "Pay your bill" },
 ] as const;
 
 export const facts = [
@@ -67,7 +68,7 @@ export const facts = [
 ] as const;
 
 export const honest = [
-  "We do not take JazzCash or bank cards inside the app. You just mark cash or card on the bill.",
+  "We do not take JazzCash or bank cards inside the till. You mark cash or card on the bill. Paying Hisaar for Omni Ledger is JazzCash / EasyPaisa / SadaPay / bank, then a WhatsApp screenshot.",
   "Government tax filing (FBR) is only on the biggest plan — not on Mobile, Starter, or Pro.",
   "We set up your shop ourselves. There is no signup button.",
   "Only the owner can see profit. The cashier never sees it.",

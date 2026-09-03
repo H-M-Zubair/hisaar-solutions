@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: industryList.map((i) => abs(i.photo)),
     },
     { path: "/pricing", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/pay", priority: 0.5, changeFrequency: "monthly" },
     { path: "/contact", priority: 0.8, changeFrequency: "monthly" },
     { path: "/about", priority: 0.7, changeFrequency: "monthly" },
     {

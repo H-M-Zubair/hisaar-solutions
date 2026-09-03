@@ -6,9 +6,13 @@ import { site } from "@/lib/site";
 export function CtaBand({
   title = "Tell us what you need.",
   body = "ERP, Omni Ledger, or custom software. We set it up. WhatsApp is the door.",
+  href = site.trialMessage,
+  cta = "WhatsApp us",
 }: {
   title?: string;
   body?: string;
+  href?: string;
+  cta?: string;
 }) {
   return (
     <section className="border-t border-line">
@@ -23,12 +27,12 @@ export function CtaBand({
           <MagneticCta className="shrink-0">
             <Button asChild size="lg">
               <a
-                href={site.trialMessage}
+                href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Book a 14-day Omni Ledger trial on WhatsApp (opens in a new tab)"
+                aria-label={`${cta} (opens in a new tab)`}
               >
-                WhatsApp us
+                {cta}
                 <ArrowUpRight className="h-4 w-4" aria-hidden />
               </a>
             </Button>

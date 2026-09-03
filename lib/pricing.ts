@@ -6,7 +6,7 @@ export const plans = [
   {
     id: "lite",
     name: "Mobile",
-    monthlyPrice: 1499,
+    monthlyPrice: 1999,
     annualDiscountPct: 5,
     quoted: false,
     period: "/ month · Android only",
@@ -22,7 +22,7 @@ export const plans = [
       "Scan, bill, print, works without internet",
       "Up to ~300 items",
       "Basic udhaar",
-      "Today’s summary — no week charts",
+      "Today’s sales only — no week / month charts",
       "Owner only (no cashier seat)",
     ],
   },
@@ -37,16 +37,16 @@ export const plans = [
     periodAlt: "",
     eyebrow: "Counter",
     blurb:
-      "A computer at the counter, phone as backup. Full udhaar. Today’s hisaab. One extra cashier. Night cash count.",
+      "A computer at the counter, phone as backup. Full udhaar. This week’s hisaab. One extra cashier. Night cash count.",
     cta: "Talk Starter",
     featured: true,
     points: [
       "Desktop + Android — 1 till / counter",
       "Full POS, offline, receipts, returns, void",
-      "Up to ~1,000 items",
+      "Up to ~2,000 items · bulk import to start",
       "Full udhaar + wasooli",
-      "Shift close: cash in drawer vs POS sales",
-      "Today’s sale — no week/month charts",
+      "Shift close + last 7 nights of cash audit",
+      "Today and this week — month is Pro",
       "Owner + 1 cashier (no Manager)",
     ],
   },
@@ -61,15 +61,16 @@ export const plans = [
     periodAlt: "/ extra till",
     eyebrow: "From home",
     blurb:
-      "More counters. A manager. Week and month profit. Who sold what. Optional: today’s hisaab on WhatsApp at night.",
+      "More counters, a manager, complete profit reports, supplier hisaab, loyalty, and optional WhatsApp EOD.",
     cta: "Talk Pro",
     featured: false,
     points: [
       "Desktop + Android — up to 3 tills",
       "Owner + manager + ~10 staff",
-      "Unlimited items",
-      "Daily / weekly / monthly + profit + CSV",
-      "Udhaar + credit reports · shift-log history",
+      "Up to ~10,000 items · import + CSV export",
+      "Day, week, month, year, custom dates + profit",
+      "Full udhaar · supplier ledger · loyalty",
+      "Complete cash-audit / shift history",
       "Industry pack: lots / tables / leftover kinds",
       "WhatsApp / email EOD add-on · Rs 999",
       "Extra till · Rs 1,000 / month",
@@ -90,13 +91,14 @@ export const plans = [
     cta: "Ask about Pro+ Custom",
     featured: false,
     points: [
-      "All platforms · unlimited tills",
+      "All platforms · multi-device · up to 99 staff",
       "Custom staff hierarchy",
+      "Up to ~100,000 items",
       "FBR / PRA digital invoicing included",
       "White-label receipts & branded header",
       "Multi-branch + stock transfer included",
       "WhatsApp / email EOD included",
-      "Custom date-range reports",
+      "Custom date ranges across branches",
       "Dedicated onboarding",
     ],
   },
@@ -105,7 +107,7 @@ export const plans = [
 export type Plan = (typeof plans)[number];
 
 export const priceLineMonthly =
-  "Mobile Rs 1,499 · Starter Rs 3,499 · Pro Rs 7,499 · Pro+ Custom from Rs 12,500";
+  "Mobile Rs 1,999 · Starter Rs 3,499 · Pro Rs 7,499 · Pro+ Custom from Rs 12,500";
 
 export function annualYearlyTotal(monthly: number, discountPct: number) {
   return Math.round(monthly * 12 * (1 - discountPct / 100));
@@ -152,11 +154,15 @@ export const matrix: {
   { feature: "Counters / tills", lite: "1 (mobile)", standard: "1 till", pro: "Up to 3", proplus: "Unlimited" },
   { feature: "Staff seats & roles", lite: "Owner only", standard: "Owner + 1 cashier", pro: "Owner + manager + ~10", proplus: "Custom hierarchy" },
   { feature: "Billing + works without internet", lite: "Full", standard: "Full", pro: "Full", proplus: "Full" },
-  { feature: "How many items", lite: "~300", standard: "~1,000", pro: "Unlimited", proplus: "Unlimited" },
+  { feature: "How many items", lite: "~300", standard: "~2,000", pro: "~10,000", proplus: "~100,000" },
   { feature: "Customers + udhaar (credit)", lite: "Basic", standard: "Full + wasooli", pro: "Full + credit reports", proplus: "Advanced ledger" },
-  { feature: "Night cash count", lite: "Tonight’s close", standard: "Full", pro: "Full + history", proplus: "Full + history" },
-  { feature: "Sales & profit reports", lite: "Today only", standard: "Today only", pro: "Day / week / month", proplus: "Custom date ranges" },
-  { feature: "CSV export / bulk import", lite: "Locked", standard: "Locked", pro: "Full", proplus: "Full" },
+  { feature: "Night cash count", lite: "Tonight’s close", standard: "Last 7 nights", pro: "Full + history", proplus: "Full + history" },
+  { feature: "Sales reports", lite: "Today only", standard: "Today + this week", pro: "Day / week / month / year + custom dates", proplus: "Custom dates across branches" },
+  { feature: "Profit & margin", lite: "Locked", standard: "Locked", pro: "Full", proplus: "Full" },
+  { feature: "Bulk import", lite: "Locked", standard: "Full", pro: "Full", proplus: "Full" },
+  { feature: "CSV export", lite: "Locked", standard: "Locked", pro: "Full", proplus: "Full" },
+  { feature: "Supplier ledger", lite: "Locked", standard: "Locked", pro: "Full", proplus: "Full" },
+  { feature: "Customer loyalty", lite: "Locked", standard: "Locked", pro: "Full", proplus: "Full" },
   { feature: "Shop extras", lite: "Simple items", standard: "Simple items", pro: "Included", proplus: "Included" },
   { feature: "WhatsApp / email daily EOD", lite: "Locked", standard: "Locked", pro: "Add-on Rs 999", proplus: "Included" },
   { feature: "Extra till", lite: "—", standard: "—", pro: "Rs 1,000 / till", proplus: "Included" },
@@ -171,7 +177,7 @@ export const faqs = [
   },
   {
     q: "Phone only, or a computer at the counter?",
-    a: "Mobile is phone / tablet only — one till, owner, about 300 items, today’s sale. Starter is a computer at the counter plus the phone, one till, owner + one cashier, about 1,000 items, full udhaar and night cash count. Most single kiranas land on Starter.",
+    a: "Mobile is phone / tablet only — one till, owner, about 300 items, today’s sale. Starter is a computer at the counter plus the phone, one till, owner + one cashier, about 2,000 items, bulk import to get your list in, full udhaar, and this week’s sale with the last seven nights of cash count. Most single kiranas land on Starter.",
   },
   {
     q: "What if I pay for a year?",
@@ -183,7 +189,7 @@ export const faqs = [
   },
   {
     q: "How many counters on Pro?",
-    a: "Three tills in the Rs 7,499 band. Each extra till is Rs 1,000 / month. Unlimited tills live on Pro+ Custom.",
+    a: "Three tills in the Rs 7,499 band. Each extra till is Rs 1,000 / month. Every login ID stays limited to one device; multi-device sessions are Pro+ Custom.",
   },
   {
     q: "Can I close the drawer on Starter?",
@@ -191,7 +197,11 @@ export const faqs = [
   },
   {
     q: "Do you take cards or JazzCash inside Omni Ledger?",
-    a: "Card is a mark on the bill, not a machine. When you pay us for the software, it is a bank transfer after a WhatsApp conversation.",
+    a: "Inside the till, card is only a mark on the bill — not a JazzCash machine. To pay Hisaar for the software: JazzCash, EasyPaisa, or SadaPay to 0303 0609872, or Bank Alfalah (Muhammad Zubair Rafiq). WhatsApp the screenshot to the same number. Access continues after we allot the plan.",
+  },
+  {
+    q: "How do I pay for Omni Ledger?",
+    a: "Open hisaarsolutions.com/pay. Send JazzCash, EasyPaisa, SadaPay, or a Bank Alfalah transfer, then WhatsApp the screenshot. Payment does not unlock the shop by itself — Hisaar allots Mobile / Starter / Pro after seeing the proof.",
   },
   {
     q: "Government tax bills (FBR / PRA)?",

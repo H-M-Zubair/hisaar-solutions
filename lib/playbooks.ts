@@ -17,7 +17,7 @@ export const playbooks = [
       "Wifi down: two more sales. It comes back: everything is saved.",
       "Close the drawer. Counted cash versus expected. Shortage is a fact, not a rumour.",
     ],
-    proof: "Offline selling, udhaar, and night cash count ship on Starter. Month charts do not — that is the Pro talk after the rush is calm.",
+    proof: "Offline selling, udhaar, bulk import, this week’s sale, and seven nights of cash count ship on Starter. Month charts and profit do not — that is the Pro talk after the rush is calm.",
   },
   {
     slug: "expiry-window",

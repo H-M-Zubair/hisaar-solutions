@@ -42,7 +42,7 @@ export function OwnerBrain({ photo = true }: { photo?: boolean }) {
             Export for the accountant. Profit columns only if you are the owner.
           </li>
           <li className="rounded-xl border border-line px-4 py-3">
-            Night cash count on Starter. Pro filters by cashier and date. WhatsApp night report is extra on Pro.
+            Night cash count on Starter, last seven nights kept. Pro keeps the lot and filters by cashier and date. WhatsApp night report is extra on Pro.
           </li>
         </ul>
       </div>

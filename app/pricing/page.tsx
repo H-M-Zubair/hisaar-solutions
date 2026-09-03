@@ -17,7 +17,7 @@ import {
 export const metadata = pageMeta({
   title: "Pricing",
   description:
-    "Omni Ledger pricing: Mobile Rs 1,499, Starter Rs 3,499, Pro Rs 7,499, Pro+ Custom from Rs 12,500. Annual save 5–8%. WhatsApp Hisaar Solutions to start.",
+    "Omni Ledger pricing: Mobile Rs 1,999, Starter Rs 3,499, Pro Rs 7,499, Pro+ Custom from Rs 12,500. Annual save 5–8%. WhatsApp Hisaar Solutions to start.",
   path: "/pricing",
 });
 
@@ -39,7 +39,14 @@ const fbrNotes = [
   },
 ];
 
-export default function PricingPage() {
+export default function PricingPage({
+  searchParams,
+}: {
+  searchParams: { shop?: string; from?: string };
+}) {
+  const fromPos = searchParams.from === "pos";
+  const shop = (searchParams.shop || "").replace(/[<>]/g, "").trim().slice(0, 80);
+
   return (
     <>
       <JsonLd
@@ -52,7 +59,7 @@ export default function PricingPage() {
       <PageHero
         kicker="Pricing"
         title="Phone till, or a computer at the counter."
-        lede="Four plans for Pakistan shops. Starter is what most kiranas buy. Pro is extra tills and seeing last month’s profit. Pro+ Custom is chains, tax bills, and tonight’s hisaab on WhatsApp. Pay yearly and save 5–8%. We still set up your shop — no signup button."
+        lede="Four plans for Pakistan shops. Starter gives weekly sales without profit. Pro unlocks monthly, yearly, custom-date profit reports, supplier ledger, loyalty, and more staff. Pro+ Custom adds multi-device and branch operations. Pay yearly and save 5–8%."
         crumbs={[
           { name: "Home", href: "/" },
           { name: "Pricing" },
@@ -67,12 +74,14 @@ export default function PricingPage() {
             Pick the till you actually run.
           </h2>
           <p className="mt-3 max-w-lg text-sm text-mute">
-            Starter is marked most popular on purpose. Mobile is the phone door.
-            Extra tills and a WhatsApp night report are how Pro earns more than a
-            second counter.
+            {fromPos
+              ? shop
+                ? `Paying for ${shop}. Pick the plan, then the Pay button opens JazzCash, EasyPaisa, SadaPay, and bank details.`
+                : "Pick the plan, then the Pay button opens JazzCash, EasyPaisa, SadaPay, and bank details."
+              : "Starter is the single-counter plan. Pro adds complete reports, supplier hisaab, loyalty, staff capacity, CSV export, and optional WhatsApp EOD."}
           </p>
           <div className="mt-10">
-            <PricingBoard />
+            <PricingBoard shop={shop} fromPos={fromPos} />
           </div>
         </div>
       </section>
@@ -115,7 +124,7 @@ export default function PricingPage() {
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-mute">
               Tax filing and branded receipts live on Pro+ Custom, not inside Mobile,
               Starter, or Pro. When it is live for your province, it is in the
-              Rs 12,500+ plan — same as unlimited tills and stock transfer.
+              Rs 12,500+ plan — with multi-device, multi-branch, and stock transfer.
             </p>
           </div>
           <ol className="space-y-0 self-center">

@@ -41,7 +41,7 @@ export const industries: Record<IndustrySlug, Industry> = {
     photo: "/photos/grocery-floor.jpg",
     photoAlt: "A large supermarket aisle with packed shelves — a real grocery mart",
     starterFit:
-      "Starter: you at the counter, one extra cashier, about 1,000 items, full udhaar, today’s sale, night cash count. Mobile: phone only, you only, about 300 items.",
+      "Starter: you at the counter, one extra cashier, about 2,000 items, bulk import, full udhaar, this week’s sale, last seven nights of cash count. Mobile: phone only, you only, about 300 items.",
     proFit:
       "Two or more cashiers, extra tills, month-long profit, who sold what, whose drawer ran short.",
     notSold: "Many branches is extra on Pro (Rs 2,500 / branch) or included on Pro+ Custom. Supplier purchase orders are not in any plan yet.",

@@ -1,4 +1,4 @@
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, Banknote } from "lucide-react";
 import { pageMeta } from "@/lib/metadata";
 import { PageHero } from "@/components/sections/page-hero";
 import { ContactForm } from "@/components/sections/contact-form";
@@ -89,6 +89,14 @@ export default function ContactPage() {
                       <WhatsAppMark className="h-4 w-4" />
                     </span>
                     WhatsApp
+                  </a>
+                </li>
+                <li>
+                  <a href="/pay" className={rowClass} aria-label="Pay Omni Ledger bill">
+                    <span className={iconClass}>
+                      <Banknote className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+                    </span>
+                    Pay your bill
                   </a>
                 </li>
               </ul>

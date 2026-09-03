@@ -65,7 +65,13 @@ function BillingToggle({
   );
 }
 
-export function PricingBoard() {
+export function PricingBoard({
+  shop = "",
+  fromPos = false,
+}: {
+  shop?: string;
+  fromPos?: boolean;
+}) {
   const [cycle, setCycle] = useState<BillingCycle>("monthly");
 
   return (
@@ -172,14 +178,28 @@ export function PricingBoard() {
                   variant={isStandard ? "amber" : isPlus ? "ghost" : "outline"}
                   className="relative mt-8 w-full"
                 >
-                  <a
-                    href={site.trialMessage}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${p.cta} — WhatsApp Hisaar Solutions (opens in a new tab)`}
-                  >
-                    {p.cta}
-                  </a>
+                  {fromPos && !isPlus ? (
+                    <a
+                      href={`/pay?${new URLSearchParams({
+                        ...(shop ? { shop } : {}),
+                        plan: p.id,
+                        intent: "change",
+                        cycle,
+                      }).toString()}`}
+                      aria-label={`Pay ${p.name} on Hisaar`}
+                    >
+                      Pay {p.name}
+                    </a>
+                  ) : (
+                    <a
+                      href={site.trialMessage}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${p.cta} — WhatsApp Hisaar Solutions (opens in a new tab)`}
+                    >
+                      {p.cta}
+                    </a>
+                  )}
                 </Button>
               </article>
             </AwesomeFade>

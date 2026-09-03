@@ -79,7 +79,7 @@ export function organizationGraph(): JsonLd {
         offers: {
           "@type": "AggregateOffer",
           priceCurrency: "PKR",
-          lowPrice: "1499",
+          lowPrice: "1999",
           highPrice: "12500",
           offerCount: 4,
         },
